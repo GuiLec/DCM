@@ -9,9 +9,15 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
 import {Home} from './pages';
+import {ThemeProvider} from './lib/styled';
+import {theme} from './lib/theme';
 
 const App = () => {
-  return <Home />;
+  return (
+    <ThemeProvider theme={theme}>
+      <Home />
+    </ThemeProvider>
+  );
 };
 
 export default App;
