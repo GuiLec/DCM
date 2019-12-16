@@ -3,6 +3,7 @@ import {SafeAreaView} from 'react-native';
 import {HomeHeader} from './components/HomeHeader/HomeHeader';
 import {DictationArea} from './components/DictationArea/DictationArea';
 import {styled} from '../../lib/styled';
+import {HomeFooter} from './components/HomeFooter';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -19,6 +20,7 @@ export const Home = () => (
     <PageContainer>
       <HomeHeader />
       <DictationArea />
+      <HomeFooter />
     </PageContainer>
   </SafeAreaViewComponent>
 );

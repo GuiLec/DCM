@@ -24,7 +24,7 @@ const shadows = {
 };
 
 const borderRadius = {
-  small: 2,
+  small: 4,
 };
 
 export const theme = {
