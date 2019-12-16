@@ -2,6 +2,7 @@ import React from 'react';
 import {styled} from '../../../../lib/styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {ScrollView, Text} from 'react-native';
+import {Dictation} from '../../../../modules/dictation/interface';
 
 const Container = styled.View`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -11,10 +12,16 @@ const Container = styled.View`
   border-width: 1px;
 `;
 
-export const DictationArea = () => (
-  <Container>
-    <ScrollView style={{flex: 1}}>
-      <Text>Hello</Text>
-    </ScrollView>
-  </Container>
-);
+interface Props {
+  dictation: Dictation;
+}
+
+export const DictationArea = (props: Props) => {
+  return (
+    <Container>
+      <ScrollView style={{flex: 1}}>
+        <Text>{props.dictation.text}</Text>
+      </ScrollView>
+    </Container>
+  );
+};

@@ -4,6 +4,7 @@ import {HomeHeader} from './components/HomeHeader/HomeHeader';
 import {DictationArea} from './components/DictationArea/DictationArea';
 import {styled} from '../../lib/styled';
 import {HomeFooter} from './components/HomeFooter';
+import {useHome} from './useHome';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -15,12 +16,15 @@ const PageContainer = styled.View`
   flex: 1;
 `;
 
-export const Home = () => (
-  <SafeAreaViewComponent>
-    <PageContainer>
-      <HomeHeader />
-      <DictationArea />
-      <HomeFooter />
-    </PageContainer>
-  </SafeAreaViewComponent>
-);
+export const Home = () => {
+  const {activeDictation} = useHome();
+  return (
+    <SafeAreaViewComponent>
+      <PageContainer>
+        <HomeHeader />
+        <DictationArea dictation={activeDictation} />
+        <HomeFooter />
+      </PageContainer>
+    </SafeAreaViewComponent>
+  );
+};
