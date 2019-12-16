@@ -1,0 +1,1 @@
+export {DictationArea} from './DictationArea';
