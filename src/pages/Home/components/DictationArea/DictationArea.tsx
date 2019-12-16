@@ -11,10 +11,6 @@ const Container = styled.View`
   border-width: 1px;
 `;
 
-const HeaderIcon = styled(Icon)`
-  background-color: ${props => props.theme.colors.charcoalGray};
-`;
-
 export const DictationArea = () => (
   <Container>
     <ScrollView style={{flex: 1}}>
