@@ -13,7 +13,7 @@ const Container = styled.View`
 `;
 
 const HeaderIcon = styled(Icon)`
-  background-color: ${props => props.theme.colors.charcoalGray};
+  color: ${props => props.theme.colors.lightGray};
 `;
 
 export const HomeHeader = () => (
