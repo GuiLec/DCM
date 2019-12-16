@@ -1,8 +1,8 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {ScrollView, Text} from 'react-native';
 import {Dictation} from '../../../../modules/dictation/interface';
+import {useDictationArea} from './useDictationArea';
 
 const Container = styled.View`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -17,6 +17,8 @@ interface Props {
 }
 
 export const DictationArea = (props: Props) => {
+  const {sliceDication} = useDictationArea();
+  console.log(sliceDication(props.dictation));
   return (
     <Container>
       <ScrollView style={{flex: 1}}>
