@@ -1,4 +1,9 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, SafeAreaView} from 'react-native';
+import {HomeHeader} from './components/HomeHeader/HomeHeader';
 
-export const Home = () => <Text>Home</Text>;
+export const Home = () => (
+  <SafeAreaView>
+    <HomeHeader />
+  </SafeAreaView>
+);
