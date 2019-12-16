@@ -17,13 +17,14 @@ const sliceDication = (dictation: Dictation): DictationTextElement[] => {
       text: hardSlice,
       type: 'hard',
     });
-    dictationText.slice(choiceInput.position);
+    dictationText = dictationText.slice(choiceInput.position);
     slicedDictation.push({
       choices: choiceInput.choices,
       type: 'choice',
     });
-    dictationText.slice(choiceInput.originalTextLength);
+    dictationText = dictationText.slice(choiceInput.originalTextLength);
   });
+  console.log('dictationText', dictationText);
   slicedDictation.push({
     text: dictationText,
     type: 'hard',
