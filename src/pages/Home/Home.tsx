@@ -1,9 +1,16 @@
 import React from 'react';
-import {Text, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {HomeHeader} from './components/HomeHeader/HomeHeader';
+import {DictationArea} from './components/DictationArea/DictationArea';
+import {styled} from '../../lib/styled';
+
+const SafeAreaViewComponent = styled(SafeAreaView)`
+  flex: 1;
+`;
 
 export const Home = () => (
-  <SafeAreaView>
+  <SafeAreaViewComponent>
     <HomeHeader />
-  </SafeAreaView>
+    <DictationArea />
+  </SafeAreaViewComponent>
 );
