@@ -16,11 +16,18 @@ const HeaderIcon = styled(Icon)`
   color: ${props => props.theme.colors.lightGray};
 `;
 
+const HeaderTitle = styled.Text`
+  font-family: Pacifico;
+  font-size: ${props => props.theme.fontSizes.big};
+  color: ${props => props.theme.colors.white};
+`;
+
 export const HomeHeader = () => (
   <Container>
     <TouchableOpacity onPress={() => {}} hitSlop={computeUniformHitSlop(20)}>
       <HeaderIcon name="bars" size={20} />
     </TouchableOpacity>
+    <HeaderTitle>DCM</HeaderTitle>
     <TouchableOpacity onPress={() => {}} hitSlop={computeUniformHitSlop(20)}>
       <HeaderIcon name="play" size={20} />
     </TouchableOpacity>
