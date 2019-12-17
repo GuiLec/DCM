@@ -28,9 +28,9 @@ const renderDictation = (slicedDictation: DictationTextElement[]) => (
       if (element.type === 'hard') return element.text;
       if (element.type === 'choice')
         return (
-          <Guess>{`${' '.repeat(element.originalTextLength / 2)} ? ${' '.repeat(
+          <Guess onPress={() => {}}>{`${' '.repeat(
             element.originalTextLength / 2,
-          )}`}</Guess>
+          )} ? ${' '.repeat(element.originalTextLength / 2)}`}</Guess>
         );
     })}
   </Text>
