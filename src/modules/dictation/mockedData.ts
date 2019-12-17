@@ -12,6 +12,16 @@ export const mockedDictations: Dictation[] = [
         originalTextLength: 7,
         choices: [{text: 'courses'}, {text: 'course'}, {text: 'cources'}],
       },
+      {
+        position: 24,
+        originalTextLength: 3,
+        choices: [{text: 'les'}, {text: 'lait'}, {text: 'laid'}],
+      },
+      {
+        position: 15,
+        originalTextLength: 3,
+        choices: [{text: 'mer'}, {text: 'mère'}, {text: 'maire'}],
+      },
     ],
   },
 ];
