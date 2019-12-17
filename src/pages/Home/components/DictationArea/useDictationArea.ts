@@ -21,6 +21,7 @@ const sliceDication = (dictation: Dictation): DictationTextElement[] => {
     slicedDictation.push({
       choices: choiceInput.choices,
       type: 'choice',
+      originalTextLength: choiceInput.originalTextLength,
     });
     dictationText = dictationText.slice(choiceInput.originalTextLength);
   });

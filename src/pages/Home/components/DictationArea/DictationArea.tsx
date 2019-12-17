@@ -15,13 +15,23 @@ const Container = styled.View`
   border-width: 1px;
 `;
 
-const HardTextElement = styled.Text``;
+const Guess = styled.Text`
+  color: ${props => props.theme.colors.darkGray};
+  background-color: ${props => props.theme.colors.lightGray};
+  overflow: hidden;
+  border-radius: ${props => props.theme.borderRadius.small};
+`;
 
 const renderDictation = (slicedDictation: DictationTextElement[]) => (
   <Text>
     {slicedDictation.map(element => {
       if (element.type === 'hard') return element.text;
-      else return <HardTextElement>?</HardTextElement>;
+      if (element.type === 'choice')
+        return (
+          <Guess>{`${' '.repeat(element.originalTextLength / 2)} ? ${' '.repeat(
+            element.originalTextLength / 2,
+          )}`}</Guess>
+        );
     })}
   </Text>
 );

@@ -25,4 +25,5 @@ interface HardTextElement {
 interface MultipleChoiceElement {
   type: 'choice';
   choices: Choice[];
+  originalTextLength: number;
 }
