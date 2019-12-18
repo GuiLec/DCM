@@ -4,7 +4,7 @@ import {ScrollView, Text} from 'react-native';
 import {SlicedDictation} from '../../../../modules/dictation/interface';
 import {Guess} from '../../../../components/Guess';
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
   padding: ${props => props.theme.gridUnit * 2}px;
   margin: ${props => props.theme.gridUnit * 2}px;
   flex: 1;
@@ -37,7 +37,7 @@ interface Props {
 
 export const DictationArea = (props: Props) => {
   return (
-    <Container>
+    <Container onPress={props.selectChoiceInput(null)} activeOpacity={1}>
       <ScrollView
         style={{flex: 1}}
         contentContainerStyle={{flexDirection: 'row'}}>
