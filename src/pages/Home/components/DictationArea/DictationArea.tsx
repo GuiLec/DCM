@@ -22,6 +22,7 @@ const renderDictation = (
       if (element.type === 'choice')
         return (
           <Guess
+            key={element.choiceInputID}
             onPress={selectChoiceInput(element.choiceInputID)}>{`${' '.repeat(
             element.originalTextLength / 2,
           )} ? ${' '.repeat(element.originalTextLength / 2)}`}</Guess>
