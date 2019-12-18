@@ -5,6 +5,7 @@ import {DictationArea} from './components/DictationArea';
 import {styled} from '../../lib/styled';
 import {HomeFooter} from './components/HomeFooter';
 import {useHome} from './useHome';
+import {AnswersArea} from './components/AnswersArea';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -23,6 +24,7 @@ export const Home = () => {
       <PageContainer>
         <HomeHeader />
         <DictationArea dictation={activeDictation} />
+        <AnswersArea />
         <HomeFooter />
       </PageContainer>
     </SafeAreaViewComponent>
