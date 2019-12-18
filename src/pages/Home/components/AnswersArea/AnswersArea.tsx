@@ -27,7 +27,10 @@ export const AnswersArea = (props: Props) => {
       <Container>
         {props.selectedChoiceInputChoices &&
           props.selectedChoiceInputChoices.map(selectedChoiceInputChoice => (
-            <Answer answer={selectedChoiceInputChoice.text} />
+            <Answer
+              key={selectedChoiceInputChoice.choiceID}
+              answer={selectedChoiceInputChoice.text}
+            />
           ))}
       </Container>
     </Collapsible>
