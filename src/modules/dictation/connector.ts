@@ -1,4 +1,4 @@
-import {sliceDication} from './adapter';
+import {sliceDication} from './adapters';
 import {mockedDictations} from './mockedData';
 import {SlicedDictation} from './interface';
 

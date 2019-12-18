@@ -1,7 +1,7 @@
-import {sliceDication} from '../../../../../modules/dictation/adapter';
-import {mockedDictations} from '../../../../../modules/dictation/mockedData';
+import {sliceDication} from '../adapters';
+import {mockedDictations} from '../mockedData';
 
-describe('DictationArea', () => {
+describe('dictation adapters', () => {
   it('slices properly dictations', () => {
     const expected = [
       {text: 'Les ', type: 'hard'},
