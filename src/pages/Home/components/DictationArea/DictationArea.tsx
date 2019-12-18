@@ -2,6 +2,7 @@ import React from 'react';
 import {styled} from '../../../../lib/styled';
 import {ScrollView, Text} from 'react-native';
 import {SlicedDictation} from '../../../../modules/dictation/interface';
+import {Guess} from '../../../../components/Guess';
 
 const Container = styled.View`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -9,13 +10,6 @@ const Container = styled.View`
   flex: 1;
   border-color: ${props => props.theme.colors.lightGray};
   border-width: 1px;
-`;
-
-const Guess = styled.Text`
-  color: ${props => props.theme.colors.darkGray};
-  background-color: ${props => props.theme.colors.lightGray};
-  overflow: hidden;
-  border-radius: ${props => props.theme.borderRadius.small};
 `;
 
 const renderDictation = (
