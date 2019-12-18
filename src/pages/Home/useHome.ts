@@ -1,17 +1,36 @@
-import {getSlicedDictation} from '../../modules/dictation/connector';
+import {
+  getSlicedDictation,
+  getDictation,
+} from '../../modules/dictation/connector';
 import {useState} from 'react';
+import {Choice, ChoiceInput} from '../../modules/dictation/interface';
 
 export const useHome = () => {
+  const activeDictation = getDictation();
   const activeSlicedDictation = getSlicedDictation();
 
-  const [selectedChoiceImputID, setSelectedChoiceInputID] = useState<
+  const [selectedChoiceInputID, setSelectedChoiceInputID] = useState<
     string | null
   >(null);
 
   const selectChoiceInput = (choiceInputID: string) => () =>
     setSelectedChoiceInputID(choiceInputID);
 
-  const isAnswersAreaVisible = selectedChoiceImputID !== null;
+  const selectedChoiceInput:
+    | ChoiceInput
+    | undefined = activeDictation.choiceInputs.find(
+    choiceInput => choiceInput.choiceInputID === selectedChoiceInputID,
+  );
+  const selectedChoiceInputChoices: Choice[] | undefined =
+    selectedChoiceInput && selectedChoiceInput.choices;
 
-  return {activeSlicedDictation, isAnswersAreaVisible, selectChoiceInput};
+  const isAnswersAreaVisible = selectedChoiceInputID !== null;
+
+  return {
+    activeSlicedDictation,
+    isAnswersAreaVisible,
+    selectChoiceInput,
+    selectedChoiceInputID,
+    selectedChoiceInputChoices,
+  };
 };

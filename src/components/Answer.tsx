@@ -17,8 +17,12 @@ const Text = styled.Text`
   font-weight: 700;
 `;
 
-export const Answer = () => (
+interface Props {
+  answer: string;
+}
+
+export const Answer = (props: Props) => (
   <Touchable>
-    <Text>Hello</Text>
+    <Text>{props.answer}</Text>
   </Touchable>
 );

@@ -5,14 +5,14 @@ export interface Dictation {
   choiceInputs?: ChoiceInput[];
 }
 
-interface ChoiceInput {
+export interface ChoiceInput {
   choiceInputID: string;
   position: number;
   choices: Choice[];
   originalTextLength: number;
 }
 
-interface Choice {
+export interface Choice {
   choiceID: string;
   text: string;
 }

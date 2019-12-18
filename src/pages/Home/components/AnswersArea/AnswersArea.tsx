@@ -2,6 +2,7 @@ import React from 'react';
 import {styled} from '../../../../lib/styled';
 import Collapsible from 'react-native-collapsible';
 import {Answer} from '../../../../components/Answer';
+import {Choice} from '../../../../modules/dictation/interface';
 
 const Container = styled.View`
   padding-horizontal: ${props => props.theme.gridUnit * 6}px;
@@ -16,21 +17,18 @@ const Container = styled.View`
 
 interface Props {
   iscollapsed: boolean;
+  selectedChoiceInputID: string | null;
+  selectedChoiceInputChoices: Choice[] | undefined;
 }
 
 export const AnswersArea = (props: Props) => {
   return (
     <Collapsible collapsed={props.iscollapsed}>
       <Container>
-        <Answer />
-        <Answer />
-        <Answer />
-        <Answer />
-        <Answer />
-        <Answer />
-        <Answer />
-        <Answer />
-        <Answer />
+        {props.selectedChoiceInputChoices &&
+          props.selectedChoiceInputChoices.map(selectedChoiceInputChoice => (
+            <Answer answer={selectedChoiceInputChoice.text} />
+          ))}
       </Container>
     </Collapsible>
   );
