@@ -10,17 +10,32 @@ export const mockedDictations: Dictation[] = [
       {
         position: 4,
         originalTextLength: 7,
-        choices: [{text: 'courses'}, {text: 'course'}, {text: 'cources'}],
+        choiceInputID: '1',
+        choices: [
+          {text: 'courses', choiceID: '1'},
+          {text: 'course', choiceID: '2'},
+          {text: 'cources', choiceID: '3'},
+        ],
       },
       {
         position: 24,
         originalTextLength: 3,
-        choices: [{text: 'les'}, {text: 'lait'}, {text: 'laid'}],
+        choiceInputID: '2',
+        choices: [
+          {text: 'les', choiceID: '1'},
+          {text: 'lait', choiceID: '2'},
+          {text: 'laid', choiceID: '3'},
+        ],
       },
       {
         position: 15,
         originalTextLength: 3,
-        choices: [{text: 'mer'}, {text: 'mère'}, {text: 'maire'}],
+        choiceInputID: '3',
+        choices: [
+          {text: 'mer', choiceID: '1'},
+          {text: 'mère', choiceID: '2'},
+          {text: 'maire', choiceID: '3'},
+        ],
       },
     ],
   },

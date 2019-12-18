@@ -6,12 +6,14 @@ export interface Dictation {
 }
 
 interface ChoiceInput {
+  choiceInputID: string;
   position: number;
   choices: Choice[];
   originalTextLength: number;
 }
 
 interface Choice {
+  choiceID: string;
   text: string;
 }
 
