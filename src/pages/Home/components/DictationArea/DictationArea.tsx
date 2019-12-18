@@ -18,13 +18,17 @@ const Guess = styled.Text`
   border-radius: ${props => props.theme.borderRadius.small};
 `;
 
-const renderDictation = (slicedDictation: SlicedDictation) => (
+const renderDictation = (
+  slicedDictation: SlicedDictation,
+  selectChoiceInput: (choiceInputID: string) => () => void,
+) => (
   <Text>
     {slicedDictation.map(element => {
       if (element.type === 'hard') return element.text;
       if (element.type === 'choice')
         return (
-          <Guess onPress={() => {}}>{`${' '.repeat(
+          <Guess
+            onPress={selectChoiceInput(element.choiceInputID)}>{`${' '.repeat(
             element.originalTextLength / 2,
           )} ? ${' '.repeat(element.originalTextLength / 2)}`}</Guess>
         );
@@ -34,6 +38,7 @@ const renderDictation = (slicedDictation: SlicedDictation) => (
 
 interface Props {
   slicedDictation: SlicedDictation;
+  selectChoiceInput: (choiceInputID: string) => () => void;
 }
 
 export const DictationArea = (props: Props) => {
@@ -42,7 +47,7 @@ export const DictationArea = (props: Props) => {
       <ScrollView
         style={{flex: 1}}
         contentContainerStyle={{flexDirection: 'row'}}>
-        {renderDictation(props.slicedDictation)}
+        {renderDictation(props.slicedDictation, props.selectChoiceInput)}
       </ScrollView>
     </Container>
   );

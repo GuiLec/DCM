@@ -18,13 +18,20 @@ const PageContainer = styled.View`
 `;
 
 export const Home = () => {
-  const {activeSlicedDictation} = useHome();
+  const {
+    activeSlicedDictation,
+    isAnswersAreaVisible,
+    selectChoiceInput,
+  } = useHome();
   return (
     <SafeAreaViewComponent>
       <PageContainer>
         <HomeHeader />
-        <DictationArea slicedDictation={activeSlicedDictation} />
-        <AnswersArea />
+        <DictationArea
+          slicedDictation={activeSlicedDictation}
+          selectChoiceInput={selectChoiceInput}
+        />
+        <AnswersArea iscollapsed={!isAnswersAreaVisible} />
         <HomeFooter />
       </PageContainer>
     </SafeAreaViewComponent>

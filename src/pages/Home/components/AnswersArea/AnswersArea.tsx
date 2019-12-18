@@ -6,9 +6,13 @@ const Container = styled.View`
   height: 100;
 `;
 
-export const AnswersArea = () => {
+interface Props {
+  iscollapsed: boolean;
+}
+
+export const AnswersArea = (props: Props) => {
   return (
-    <Collapsible collapsed={false}>
+    <Collapsible collapsed={props.iscollapsed}>
       <Container />
     </Collapsible>
   );
