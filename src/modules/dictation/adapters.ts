@@ -20,6 +20,7 @@ export const sliceDication = (dictation: Dictation): SlicedDictation => {
       choices: choiceInput.choices,
       type: 'choice',
       originalTextLength: choiceInput.originalTextLength,
+      choiceInputID: choiceInput.choiceInputID,
     });
     dictationText = dictationText.slice(choiceInput.originalTextLength);
     spentTextLength =
