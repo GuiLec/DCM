@@ -15,6 +15,8 @@ interface Choice {
   text: string;
 }
 
+export type SlicedDictation = DictationTextElement[];
+
 export type DictationTextElement = HardTextElement | MultipleChoiceElement;
 
 interface HardTextElement {

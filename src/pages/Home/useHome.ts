@@ -1,6 +1,6 @@
-import {mockedDictations} from '../../modules/dictation/mockedData';
+import {getSlicedDictation} from '../../modules/dictation/connector';
 
 export const useHome = () => {
-  const activeDictation = mockedDictations[0];
-  return {activeDictation};
+  const activeSlicedDictation = getSlicedDictation();
+  return {activeSlicedDictation};
 };

@@ -1,10 +1,7 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
 import {ScrollView, Text} from 'react-native';
-import {
-  Dictation,
-  DictationTextElement,
-} from '../../../../modules/dictation/interface';
+import {SlicedDictation} from '../../../../modules/dictation/interface';
 import {useDictationArea} from './useDictationArea';
 
 const Container = styled.View`
@@ -22,7 +19,7 @@ const Guess = styled.Text`
   border-radius: ${props => props.theme.borderRadius.small};
 `;
 
-const renderDictation = (slicedDictation: DictationTextElement[]) => (
+const renderDictation = (slicedDictation: SlicedDictation) => (
   <Text>
     {slicedDictation.map(element => {
       if (element.type === 'hard') return element.text;
@@ -37,18 +34,17 @@ const renderDictation = (slicedDictation: DictationTextElement[]) => (
 );
 
 interface Props {
-  dictation: Dictation;
+  slicedDictation: SlicedDictation;
 }
 
 export const DictationArea = (props: Props) => {
-  const {sliceDication} = useDictationArea();
-  console.log(sliceDication(props.dictation));
+  const {} = useDictationArea();
   return (
     <Container>
       <ScrollView
         style={{flex: 1}}
         contentContainerStyle={{flexDirection: 'row'}}>
-        {renderDictation(sliceDication(props.dictation))}
+        {renderDictation(props.slicedDictation)}
       </ScrollView>
     </Container>
   );
