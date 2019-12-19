@@ -16,6 +16,7 @@ const renderDictation = (
   slicedDictation: SlicedDictation,
   selectChoiceInput: (choiceInputID: string) => () => void,
   selectedChoiceInputID: string | null,
+  selectedChoiceID: string | null,
 ) => (
   <Text>
     {slicedDictation.map(element => {
@@ -27,6 +28,7 @@ const renderDictation = (
             onPress={selectChoiceInput(element.choiceInputID)}
             isSelected={selectedChoiceInputID === element.choiceInputID}
             element={element}
+            selectedChoiceID={selectedChoiceID}
           />
         );
     })}
@@ -50,6 +52,7 @@ export const DictationArea = (props: Props) => {
           props.slicedDictation,
           props.selectChoiceInput,
           props.selectedChoiceInputID,
+          props.selectedChoiceID,
         )}
       </ScrollView>
     </Container>

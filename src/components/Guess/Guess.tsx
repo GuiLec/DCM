@@ -11,17 +11,18 @@ const GuessText = styled.Text<{isSelected: boolean}>`
   border-radius: ${props => props.theme.borderRadius.small};
 `;
 
-interface Props {
+export interface Props {
   onPress: () => void;
   isSelected: boolean;
   element: MultipleChoiceElement;
+  selectedChoiceID: string | null;
 }
 
 export const Guess = (props: Props) => {
-  const {getGuessText} = useGuess();
+  const {guessText} = useGuess(props);
   return (
     <GuessText onPress={props.onPress} isSelected={props.isSelected}>
-      {getGuessText(props.element)}
+      {` ${guessText} `}
     </GuessText>
   );
 };

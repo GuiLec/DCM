@@ -24,6 +24,8 @@ export const Home = () => {
     selectChoiceInput,
     selectedChoiceInputID,
     selectedChoiceInputChoices,
+    selectedChoiceID,
+    selectChoice,
   } = useHome();
   return (
     <SafeAreaViewComponent>
@@ -33,11 +35,13 @@ export const Home = () => {
           slicedDictation={activeSlicedDictation}
           selectChoiceInput={selectChoiceInput}
           selectedChoiceInputID={selectedChoiceInputID}
+          selectedChoiceID={selectedChoiceID}
         />
         <AnswersArea
           iscollapsed={!isAnswersAreaVisible}
           selectedChoiceInputID={selectedChoiceInputID}
           selectedChoiceInputChoices={selectedChoiceInputChoices}
+          selectChoice={selectChoice}
         />
         <HomeFooter />
       </PageContainer>

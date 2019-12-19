@@ -19,6 +19,7 @@ interface Props {
   iscollapsed: boolean;
   selectedChoiceInputID: string | null;
   selectedChoiceInputChoices: Choice[] | undefined;
+  selectChoice: (choiceID: string) => () => void;
 }
 
 export const AnswersArea = (props: Props) => {
@@ -28,6 +29,7 @@ export const AnswersArea = (props: Props) => {
         {props.selectedChoiceInputChoices &&
           props.selectedChoiceInputChoices.map(selectedChoiceInputChoice => (
             <Answer
+              onPress={props.selectChoice(selectedChoiceInputChoice.choiceID)}
               key={selectedChoiceInputChoice.choiceID}
               answer={selectedChoiceInputChoice.text}
             />

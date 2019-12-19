@@ -13,8 +13,15 @@ export const useHome = () => {
     string | null
   >(null);
 
-  const selectChoiceInput = (choiceInputID: string) => () =>
+  const selectChoiceInput = (choiceInputID: string) => () => {
     setSelectedChoiceInputID(choiceInputID);
+    setSelectedChoiceID(null);
+  };
+
+  const [selectedChoiceID, setSelectedChoiceID] = useState<string | null>(null);
+
+  const selectChoice = (choiceID: string) => () =>
+    setSelectedChoiceID(choiceID);
 
   const selectedChoiceInput:
     | ChoiceInput
@@ -32,5 +39,7 @@ export const useHome = () => {
     selectChoiceInput,
     selectedChoiceInputID,
     selectedChoiceInputChoices,
+    selectedChoiceID,
+    selectChoice,
   };
 };

@@ -19,10 +19,11 @@ const Text = styled.Text`
 
 interface Props {
   answer: string;
+  onPress?: () => void;
 }
 
 export const Answer = (props: Props) => (
-  <Touchable>
+  <Touchable onPress={props.onPress}>
     <Text>{props.answer}</Text>
   </Touchable>
 );

@@ -26,7 +26,7 @@ interface HardTextElement {
   text: string;
 }
 
-interface MultipleChoiceElement {
+export interface MultipleChoiceElement {
   type: 'choice';
   choices: Choice[];
   originalTextLength: number;
