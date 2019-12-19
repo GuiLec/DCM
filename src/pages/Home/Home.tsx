@@ -26,6 +26,7 @@ export const Home = () => {
     selectedChoiceInputChoices,
     selectedChoiceID,
     selectChoice,
+    setAnswer,
   } = useHome();
   return (
     <SafeAreaViewComponent>
@@ -42,6 +43,7 @@ export const Home = () => {
           selectedChoiceInputID={selectedChoiceInputID}
           selectedChoiceInputChoices={selectedChoiceInputChoices}
           selectChoice={selectChoice}
+          setAnswer={setAnswer}
         />
         <HomeFooter />
       </PageContainer>

@@ -20,6 +20,7 @@ interface Props {
   selectedChoiceInputID: string | null;
   selectedChoiceInputChoices: Choice[] | undefined;
   selectChoice: (choiceID: string) => () => void;
+  setAnswer: (choiceInputID: string, choiceID: string) => () => void;
 }
 
 export const AnswersArea = (props: Props) => {
@@ -29,7 +30,13 @@ export const AnswersArea = (props: Props) => {
         {props.selectedChoiceInputChoices &&
           props.selectedChoiceInputChoices.map(selectedChoiceInputChoice => (
             <Answer
-              onPress={props.selectChoice(selectedChoiceInputChoice.choiceID)}
+              onPress={() => {
+                props.selectChoice(selectedChoiceInputChoice.choiceID)();
+                props.setAnswer(
+                  props.selectedChoiceInputID,
+                  selectedChoiceInputChoice.choiceID,
+                )();
+              }}
               key={selectedChoiceInputChoice.choiceID}
               answer={selectedChoiceInputChoice.text}
             />

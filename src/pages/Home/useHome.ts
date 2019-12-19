@@ -22,6 +22,10 @@ export const useHome = () => {
     initalAnswersState,
   );
 
+  const setAnswer = (choiceInputID: string, choiceID: string) => () => {
+    answersState[choiceInputID] = choiceID;
+  };
+
   const activeSlicedDictation = getSlicedDictation();
 
   const [selectedChoiceInputID, setSelectedChoiceInputID] = useState<
@@ -56,5 +60,6 @@ export const useHome = () => {
     selectedChoiceInputChoices,
     selectedChoiceID,
     selectChoice,
+    setAnswer,
   };
 };
