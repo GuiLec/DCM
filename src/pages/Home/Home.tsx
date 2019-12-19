@@ -32,6 +32,7 @@ export const Home = () => {
         <DictationArea
           slicedDictation={activeSlicedDictation}
           selectChoiceInput={selectChoiceInput}
+          selectedChoiceInputID={selectedChoiceInputID}
         />
         <AnswersArea
           iscollapsed={!isAnswersAreaVisible}

@@ -15,6 +15,7 @@ const Container = styled.TouchableOpacity`
 const renderDictation = (
   slicedDictation: SlicedDictation,
   selectChoiceInput: (choiceInputID: string) => () => void,
+  selectedChoiceInputID: string | null,
 ) => (
   <Text>
     {slicedDictation.map(element => {
@@ -23,9 +24,12 @@ const renderDictation = (
         return (
           <Guess
             key={element.choiceInputID}
-            onPress={selectChoiceInput(element.choiceInputID)}>{`${' '.repeat(
+            onPress={selectChoiceInput(element.choiceInputID)}
+            isSelected={
+              selectedChoiceInputID === element.choiceInputID
+            }>{`${' '.repeat(element.originalTextLength / 2)} ? ${' '.repeat(
             element.originalTextLength / 2,
-          )} ? ${' '.repeat(element.originalTextLength / 2)}`}</Guess>
+          )}`}</Guess>
         );
     })}
   </Text>
@@ -34,6 +38,7 @@ const renderDictation = (
 interface Props {
   slicedDictation: SlicedDictation;
   selectChoiceInput: (choiceInputID: string) => () => void;
+  selectedChoiceInputID: string | null;
 }
 
 export const DictationArea = (props: Props) => {
@@ -42,7 +47,11 @@ export const DictationArea = (props: Props) => {
       <ScrollView
         style={{flex: 1}}
         contentContainerStyle={{flexDirection: 'row'}}>
-        {renderDictation(props.slicedDictation, props.selectChoiceInput)}
+        {renderDictation(
+          props.slicedDictation,
+          props.selectChoiceInput,
+          props.selectedChoiceInputID,
+        )}
       </ScrollView>
     </Container>
   );
