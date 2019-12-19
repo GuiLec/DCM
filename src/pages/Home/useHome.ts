@@ -3,10 +3,25 @@ import {
   getDictation,
 } from '../../modules/dictation/connector';
 import {useState} from 'react';
-import {Choice, ChoiceInput} from '../../modules/dictation/interface';
+import {
+  Choice,
+  ChoiceInput,
+  AnswersState,
+} from '../../modules/dictation/interface';
+import {
+  getInitialAnswersState,
+  getCorrectAnswersState,
+} from '../../modules/dictation/adapters';
 
 export const useHome = () => {
   const activeDictation = getDictation();
+  const initalAnswersState = getInitialAnswersState(activeDictation);
+  const correctAnswersState = getCorrectAnswersState(activeDictation);
+
+  const [answersState, setAnswersState] = useState<AnswersState>(
+    initalAnswersState,
+  );
+
   const activeSlicedDictation = getSlicedDictation();
 
   const [selectedChoiceInputID, setSelectedChoiceInputID] = useState<

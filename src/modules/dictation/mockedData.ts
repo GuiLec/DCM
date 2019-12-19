@@ -11,6 +11,7 @@ export const mockedDictations: Dictation[] = [
         position: 4,
         originalTextLength: 7,
         choiceInputID: '1',
+        correctChoiceID: '1',
         choices: [
           {text: 'courses', choiceID: '1'},
           {text: 'course', choiceID: '2'},
@@ -21,6 +22,7 @@ export const mockedDictations: Dictation[] = [
         position: 24,
         originalTextLength: 3,
         choiceInputID: '2',
+        correctChoiceID: '1',
         choices: [
           {text: 'les', choiceID: '1'},
           {text: 'lait', choiceID: '2'},
@@ -31,6 +33,7 @@ export const mockedDictations: Dictation[] = [
         position: 15,
         originalTextLength: 3,
         choiceInputID: '3',
+        correctChoiceID: '1',
         choices: [
           {text: 'mer', choiceID: '1'},
           {text: 'mère', choiceID: '2'},

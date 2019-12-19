@@ -2,13 +2,14 @@ export interface Dictation {
   id: string;
   name: string;
   text: string;
-  choiceInputs?: ChoiceInput[];
+  choiceInputs: ChoiceInput[];
 }
 
 export interface ChoiceInput {
   choiceInputID: string;
   position: number;
   choices: Choice[];
+  correctChoiceID: string;
   originalTextLength: number;
 }
 
@@ -31,4 +32,8 @@ export interface MultipleChoiceElement {
   choices: Choice[];
   originalTextLength: number;
   choiceInputID: string;
+}
+
+export interface AnswersState {
+  [AnswerChoiceID: string]: string | null;
 }

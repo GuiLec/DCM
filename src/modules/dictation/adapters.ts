@@ -1,4 +1,4 @@
-import {Dictation, SlicedDictation} from './interface';
+import {Dictation, SlicedDictation, AnswersState} from './interface';
 
 export const sliceDication = (dictation: Dictation): SlicedDictation => {
   let slicedDictation: SlicedDictation = [];
@@ -32,4 +32,20 @@ export const sliceDication = (dictation: Dictation): SlicedDictation => {
   });
 
   return slicedDictation;
+};
+
+export const getInitialAnswersState = (dication: Dictation): AnswersState => {
+  let answerState = {};
+  dication.choiceInputs.forEach(choiceInput => {
+    answerState[choiceInput.choiceInputID] = null;
+  });
+  return answerState;
+};
+
+export const getCorrectAnswersState = (dication: Dictation): AnswersState => {
+  let answerState = {};
+  dication.choiceInputs.forEach(choiceInput => {
+    answerState[choiceInput.choiceInputID] = choiceInput.correctChoiceID;
+  });
+  return answerState;
 };
