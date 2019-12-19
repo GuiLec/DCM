@@ -1,5 +1,7 @@
 import React from 'react';
 import {styled} from '../../lib/styled';
+import {useGuess} from './useGuess';
+import {MultipleChoiceElement} from '../../modules/dictation/interface';
 
 const GuessText = styled.Text<{isSelected: boolean}>`
   background-color: ${props =>
@@ -10,15 +12,16 @@ const GuessText = styled.Text<{isSelected: boolean}>`
 `;
 
 interface Props {
-  children: string;
   onPress: () => void;
   isSelected: boolean;
+  element: MultipleChoiceElement;
 }
 
 export const Guess = (props: Props) => {
+  const {getGuessText} = useGuess();
   return (
     <GuessText onPress={props.onPress} isSelected={props.isSelected}>
-      {props.children}
+      {getGuessText(props.element)}
     </GuessText>
   );
 };

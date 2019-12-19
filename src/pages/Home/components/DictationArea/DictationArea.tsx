@@ -25,11 +25,9 @@ const renderDictation = (
           <Guess
             key={element.choiceInputID}
             onPress={selectChoiceInput(element.choiceInputID)}
-            isSelected={
-              selectedChoiceInputID === element.choiceInputID
-            }>{`${' '.repeat(element.originalTextLength / 2)} ? ${' '.repeat(
-            element.originalTextLength / 2,
-          )}`}</Guess>
+            isSelected={selectedChoiceInputID === element.choiceInputID}
+            element={element}
+          />
         );
     })}
   </Text>
@@ -39,6 +37,7 @@ interface Props {
   slicedDictation: SlicedDictation;
   selectChoiceInput: (choiceInputID: string) => () => void;
   selectedChoiceInputID: string | null;
+  selectedChoiceID: string | null;
 }
 
 export const DictationArea = (props: Props) => {
