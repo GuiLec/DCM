@@ -14,7 +14,7 @@ export const useGuess = (props: Props) => {
   );
 
   useEffect(() => {
-    if (props.isSelected) {
+    if (props.isSelected && !!props.selectedChoiceID) {
       const selectedChoice = props.element.choices.find(
         choice => choice.choiceID === props.selectedChoiceID,
       );
