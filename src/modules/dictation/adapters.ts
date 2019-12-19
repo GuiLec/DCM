@@ -49,3 +49,18 @@ export const getCorrectAnswersState = (dication: Dictation): AnswersState => {
   });
   return answerState;
 };
+
+export const getScore = (
+  correctAnswersState: AnswersState,
+  answersState: AnswersState,
+): string => {
+  let numberOfChoiceInputs = 0;
+  let numberOfCorrectAnswers = 0;
+  Object.keys(correctAnswersState).forEach(choiceInputID => {
+    if (correctAnswersState[choiceInputID] === answersState[choiceInputID])
+      numberOfCorrectAnswers = numberOfCorrectAnswers + 1;
+    numberOfChoiceInputs = numberOfChoiceInputs + 1;
+  });
+
+  return `${numberOfCorrectAnswers}/${numberOfChoiceInputs}`;
+};

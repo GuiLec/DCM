@@ -22,8 +22,12 @@ const CorrectIcon = styled(Icon)`
   color: ${props => props.theme.colors.darkGray};
 `;
 
-export const ValidationButton = () => (
-  <Container>
+interface Props {
+  onPress?: () => void;
+}
+
+export const ValidationButton = (props: Props) => (
+  <Container onPress={props.onPress}>
     <CorrectIcon name="pen" size={20} />
     <ValidationText>Corriger</ValidationText>
   </Container>

@@ -27,6 +27,7 @@ export const Home = () => {
     selectedChoiceID,
     selectChoice,
     setAnswer,
+    showScore,
   } = useHome();
   return (
     <SafeAreaViewComponent>
@@ -45,7 +46,7 @@ export const Home = () => {
           selectChoice={selectChoice}
           setAnswer={setAnswer}
         />
-        <HomeFooter />
+        <HomeFooter onPress={showScore} />
       </PageContainer>
     </SafeAreaViewComponent>
   );

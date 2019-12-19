@@ -11,7 +11,9 @@ import {
 import {
   getInitialAnswersState,
   getCorrectAnswersState,
+  getScore,
 } from '../../modules/dictation/adapters';
+import {Alert} from 'react-native';
 
 export const useHome = () => {
   const activeDictation = getDictation();
@@ -52,6 +54,9 @@ export const useHome = () => {
 
   const isAnswersAreaVisible = selectedChoiceInputID !== null;
 
+  const showScore = () =>
+    Alert.alert('Score', getScore(correctAnswersState, answersState));
+
   return {
     activeSlicedDictation,
     isAnswersAreaVisible,
@@ -61,5 +66,6 @@ export const useHome = () => {
     selectedChoiceID,
     selectChoice,
     setAnswer,
+    showScore,
   };
 };

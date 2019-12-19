@@ -10,8 +10,12 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-export const HomeFooter = () => (
+interface Props {
+  onPress: () => void;
+}
+
+export const HomeFooter = (props: Props) => (
   <Container>
-    <ValidationButton />
+    <ValidationButton onPress={props.onPress} />
   </Container>
 );
