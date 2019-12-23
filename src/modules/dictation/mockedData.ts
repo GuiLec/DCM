@@ -42,4 +42,37 @@ export const mockedDictations: Dictation[] = [
       },
     ],
   },
+  {
+    id: '2',
+    name: '',
+    text:
+      'Demain, dès l’aube, à l’heure où blanchit la campagne,\nJe partirai. Vois-tu, je sais que tu m’attends.\nJ’irai par la forêt, j’irai par la montagne.\nJe ne puis demeurer loin de toi plus longtemps.\n\nJe marcherai les yeux fixés sur mes pensées,\nSans rien voir au dehors, sans entendre aucun bruit,\nSeul, inconnu, le dos courbé, les mains croisées,\nTriste, et le jour pour moi sera comme la nuit.\n\nJe ne regarderai ni l’or du soir qui tombe,\nNi les voiles au loin descendant vers Harfleur,\nEt quand j’arriverai, je mettrai sur ta tombe\nUn bouquet de houx vert et de bruyère en fleur.',
+    choiceInputs: [
+      {
+        position: 8,
+        originalTextLength: 3,
+        choiceInputID: '1',
+        correctChoiceID: '3',
+        choices: [
+          {text: 'dés', choiceID: '1'},
+          {text: 'des', choiceID: '2'},
+          {text: 'dès', choiceID: '3'},
+          {text: 'dé', choiceID: '4'},
+          {text: 'dais', choiceID: '5'},
+        ],
+      },
+      {
+        position: 58,
+        originalTextLength: 8,
+        choiceInputID: '2',
+        correctChoiceID: '2',
+        choices: [
+          {text: 'partirer', choiceID: '1'},
+          {text: 'partirai', choiceID: '2'},
+          {text: 'partirais', choiceID: '3'},
+          {text: 'partirait', choiceID: '4'},
+        ],
+      },
+    ],
+  },
 ];
