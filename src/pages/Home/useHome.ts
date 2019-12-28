@@ -1,24 +1,33 @@
-import {
-  getSlicedDictation,
-  getDictation,
-} from '../../modules/dictation/connector';
 import {useState} from 'react';
 import {
   Choice,
   ChoiceInput,
   AnswersState,
+  Dictation,
 } from '../../modules/dictation/interface';
 import {
   getInitialAnswersState,
   getCorrectAnswersState,
   getScore,
+  sliceDication,
 } from '../../modules/dictation/adapters';
 import {Alert} from 'react-native';
+import {useSelector} from 'react-redux';
+import {selectDictations} from '../../modules/dictation/selectors';
 
 export const useHome = () => {
-  const activeDictation = getDictation();
-  const initalAnswersState = getInitialAnswersState(activeDictation);
-  const correctAnswersState = getCorrectAnswersState(activeDictation);
+  const dictations = useSelector(selectDictations);
+
+  const [activeDictation, setActiveDictation] = useState<Dictation | null>();
+  const [initalAnswersState, setInitalAnswersState] = useState<AnswersState>(
+    {},
+  );
+  const [correctAnswersState, setCorrectAnswersState] = useState<AnswersState>(
+    {},
+  );
+  // const activeDictation = getDictation();
+  // const initalAnswersState = getInitialAnswersState(activeDictation);
+  // const correctAnswersState = getCorrectAnswersState(activeDictation);
 
   const [answersState, setAnswersState] = useState<AnswersState>(
     initalAnswersState,
@@ -28,7 +37,8 @@ export const useHome = () => {
     answersState[choiceInputID] = choiceID;
   };
 
-  const activeSlicedDictation = getSlicedDictation();
+  const activeSlicedDictation =
+    activeDictation && sliceDication(activeDictation);
 
   const [selectedChoiceInputID, setSelectedChoiceInputID] = useState<
     string | null
@@ -44,11 +54,11 @@ export const useHome = () => {
   const selectChoice = (choiceID: string) => () =>
     setSelectedChoiceID(choiceID);
 
-  const selectedChoiceInput:
-    | ChoiceInput
-    | undefined = activeDictation.choiceInputs.find(
-    choiceInput => choiceInput.choiceInputID === selectedChoiceInputID,
-  );
+  const selectedChoiceInput: ChoiceInput | undefined =
+    activeDictation &&
+    activeDictation.choiceInputs.find(
+      choiceInput => choiceInput.choiceInputID === selectedChoiceInputID,
+    );
   const selectedChoiceInputChoices: Choice[] | undefined =
     selectedChoiceInput && selectedChoiceInput.choices;
 

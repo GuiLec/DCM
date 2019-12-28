@@ -36,7 +36,7 @@ const renderDictation = (
 );
 
 interface Props {
-  slicedDictation: SlicedDictation;
+  slicedDictation: SlicedDictation | null;
   selectChoiceInput: (choiceInputID: string) => () => void;
   selectedChoiceInputID: string | null;
   selectedChoiceID: string | null;
@@ -48,12 +48,13 @@ export const DictationArea = (props: Props) => {
       <ScrollView
         style={{flex: 1}}
         contentContainerStyle={{flexDirection: 'row'}}>
-        {renderDictation(
-          props.slicedDictation,
-          props.selectChoiceInput,
-          props.selectedChoiceInputID,
-          props.selectedChoiceID,
-        )}
+        {!!props.slicedDictation &&
+          renderDictation(
+            props.slicedDictation,
+            props.selectChoiceInput,
+            props.selectedChoiceInputID,
+            props.selectedChoiceID,
+          )}
       </ScrollView>
     </Container>
   );
