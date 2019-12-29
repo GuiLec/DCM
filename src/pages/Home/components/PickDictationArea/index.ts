@@ -1,0 +1,1 @@
+export {PickDictationArea} from './PickDictationArea';

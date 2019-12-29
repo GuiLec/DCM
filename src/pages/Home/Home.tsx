@@ -6,6 +6,7 @@ import {styled} from '../../lib/styled';
 import {HomeFooter} from './components/HomeFooter';
 import {useHome} from './useHome';
 import {AnswersArea} from './components/AnswersArea';
+import {PickDictationArea} from './components/PickDictationArea/PickDictationArea';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -34,6 +35,7 @@ export const Home = () => {
     <SafeAreaViewComponent>
       <PageContainer>
         <HomeHeader pickDictation={pickDictation} />
+        <PickDictationArea iscollapsed={false} />
         <DictationArea
           slicedDictation={activeSlicedDictation}
           selectChoiceInput={selectChoiceInput}
