@@ -28,11 +28,12 @@ export const Home = () => {
     selectChoice,
     setAnswer,
     showScore,
+    pickDictation,
   } = useHome();
   return (
     <SafeAreaViewComponent>
       <PageContainer>
-        <HomeHeader />
+        <HomeHeader pickDictation={pickDictation} />
         <DictationArea
           slicedDictation={activeSlicedDictation}
           selectChoiceInput={selectChoiceInput}

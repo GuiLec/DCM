@@ -22,13 +22,19 @@ const HeaderTitle = styled.Text`
   color: ${props => props.theme.colors.white};
 `;
 
-export const HomeHeader = () => (
+interface Props {
+  pickDictation: () => void;
+}
+
+export const HomeHeader = (props: Props) => (
   <Container>
     <TouchableOpacity onPress={() => {}} hitSlop={computeUniformHitSlop(20)}>
       <HeaderIcon name="bars" size={20} />
     </TouchableOpacity>
     <HeaderTitle>DCM</HeaderTitle>
-    <TouchableOpacity onPress={() => {}} hitSlop={computeUniformHitSlop(20)}>
+    <TouchableOpacity
+      onPress={props.pickDictation}
+      hitSlop={computeUniformHitSlop(20)}>
       <HeaderIcon name="play" size={20} />
     </TouchableOpacity>
   </Container>

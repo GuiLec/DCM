@@ -67,6 +67,19 @@ export const useHome = () => {
   const showScore = () =>
     Alert.alert('Score', getScore(correctAnswersState, answersState));
 
+  const pickDictation = async () => {
+    await setActiveDictation(null);
+    await setSelectedChoiceID(null);
+    await setSelectedChoiceInputID(null);
+    const dictationIndex = Math.floor(Math.random() * dictations.length);
+    await setActiveDictation(dictations[dictationIndex]);
+    if (activeDictation) {
+      await setInitalAnswersState(getInitialAnswersState(activeDictation));
+      await setAnswersState(getInitialAnswersState(activeDictation));
+      await setCorrectAnswersState(getCorrectAnswersState(activeDictation));
+    }
+  };
+
   return {
     activeSlicedDictation,
     isAnswersAreaVisible,
@@ -77,5 +90,6 @@ export const useHome = () => {
     selectChoice,
     setAnswer,
     showScore,
+    pickDictation,
   };
 };

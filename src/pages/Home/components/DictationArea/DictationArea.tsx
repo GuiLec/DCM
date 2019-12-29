@@ -17,23 +17,25 @@ const renderDictation = (
   selectChoiceInput: (choiceInputID: string) => () => void,
   selectedChoiceInputID: string | null,
   selectedChoiceID: string | null,
-) => (
-  <Text>
-    {slicedDictation.map(element => {
-      if (element.type === 'hard') return element.text;
-      if (element.type === 'choice')
-        return (
-          <Guess
-            key={element.choiceInputID}
-            onPress={selectChoiceInput(element.choiceInputID)}
-            isSelected={selectedChoiceInputID === element.choiceInputID}
-            element={element}
-            selectedChoiceID={selectedChoiceID}
-          />
-        );
-    })}
-  </Text>
-);
+) => {
+  return (
+    <Text>
+      {slicedDictation.map(element => {
+        if (element.type === 'hard') return element.text;
+        if (element.type === 'choice')
+          return (
+            <Guess
+              key={element.choiceInputID}
+              onPress={selectChoiceInput(element.choiceInputID)}
+              isSelected={selectedChoiceInputID === element.choiceInputID}
+              element={element}
+              selectedChoiceID={selectedChoiceID}
+            />
+          );
+      })}
+    </Text>
+  );
+};
 
 interface Props {
   slicedDictation: SlicedDictation | null;
