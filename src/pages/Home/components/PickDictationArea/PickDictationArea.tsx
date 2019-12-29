@@ -4,6 +4,7 @@ import Collapsible from 'react-native-collapsible';
 import {Answer} from '../../../../components/Answer';
 import {Choice} from '../../../../modules/dictation/interface';
 import {DictationPick} from '../../../../components/DictationPick';
+import {usePickDictationArea} from './usePickDictationArea';
 
 const Container = styled.View`
   padding-horizontal: ${props => props.theme.gridUnit * 4}px;
@@ -16,12 +17,13 @@ interface Props {
 }
 
 export const PickDictationArea = (props: Props) => {
+  const {dictations} = usePickDictationArea();
   return (
     <Collapsible collapsed={props.iscollapsed}>
       <Container>
-        <DictationPick dictationTitle="Demain dès l'aube" />
-        <DictationPick dictationTitle="Pivot" />
-        <DictationPick dictationTitle="Demain dès l'aube" />
+        {dictations.map(dictation => (
+          <DictationPick key={dictation.id} dictationTitle={dictation.name} />
+        ))}
       </Container>
     </Collapsible>
   );
