@@ -14,6 +14,7 @@ const Container = styled.View`
 
 interface Props {
   iscollapsed: boolean;
+  pickDictation: (dictationId?: string) => void;
 }
 
 export const PickDictationArea = (props: Props) => {
@@ -22,7 +23,11 @@ export const PickDictationArea = (props: Props) => {
     <Collapsible collapsed={props.iscollapsed}>
       <Container>
         {dictations.map(dictation => (
-          <DictationPick key={dictation.id} dictationTitle={dictation.name} />
+          <DictationPick
+            key={dictation.id}
+            dictationTitle={dictation.name}
+            onPress={() => props.pickDictation(dictation.id)}
+          />
         ))}
       </Container>
     </Collapsible>

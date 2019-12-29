@@ -40,7 +40,10 @@ export const Home = () => {
           pickDictation={pickDictation}
           showPickDictationArea={() => setIsPickDictationAreaVisible(true)}
         />
-        <PickDictationArea iscollapsed={!isPickDictationAreaVisible} />
+        <PickDictationArea
+          iscollapsed={!isPickDictationAreaVisible}
+          pickDictation={pickDictation}
+        />
         <DictationArea
           slicedDictation={activeSlicedDictation}
           selectChoiceInput={selectChoiceInput}
