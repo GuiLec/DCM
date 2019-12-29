@@ -31,6 +31,7 @@ const HeaderTitle = styled.Text`
 
 interface Props {
   pickDictation: () => void;
+  tooglePickDictationArea: () => void;
 }
 
 export const HomeHeader = (props: Props) => (
@@ -44,6 +45,7 @@ export const HomeHeader = (props: Props) => (
     <View>
       <TouchableOpacity
         onPress={props.pickDictation}
+        onLongPress={props.tooglePickDictationArea}
         hitSlop={computeUniformHitSlop(20)}>
         <HeaderIcon name="play" size={20} />
         <CaretDownIcon name="caret-down" size={10} />

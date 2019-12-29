@@ -61,6 +61,13 @@ export const useHome = () => {
 
   const isAnswersAreaVisible = selectedChoiceInputID !== null;
 
+  const [isPickDictationAreaVisible, setIsPickDictationAreaVisible] = useState<
+    boolean
+  >(false);
+
+  const tooglePickDictationArea = () =>
+    setIsPickDictationAreaVisible(state => !state);
+
   const showScore = () =>
     Alert.alert('Score', getScore(correctAnswersState, answersState));
 
@@ -88,5 +95,7 @@ export const useHome = () => {
     setAnswer,
     showScore,
     pickDictation,
+    isPickDictationAreaVisible,
+    tooglePickDictationArea,
   };
 };
