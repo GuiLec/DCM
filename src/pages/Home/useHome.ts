@@ -65,9 +65,6 @@ export const useHome = () => {
     boolean
   >(false);
 
-  const tooglePickDictationArea = () =>
-    setIsPickDictationAreaVisible(state => !state);
-
   const showScore = () =>
     Alert.alert('Score', getScore(correctAnswersState, answersState));
 
@@ -82,6 +79,7 @@ export const useHome = () => {
       await setAnswersState(getInitialAnswersState(activeDictation));
       await setCorrectAnswersState(getCorrectAnswersState(activeDictation));
     }
+    setIsPickDictationAreaVisible(false);
   };
 
   return {
@@ -96,6 +94,6 @@ export const useHome = () => {
     showScore,
     pickDictation,
     isPickDictationAreaVisible,
-    tooglePickDictationArea,
+    setIsPickDictationAreaVisible,
   };
 };
