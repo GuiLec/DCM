@@ -25,9 +25,6 @@ export const useHome = () => {
   const [correctAnswersState, setCorrectAnswersState] = useState<AnswersState>(
     {},
   );
-  // const activeDictation = getDictation();
-  // const initalAnswersState = getInitialAnswersState(activeDictation);
-  // const correctAnswersState = getCorrectAnswersState(activeDictation);
 
   const [answersState, setAnswersState] = useState<AnswersState>(
     initalAnswersState,
