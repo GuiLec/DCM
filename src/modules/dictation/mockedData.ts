@@ -75,4 +75,35 @@ export const mockedDictations: Dictation[] = [
       },
     ],
   },
+  {
+    id: '3',
+    name: "Le Petit Bonhomme de pain d'épice",
+    text:
+      "Le Petit Bonhomme de pain d'épice\n\nUne vieille femme était en train de faire du pain d'épice. Comme il lui restait de la pâte, elle façonna un petit bonhomme. Avec des raisins secs, elle dessina des yeux, un nez, un grand sourire et les boutons de son habit. Puis elle le mit à cuire. Au bout d'un moment, elle entendit tambouriner à la porte du four...\nElle l'ouvrit et, à sa grande surprise, le petit bonhomme de pain d'épice en sortit d'un bond. Elle voulut l'attraper, mais il lui échappa en criant.",
+    choiceInputs: [
+      {
+        position: 47,
+        originalTextLength: 5,
+        choiceInputID: '1',
+        correctChoiceID: '3',
+        choices: [
+          {text: 'famme', choiceID: '1'},
+          {text: 'fame', choiceID: '2'},
+          {text: 'femme', choiceID: '3'},
+        ],
+      },
+      {
+        position: 71,
+        originalTextLength: 5,
+        choiceInputID: '2',
+        correctChoiceID: '4',
+        choices: [
+          {text: 'pheire', choiceID: '1'},
+          {text: 'fère', choiceID: '2'},
+          {text: 'fer', choiceID: '3'},
+          {text: 'faire', choiceID: '4'},
+        ],
+      },
+    ],
+  },
 ];
