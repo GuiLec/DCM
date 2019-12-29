@@ -68,12 +68,16 @@ export const useHome = () => {
   const showScore = () =>
     Alert.alert('Score', getScore(correctAnswersState, answersState));
 
-  const pickDictation = async () => {
+  const pickDictation = async (dictationId?: string) => {
     await setActiveDictation(null);
     await setSelectedChoiceID(null);
     await setSelectedChoiceInputID(null);
-    const dictationIndex = Math.floor(Math.random() * dictations.length);
-    await setActiveDictation(dictations[dictationIndex]);
+    const pickedDictation = dictations.find(
+      dictation => dictation.id === dictationId,
+    );
+    const randomIndex = Math.floor(Math.random() * dictations.length);
+    if (pickedDictation) await setActiveDictation(pickedDictation);
+    else await setActiveDictation(dictations[randomIndex]);
     if (activeDictation) {
       await setInitalAnswersState(getInitialAnswersState(activeDictation));
       await setAnswersState(getInitialAnswersState(activeDictation));
