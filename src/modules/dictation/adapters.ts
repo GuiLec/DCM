@@ -34,19 +34,25 @@ export const sliceDication = (dictation: Dictation): SlicedDictation => {
   return slicedDictation;
 };
 
-export const getInitialAnswersState = (dication: Dictation): AnswersState => {
+export const getInitialAnswersState = (
+  dictation: Dictation | null,
+): AnswersState => {
   let answerState = {};
-  dication.choiceInputs.forEach(choiceInput => {
-    answerState[choiceInput.choiceInputID] = null;
-  });
+  if (dictation)
+    dictation.choiceInputs.forEach(choiceInput => {
+      answerState[choiceInput.choiceInputID] = null;
+    });
   return answerState;
 };
 
-export const getCorrectAnswersState = (dication: Dictation): AnswersState => {
+export const getCorrectAnswersState = (
+  dictation: Dictation | null,
+): AnswersState => {
   let answerState = {};
-  dication.choiceInputs.forEach(choiceInput => {
-    answerState[choiceInput.choiceInputID] = choiceInput.correctChoiceID;
-  });
+  if (dictation)
+    dictation.choiceInputs.forEach(choiceInput => {
+      answerState[choiceInput.choiceInputID] = choiceInput.correctChoiceID;
+    });
   return answerState;
 };
 
