@@ -1,6 +1,30 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import {styled} from '../../lib/styled';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import {useDrawerMenu} from './useDrawerMenu';
+import {closeDrawer} from '../../navigation/actions';
+
+const SafeAreaViewComponent = styled(SafeAreaView)`
+  flex: 1;
+  background-color: ${props => props.theme.colors.charcoalGray};
+`;
+
+const CrossIcon = styled(Icon)`
+  color: ${props => props.theme.colors.lightGray};
+`;
+
+const CrossIconContainer = styled.TouchableOpacity`
+  margin: ${props => props.theme.gridUnit * 4}px;
+`;
 
 export const DrawerMenu = () => {
-  return <View style={{width: 300, height: 300, backgroundColor: 'blue'}} />;
+  const {} = useDrawerMenu();
+  return (
+    <SafeAreaViewComponent>
+      <CrossIconContainer onPress={closeDrawer}>
+        <CrossIcon name="times" size={25} />
+      </CrossIconContainer>
+    </SafeAreaViewComponent>
+  );
 };
