@@ -3,6 +3,7 @@ import {styled} from '../../../../lib/styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {TouchableOpacity, View} from 'react-native';
 import {computeUniformHitSlop} from '../../../../lib/utils';
+import {openDrawer} from '../../../../navigation/actions';
 
 const Container = styled.View`
   background-color: ${props => props.theme.colors.charcoalGray};
@@ -37,7 +38,9 @@ interface Props {
 export const HomeHeader = (props: Props) => (
   <Container>
     <View>
-      <TouchableOpacity onPress={() => {}} hitSlop={computeUniformHitSlop(20)}>
+      <TouchableOpacity
+        onPress={openDrawer}
+        hitSlop={computeUniformHitSlop(20)}>
         <HeaderIcon name="bars" size={20} />
       </TouchableOpacity>
     </View>
