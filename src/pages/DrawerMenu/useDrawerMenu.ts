@@ -1,4 +1,5 @@
 import {useNavigation} from 'react-navigation-hooks';
+import {closeDrawer} from '../../navigation/actions';
 
 export const useDrawerMenu = () => {
   const {navigate} = useNavigation();
@@ -11,12 +12,18 @@ export const useDrawerMenu = () => {
   }[] = [
     {
       title: 'Accueil',
-      onPress: () => navigate('home'),
+      onPress: () => {
+        navigate('home');
+        closeDrawer();
+      },
       itemLogoName: 'home',
     },
     {
       title: 'Je crée ma Dictée à Choix Multiples',
-      onPress: () => navigate('authorPage'),
+      onPress: () => {
+        navigate('authorPage');
+        closeDrawer();
+      },
       hasRightArrow: true,
       itemLogoName: 'edit',
     },
