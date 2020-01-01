@@ -10,6 +10,11 @@ export const useDrawerMenu = () => {
     itemLogoName?: string;
   }[] = [
     {
+      title: 'Accueil',
+      onPress: () => navigate('home'),
+      itemLogoName: 'home',
+    },
+    {
       title: 'Je crée ma Dictée à Choix Multiples',
       onPress: () => navigate('authorPage'),
       hasRightArrow: true,

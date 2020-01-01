@@ -1,6 +1,7 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 import {styled} from '../../lib/styled';
+import {PageHeader} from '../../components/PageHeader';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -16,6 +17,7 @@ export const AuthorPage = () => {
   return (
     <SafeAreaViewComponent>
       <PageContainer>
+        <PageHeader title="Je crée ma dictée" />
         <Text>Author page</Text>
       </PageContainer>
     </SafeAreaViewComponent>
