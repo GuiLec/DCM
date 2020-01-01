@@ -4,6 +4,7 @@ import {styled} from '../../lib/styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {useDrawerMenu} from './useDrawerMenu';
 import {closeDrawer} from '../../navigation/actions';
+import {DrawerMenuItem} from './components/DrawerMenuItem';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -19,12 +20,19 @@ const CrossIconContainer = styled.TouchableOpacity`
 `;
 
 export const DrawerMenu = () => {
-  const {} = useDrawerMenu();
+  const {menutItems} = useDrawerMenu();
   return (
     <SafeAreaViewComponent>
       <CrossIconContainer onPress={closeDrawer}>
         <CrossIcon name="times" size={25} />
       </CrossIconContainer>
+      {menutItems.map(item => (
+        <DrawerMenuItem
+          key={item.title}
+          title={item.title}
+          onPress={item.onPress}
+        />
+      ))}
     </SafeAreaViewComponent>
   );
 };
