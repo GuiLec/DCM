@@ -2,14 +2,15 @@ import {Home} from './pages';
 import {Dimensions} from 'react-native';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {DrawerMenu} from './pages/DrawerMenu';
+import {AuthorPage} from './pages/AuthorPage/AuthorPage';
 
 export const RootNavigator = createDrawerNavigator(
   {
     home: {
       screen: Home,
     },
-    drawer: {
-      screen: Home,
+    authorPage: {
+      screen: AuthorPage,
     },
   },
   {
