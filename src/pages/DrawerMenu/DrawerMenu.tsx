@@ -31,6 +31,8 @@ export const DrawerMenu = () => {
           key={item.title}
           title={item.title}
           onPress={item.onPress}
+          hasRightArrow={item.hasRightArrow}
+          itemLogoName={item.itemLogoName}
         />
       ))}
     </SafeAreaViewComponent>

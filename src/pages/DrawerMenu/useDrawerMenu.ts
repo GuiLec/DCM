@@ -1,6 +1,15 @@
-const menutItems: {title: string; onPress: () => void}[] = [
-  {title: 'Hello', onPress: () => {}},
-  {title: 'Je crée ma Dictée à Choix Multiples', onPress: () => {}},
+const menutItems: {
+  title: string;
+  onPress: () => void;
+  hasRightArrow?: boolean;
+  itemLogoName?: string;
+}[] = [
+  {
+    title: 'Je crée ma Dictée à Choix Multiples',
+    onPress: () => {},
+    hasRightArrow: true,
+    itemLogoName: 'edit',
+  },
 ];
 
 export const useDrawerMenu = () => {
