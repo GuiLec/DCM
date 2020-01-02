@@ -16,6 +16,10 @@ interface Props {
 
 export const HomeFooter = (props: Props) => (
   <Container>
-    <ValidationButton onPress={props.onPress} />
+    <ValidationButton
+      title="corriger"
+      onPress={props.onPress}
+      buttonIconName="pen"
+    />
   </Container>
 );

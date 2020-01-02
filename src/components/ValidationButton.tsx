@@ -16,7 +16,7 @@ const ValidationText = styled.Text`
   font-weight: 700;
 `;
 
-const CorrectIcon = styled(Icon)`
+const ButtonIcon = styled(Icon)`
   color: ${props => props.theme.colors.lightGray};
   margin-right: ${props => props.theme.gridUnit * 2};
   color: ${props => props.theme.colors.darkGray};
@@ -24,11 +24,15 @@ const CorrectIcon = styled(Icon)`
 
 interface Props {
   onPress?: () => void;
+  title: string;
+  buttonIconName?: string;
 }
 
 export const ValidationButton = (props: Props) => (
   <Container onPress={props.onPress}>
-    <CorrectIcon name="pen" size={20} />
-    <ValidationText>Corriger</ValidationText>
+    {props.buttonIconName && (
+      <ButtonIcon name={props.buttonIconName} size={20} />
+    )}
+    <ValidationText>{props.title}</ValidationText>
   </Container>
 );
