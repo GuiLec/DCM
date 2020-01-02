@@ -3,6 +3,7 @@ import {SafeAreaView, Text} from 'react-native';
 import {styled} from '../../lib/styled';
 import {PageHeader} from '../../components/PageHeader';
 import {TextInputArea} from './components/TextInputArea';
+import {AuthorPageFooter} from './components/AuthorPageFooter';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -20,6 +21,7 @@ export const AuthorPage = () => {
       <PageContainer>
         <PageHeader title="Je crée ma dictée" />
         <TextInputArea />
+        <AuthorPageFooter onPress={() => {}} />
       </PageContainer>
     </SafeAreaViewComponent>
   );
