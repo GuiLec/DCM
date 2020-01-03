@@ -4,6 +4,7 @@ import {styled} from '../../lib/styled';
 import {PageHeader} from '../../components/PageHeader';
 import {TextInputArea} from './components/TextInputArea';
 import {AuthorPageFooter} from './components/AuthorPageFooter';
+import {useAuthorPage} from './components/useAuthorPage';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -16,12 +17,13 @@ const PageContainer = styled.View`
 `;
 
 export const AuthorPage = () => {
+  const {showConfirmationMessage} = useAuthorPage();
   return (
     <SafeAreaViewComponent>
       <PageContainer>
         <PageHeader title="Je crée ma dictée" />
         <TextInputArea />
-        <AuthorPageFooter onPress={() => {}} />
+        <AuthorPageFooter onPress={showConfirmationMessage} />
       </PageContainer>
     </SafeAreaViewComponent>
   );
