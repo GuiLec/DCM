@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {styled} from '../../lib/styled';
 import {PageHeader} from '../../components/PageHeader';
 import {TextInputArea} from './components/TextInputArea';
@@ -17,13 +17,16 @@ const PageContainer = styled.View`
 `;
 
 export const AuthorPage = () => {
-  const {showConfirmationMessage} = useAuthorPage();
+  const {showConfirmationMessage, text, updateText} = useAuthorPage();
   return (
     <SafeAreaViewComponent>
       <PageContainer>
         <PageHeader title="Je crée ma dictée" />
-        <TextInputArea />
-        <AuthorPageFooter onPress={showConfirmationMessage} />
+        <TextInputArea updateText={updateText} />
+        <AuthorPageFooter
+          isValidationDisabled={text === ''}
+          onPress={showConfirmationMessage}
+        />
       </PageContainer>
     </SafeAreaViewComponent>
   );

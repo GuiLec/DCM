@@ -23,14 +23,20 @@ const TextArea = styled(TextInput)`
   flex: 1;
 `;
 
-interface Props {}
+interface Props {
+  updateText: (text: string) => void;
+}
 
 export const TextInputArea = (props: Props) => {
   return (
     <Container onPress={Keyboard.dismiss} activeOpacity={1}>
       <KeyboardAwareWrapper>
         <Title>Le text de ma nouvelle tictée</Title>
-        <TextArea multiline={true} placeholder="J'écris mon text ici..." />
+        <TextArea
+          onChangeText={props.updateText}
+          multiline={true}
+          placeholder="J'écris mon text ici..."
+        />
       </KeyboardAwareWrapper>
     </Container>
   );

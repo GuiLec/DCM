@@ -1,6 +1,10 @@
 import {Alert} from 'react-native';
+import {useState} from 'react';
 
 export const useAuthorPage = () => {
+  const [text, setText] = useState<string>('');
+  const updateText = (text: string) => setText(text);
+
   const showConfirmationMessage = () =>
     Alert.alert(
       'Êtes-vous sûr du texte de la nouvelle dictée?',
@@ -15,5 +19,5 @@ export const useAuthorPage = () => {
         },
       ],
     );
-  return {showConfirmationMessage};
+  return {showConfirmationMessage, text, updateText};
 };

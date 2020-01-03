@@ -12,6 +12,7 @@ const Container = styled.View`
 
 interface Props {
   onPress: () => void;
+  isValidationDisabled: boolean;
 }
 
 export const AuthorPageFooter = (props: Props) => (
@@ -20,6 +21,7 @@ export const AuthorPageFooter = (props: Props) => (
       title="Je valide le texte"
       onPress={props.onPress}
       buttonIconName="check"
+      disabled={props.isValidationDisabled}
     />
   </Container>
 );
