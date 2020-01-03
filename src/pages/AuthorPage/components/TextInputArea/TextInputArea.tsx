@@ -1,6 +1,6 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
-import {ScrollView, TextInput, Keyboard} from 'react-native';
+import {TextInput, Keyboard} from 'react-native';
 import {KeyboardAwareWrapper} from '../../../../components/KeyboardAwareWrapper';
 
 const Container = styled.TouchableOpacity`

@@ -5,13 +5,16 @@ export const useAuthorPage = () => {
   const [text, setText] = useState<string>('');
   const updateText = (text: string) => setText(text);
 
-  const showConfirmationMessage = () =>
+  const [isWrittingChoices, setIsWrittingChoices] = useState<boolean>(false);
+
+  const showConfirmationMessage = () => {
     Alert.alert(
       'Êtes-vous sûr du texte de la nouvelle dictée?',
       'Il ne pourra pas être modifié par la suite',
       [
         {
           text: 'Sûr !',
+          onPress: () => setIsWrittingChoices(true),
         },
         {
           text: 'Annuler',
@@ -19,5 +22,6 @@ export const useAuthorPage = () => {
         },
       ],
     );
-  return {showConfirmationMessage, text, updateText};
+  };
+  return {showConfirmationMessage, text, updateText, isWrittingChoices};
 };
