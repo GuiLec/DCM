@@ -18,7 +18,9 @@ import {selectDictations} from '../../modules/dictation/selectors';
 export const useHome = () => {
   const dictations = useSelector(selectDictations);
 
-  const [activeDictation, setActiveDictation] = useState<Dictation | null>();
+  const [activeDictation, setActiveDictation] = useState<Dictation | null>(
+    null,
+  );
 
   const initalAnswersState = getInitialAnswersState(activeDictation);
   const correctAnswersState = getCorrectAnswersState(activeDictation);
@@ -79,6 +81,8 @@ export const useHome = () => {
     else await setActiveDictation(dictations[randomIndex]);
     setAnswersState({});
   };
+
+  console.log('activeSlicedDictation', activeSlicedDictation);
 
   return {
     activeSlicedDictation,

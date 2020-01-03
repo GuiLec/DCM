@@ -57,7 +57,10 @@ export const Home = () => {
           selectChoice={selectChoice}
           setAnswer={setAnswer}
         />
-        <HomeFooter onPress={showScore} />
+        <HomeFooter
+          onPress={showScore}
+          isValidationDisabled={!activeSlicedDictation}
+        />
       </PageContainer>
     </SafeAreaViewComponent>
   );

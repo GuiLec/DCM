@@ -12,11 +12,13 @@ const Container = styled.View`
 
 interface Props {
   onPress: () => void;
+  isValidationDisabled: boolean;
 }
 
 export const HomeFooter = (props: Props) => (
   <Container>
     <ValidationButton
+      disabled={props.isValidationDisabled}
       title="corriger"
       onPress={props.onPress}
       buttonIconName="pen"
