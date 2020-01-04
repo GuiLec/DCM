@@ -4,6 +4,7 @@ import {ScrollView, TouchableOpacity} from 'react-native';
 import {sliceText} from '../../../../modules/dictation/adapters';
 import {useWrittingChoicesArea} from './useWrittingChoicesArea';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Collapsible from 'react-native-collapsible';
 
 const Container = styled.View`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -80,12 +81,12 @@ export const WrittingChoicesArea = (props: Props) => {
             ))}
           </ScrollView>
         </Container>
-        {!!selectedWordId && (
+        <Collapsible collapsed={!selectedWordId}>
           <InputContainer>
             <NewGuessLabelIcon size={16} name="edit" />
             <NewGuessInput placeholder="J'écris un nouveau choix" />
           </InputContainer>
-        )}
+        </Collapsible>
       </TouchableOpacity>
     </>
   );
