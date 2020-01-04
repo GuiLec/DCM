@@ -68,6 +68,7 @@ export const WrittingChoicesArea = (props: Props) => {
     selectedWordId,
     setSelectedWordId,
     onWordPress,
+    selectedWordText,
   } = useWrittingChoicesArea();
   return (
     <>
@@ -83,7 +84,7 @@ export const WrittingChoicesArea = (props: Props) => {
                 {paragraph.map((word, i) => (
                   <Word
                     isSelected={`${index}_${i}` === selectedWordId}
-                    onPress={onWordPress(`${index}_${i}`)}
+                    onPress={onWordPress(`${index}_${i}`, word)}
                     key={i}>
                     {word}
                   </Word>
@@ -94,7 +95,7 @@ export const WrittingChoicesArea = (props: Props) => {
         </Container>
         <Collapsible collapsed={!selectedWordId}>
           <GuessesContainer>
-            <Answer answer="Le" />
+            <Answer answer={selectedWordText} />
           </GuessesContainer>
           <InputContainer>
             <NewGuessLabelIcon size={16} name="edit" />
