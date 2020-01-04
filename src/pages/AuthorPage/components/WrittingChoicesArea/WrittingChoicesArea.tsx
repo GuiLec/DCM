@@ -5,6 +5,7 @@ import {sliceText} from '../../../../modules/dictation/adapters';
 import {useWrittingChoicesArea} from './useWrittingChoicesArea';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Collapsible from 'react-native-collapsible';
+import {Answer} from '../../../../components/Answer';
 
 const Container = styled.View`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -39,6 +40,16 @@ const InputContainer = styled.View`
 `;
 const NewGuessLabelIcon = styled(Icon)`
   margin-right: ${props => props.theme.gridUnit * 2}px;
+`;
+
+const GuessesContainer = styled.View`
+  padding-horizontal: ${props => props.theme.gridUnit * 6}px;
+  padding-top: ${props => props.theme.gridUnit}px;
+  background-color: ${props => props.theme.colors.white};
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 const NewGuessInput = styled.TextInput`
@@ -82,6 +93,9 @@ export const WrittingChoicesArea = (props: Props) => {
           </ScrollView>
         </Container>
         <Collapsible collapsed={!selectedWordId}>
+          <GuessesContainer>
+            <Answer answer="Le" />
+          </GuessesContainer>
           <InputContainer>
             <NewGuessLabelIcon size={16} name="edit" />
             <NewGuessInput placeholder="J'écris un nouveau choix" />
