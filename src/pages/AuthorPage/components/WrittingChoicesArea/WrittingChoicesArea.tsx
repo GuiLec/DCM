@@ -1,6 +1,7 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView} from 'react-native';
+import {sliceText} from '../../../../modules/dictation/adapters';
 
 const Container = styled.View`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -16,6 +17,15 @@ const Title = styled.Text`
   margin-bottom: ${props => props.theme.gridUnit * 2}px;
 `;
 
+const Paragraph = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+const Word = styled.Text`
+  margin-right: ${props => props.theme.gridUnit};
+`;
+
 interface Props {
   text: string;
 }
@@ -25,7 +35,13 @@ export const WrittingChoicesArea = (props: Props) => {
     <Container>
       <Title>Je sélectionne les mots à deviner :</Title>
       <ScrollView style={{flex: 1}}>
-        <Text>{props.text}</Text>
+        {sliceText(props.text).map((paragraph, index) => (
+          <Paragraph key={index}>
+            {paragraph.map((word, i) => (
+              <Word key={i}>{word}</Word>
+            ))}
+          </Paragraph>
+        ))}
       </ScrollView>
     </Container>
   );

@@ -70,3 +70,9 @@ export const getScore = (
 
   return `${numberOfCorrectAnswers}/${numberOfChoiceInputs}`;
 };
+
+export const sliceText = (text: string): string[][] => {
+  const lines = text.split(`\n`);
+  const slicedText = lines.map(line => line.split(' '));
+  return slicedText;
+};

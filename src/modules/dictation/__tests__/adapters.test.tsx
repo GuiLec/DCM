@@ -1,4 +1,4 @@
-import {sliceDication} from '../adapters';
+import {sliceDication, sliceText} from '../adapters';
 import {mockedDictations} from '../mockedData';
 
 describe('dictation adapters', () => {
@@ -6,7 +6,12 @@ describe('dictation adapters', () => {
     const expected = [
       {text: 'Les ', type: 'hard'},
       {
-        choices: [{text: 'courses'}, {text: 'course'}, {text: 'cources'}],
+        choices: [
+          {text: 'courses', choiceID: '1'},
+          {text: 'course', choiceID: '2'},
+          {text: 'cources', choiceID: '3'},
+        ],
+        choiceInputID: '1',
         type: 'choice',
         originalTextLength: 7,
       },
@@ -15,7 +20,12 @@ describe('dictation adapters', () => {
         type: 'hard',
       },
       {
-        choices: [{text: 'mer'}, {text: 'mère'}, {text: 'maire'}],
+        choices: [
+          {text: 'mer', choiceID: '1'},
+          {text: 'mère', choiceID: '2'},
+          {text: 'maire', choiceID: '3'},
+        ],
+        choiceInputID: '3',
         type: 'choice',
         originalTextLength: 3,
       },
@@ -24,8 +34,13 @@ describe('dictation adapters', () => {
         type: 'hard',
       },
       {
-        choices: [{text: 'les'}, {text: 'lait'}, {text: 'laid'}],
+        choices: [
+          {text: 'les', choiceID: '1'},
+          {text: 'lait', choiceID: '2'},
+          {text: 'laid', choiceID: '3'},
+        ],
         type: 'choice',
+        choiceInputID: '2',
         originalTextLength: 3,
       },
       {
@@ -35,5 +50,15 @@ describe('dictation adapters', () => {
       },
     ];
     expect(sliceDication(mockedDictations[0])).toStrictEqual(expected);
+  });
+
+  it('slices properly dictations', () => {
+    const expected = [
+      ['Je', 'ne', 'veux', 'pas', 'travailler'],
+      ['Mais', "j'aime", 'coder'],
+    ];
+    expect(
+      sliceText("Je ne veux pas travailler\nMais j'aime coder"),
+    ).toStrictEqual(expected);
   });
 });
