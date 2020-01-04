@@ -5,5 +5,5 @@ export const useWrittingChoicesArea = () => {
   const onWordPress = (id: string) => () => {
     setSelectedWordId(id);
   };
-  return {selectedWordId, onWordPress};
+  return {selectedWordId, setSelectedWordId, onWordPress};
 };

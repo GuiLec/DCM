@@ -1,6 +1,6 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView, TouchableOpacity} from 'react-native';
 import {sliceText} from '../../../../modules/dictation/adapters';
 import {useWrittingChoicesArea} from './useWrittingChoicesArea';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -52,32 +52,41 @@ interface Props {
 }
 
 export const WrittingChoicesArea = (props: Props) => {
-  const {selectedWordId, onWordPress} = useWrittingChoicesArea();
+  const {
+    selectedWordId,
+    setSelectedWordId,
+    onWordPress,
+  } = useWrittingChoicesArea();
   return (
     <>
-      <Container>
-        <Title>Je sélectionne les mots à deviner :</Title>
-        <ScrollView style={{flex: 1}}>
-          {sliceText(props.text).map((paragraph, index) => (
-            <Paragraph key={index}>
-              {paragraph.map((word, i) => (
-                <Word
-                  isSelected={`${index}_${i}` === selectedWordId}
-                  onPress={onWordPress(`${index}_${i}`)}
-                  key={i}>
-                  {word}
-                </Word>
-              ))}
-            </Paragraph>
-          ))}
-        </ScrollView>
-      </Container>
-      {!!selectedWordId && (
-        <InputContainer>
-          <NewGuessLabelIcon size={16} name="edit" />
-          <NewGuessInput placeholder="J'écris un nouveau choix" />
-        </InputContainer>
-      )}
+      <TouchableOpacity
+        style={{flex: 1}}
+        onPress={() => setSelectedWordId(null)}
+        activeOpacity={1}>
+        <Container>
+          <Title>Je sélectionne les mots à deviner :</Title>
+          <ScrollView style={{flex: 1}}>
+            {sliceText(props.text).map((paragraph, index) => (
+              <Paragraph key={index}>
+                {paragraph.map((word, i) => (
+                  <Word
+                    isSelected={`${index}_${i}` === selectedWordId}
+                    onPress={onWordPress(`${index}_${i}`)}
+                    key={i}>
+                    {word}
+                  </Word>
+                ))}
+              </Paragraph>
+            ))}
+          </ScrollView>
+        </Container>
+        {!!selectedWordId && (
+          <InputContainer>
+            <NewGuessLabelIcon size={16} name="edit" />
+            <NewGuessInput placeholder="J'écris un nouveau choix" />
+          </InputContainer>
+        )}
+      </TouchableOpacity>
     </>
   );
 };
