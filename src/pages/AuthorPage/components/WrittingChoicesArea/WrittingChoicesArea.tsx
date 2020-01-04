@@ -23,7 +23,7 @@ interface Props {
 export const WrittingChoicesArea = (props: Props) => {
   return (
     <Container>
-      <Title>Je sélectionne un mot à deviner :</Title>
+      <Title>Je sélectionne les mots à deviner :</Title>
       <ScrollView style={{flex: 1}}>
         <Text>{props.text}</Text>
       </ScrollView>

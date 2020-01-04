@@ -37,12 +37,14 @@ export const AuthorPage = () => {
         {isWrittingChoices ? (
           <WrittingChoicesArea text={text} />
         ) : (
-          <TextInputArea updateText={updateText} />
+          <>
+            <TextInputArea updateText={updateText} />
+            <AuthorPageFooter
+              isValidationDisabled={text === ''}
+              onPress={showConfirmationMessage}
+            />
+          </>
         )}
-        <AuthorPageFooter
-          isValidationDisabled={text === ''}
-          onPress={showConfirmationMessage}
-        />
       </PageContainer>
     </SafeAreaViewComponent>
   );
