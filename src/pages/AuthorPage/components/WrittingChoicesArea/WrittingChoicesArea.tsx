@@ -1,13 +1,13 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
-import {ScrollView, TouchableOpacity} from 'react-native';
+import {ScrollView} from 'react-native';
 import {sliceText} from '../../../../modules/dictation/adapters';
 import {useWrittingChoicesArea} from './useWrittingChoicesArea';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Collapsible from 'react-native-collapsible';
 import {Answer} from '../../../../components/Answer';
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
   padding: ${props => props.theme.gridUnit * 2}px;
   margin: ${props => props.theme.gridUnit * 2}px;
   flex: 1;
@@ -71,11 +71,11 @@ export const WrittingChoicesArea = (props: Props) => {
   } = useWrittingChoicesArea();
   return (
     <>
-      <TouchableOpacity
-        style={{flex: 1}}
-        onPress={() => setSelectedWordId(null)}
-        activeOpacity={1}>
-        <Container>
+      <>
+        <Container
+          style={{flex: 1}}
+          onPress={() => setSelectedWordId(null)}
+          activeOpacity={1}>
           <Title>Je sélectionne les mots à deviner :</Title>
           <ScrollView style={{flex: 1}}>
             {sliceText(props.text).map((paragraph, index) => (
@@ -101,7 +101,7 @@ export const WrittingChoicesArea = (props: Props) => {
             <NewGuessInput placeholder="J'écris un nouveau choix" />
           </InputContainer>
         </Collapsible>
-      </TouchableOpacity>
+      </>
     </>
   );
 };
