@@ -71,6 +71,8 @@ export const WrittingChoicesArea = (props: Props) => {
     setSelectedWordId,
     onWordPress,
     selectedWordText,
+    changeInputText,
+    onAddButtonPress,
   } = useWrittingChoicesArea();
   return (
     <>
@@ -101,8 +103,11 @@ export const WrittingChoicesArea = (props: Props) => {
           </GuessesContainer>
           <InputContainer>
             <NewGuessLabelIcon size={16} name="edit" />
-            <NewGuessInput placeholder="J'écris un nouveau choix" />
-            <PlusButton />
+            <NewGuessInput
+              onChangeText={changeInputText}
+              placeholder="J'écris un nouveau choix"
+            />
+            <PlusButton onPress={onAddButtonPress} />
           </InputContainer>
         </Collapsible>
       </>
