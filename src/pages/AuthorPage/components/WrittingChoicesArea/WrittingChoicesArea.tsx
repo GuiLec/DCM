@@ -6,6 +6,7 @@ import {useWrittingChoicesArea} from './useWrittingChoicesArea';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Collapsible from 'react-native-collapsible';
 import {Answer} from '../../../../components/Answer';
+import {PlusButton} from '../../../../components/PlusButton';
 
 const Container = styled.TouchableOpacity`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -39,6 +40,7 @@ const InputContainer = styled.View`
   align-items: center;
 `;
 const NewGuessLabelIcon = styled(Icon)`
+  color: ${props => props.theme.colors.gray};
   margin-right: ${props => props.theme.gridUnit * 2}px;
 `;
 
@@ -53,7 +55,7 @@ const GuessesContainer = styled.View`
 `;
 
 const NewGuessInput = styled.TextInput`
-  border-color: ${props => props.theme.colors.lightGray};
+  border-color: ${props => props.theme.colors.gray};
   border-width: 1px;
   padding: ${props => props.theme.gridUnit}px;
   flex: 1;
@@ -100,6 +102,7 @@ export const WrittingChoicesArea = (props: Props) => {
           <InputContainer>
             <NewGuessLabelIcon size={16} name="edit" />
             <NewGuessInput placeholder="J'écris un nouveau choix" />
+            <PlusButton />
           </InputContainer>
         </Collapsible>
       </>
