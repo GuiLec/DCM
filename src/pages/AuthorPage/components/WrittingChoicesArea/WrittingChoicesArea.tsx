@@ -67,10 +67,9 @@ interface Props {
 
 export const WrittingChoicesArea = (props: Props) => {
   const {
-    selectedWordId,
-    setSelectedWordId,
+    setSelectedWord,
     onWordPress,
-    selectedWordText,
+    selectedWord,
     changeInputText,
     onAddButtonPress,
   } = useWrittingChoicesArea();
@@ -79,27 +78,32 @@ export const WrittingChoicesArea = (props: Props) => {
       <>
         <Container
           style={{flex: 1}}
-          onPress={() => setSelectedWordId(null)}
+          onPress={() => setSelectedWord(null)}
           activeOpacity={1}>
           <Title>Je sélectionne les mots à deviner :</Title>
           <ScrollView style={{flex: 1}}>
             {sliceText(props.text).map((paragraph, index) => (
               <Paragraph key={index}>
-                {paragraph.map((word, i) => (
+                {paragraph.map((word: {text: string; position: number}, i) => (
                   <Word
-                    isSelected={`${index}_${i}` === selectedWordId}
-                    onPress={onWordPress(`${index}_${i}`, word)}
+                    isSelected={
+                      selectedWord && `${index}_${i}` === selectedWord.id
+                    }
+                    onPress={onWordPress({
+                      ...word,
+                      id: `${index}_${i}`,
+                    })}
                     key={i}>
-                    {word}
+                    {word.text}
                   </Word>
                 ))}
               </Paragraph>
             ))}
           </ScrollView>
         </Container>
-        <Collapsible collapsed={!selectedWordId}>
+        <Collapsible collapsed={!selectedWord}>
           <GuessesContainer>
-            <Answer answer={selectedWordText} />
+            {!!selectedWord && <Answer answer={selectedWord.text} />}
           </GuessesContainer>
           <InputContainer>
             <NewGuessLabelIcon size={16} name="edit" />

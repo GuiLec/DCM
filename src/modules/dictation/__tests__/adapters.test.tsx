@@ -54,11 +54,22 @@ describe('dictation adapters', () => {
 
   it('slices properly dictations', () => {
     const expected = [
-      ['Je', 'ne', 'veux', 'pas', 'travailler'],
-      ['Mais', "j'aime", 'coder'],
+      [
+        {text: 'Je', position: 0},
+        {text: 'ne', position: 3},
+        {text: 'veux', position: 6},
+        {text: 'pas', position: 11},
+        {text: 'travailler', position: 15},
+      ],
+      [{text: '', position: 26}],
+      [
+        {text: 'Mais', position: 27},
+        {text: "j'aime", position: 32},
+        {text: 'coder', position: 39},
+      ],
     ];
     expect(
-      sliceText("Je ne veux pas travailler\nMais j'aime coder"),
+      sliceText("Je ne veux pas travailler\n\nMais j'aime coder"),
     ).toStrictEqual(expected);
   });
 });

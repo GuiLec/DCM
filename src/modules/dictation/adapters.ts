@@ -71,8 +71,21 @@ export const getScore = (
   return `${numberOfCorrectAnswers}/${numberOfChoiceInputs}`;
 };
 
-export const sliceText = (text: string): string[][] => {
+export const sliceText = (
+  text: string,
+): {text: string; position: number}[][] => {
+  let position = 0;
+  let words;
+  let slicedText = [];
   const lines = text.split(`\n`);
-  const slicedText = lines.map(line => line.split(' '));
+  lines.forEach(line => {
+    let slicedLine = [];
+    words = line.split(' ');
+    words.forEach(word => {
+      slicedLine.push({text: word, position});
+      position = position + word.length + 1;
+    });
+    slicedText.push(slicedLine);
+  });
   return slicedText;
 };

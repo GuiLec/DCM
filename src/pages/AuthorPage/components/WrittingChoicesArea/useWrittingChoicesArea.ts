@@ -1,24 +1,29 @@
 import {useState} from 'react';
 
 export const useWrittingChoicesArea = () => {
-  const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
-  const [selectedWordText, setSelectedWordText] = useState<string | null>(null);
+  const [selectedWord, setSelectedWord] = useState<{
+    id: string;
+    text: string;
+    position: number;
+  } | null>(null);
   const [inputText, setInputText] = useState<string | null>(null);
 
   const changeInputText = (text: string) => setInputText(text);
 
-  const onWordPress = (id: string, word: string) => () => {
-    setSelectedWordId(id);
-    setSelectedWordText(word);
+  const onWordPress = (word: {
+    id: string;
+    text: string;
+    position: number;
+  }) => () => {
+    setSelectedWord(word);
   };
 
   const onAddButtonPress = () => {};
 
   return {
-    selectedWordId,
-    setSelectedWordId,
+    setSelectedWord,
     onWordPress,
-    selectedWordText,
+    selectedWord,
     changeInputText,
     onAddButtonPress,
   };
