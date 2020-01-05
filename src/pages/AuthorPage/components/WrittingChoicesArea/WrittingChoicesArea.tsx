@@ -72,6 +72,7 @@ export const WrittingChoicesArea = (props: Props) => {
     selectedWord,
     changeInputText,
     onAddButtonPress,
+    choiceInputs,
   } = useWrittingChoicesArea();
   return (
     <>
@@ -103,7 +104,11 @@ export const WrittingChoicesArea = (props: Props) => {
         </Container>
         <Collapsible collapsed={!selectedWord}>
           <GuessesContainer>
-            {!!selectedWord && <Answer answer={selectedWord.text} />}
+            {!!selectedWord &&
+              choiceInputs[selectedWord.id] &&
+              choiceInputs[selectedWord.id].choices.map(choice => (
+                <Answer key={choice.choiceID} answer={choice.text} />
+              ))}
           </GuessesContainer>
           <InputContainer>
             <NewGuessLabelIcon size={16} name="edit" />
