@@ -40,6 +40,7 @@ export const useWrittingChoicesArea = () => {
       correctChoiceID: '1',
       originalTextLength: selectedWord.text.length,
     };
+    setChoiceInputs(state => ({...state}));
   };
 
   return {
