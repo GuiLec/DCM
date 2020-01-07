@@ -30,14 +30,12 @@ interface Props {
 export const TextInputArea = (props: Props) => {
   return (
     <Container onPress={Keyboard.dismiss} activeOpacity={1}>
-      <KeyboardAwareWrapper>
-        <Title>Le text de ma nouvelle tictée</Title>
-        <TextArea
-          onChangeText={props.updateText}
-          multiline={true}
-          placeholder="J'écris mon text ici..."
-        />
-      </KeyboardAwareWrapper>
+      <Title>Le text de ma nouvelle tictée</Title>
+      <TextArea
+        onChangeText={props.updateText}
+        multiline={true}
+        placeholder="J'écris mon text ici..."
+      />
     </Container>
   );
 };

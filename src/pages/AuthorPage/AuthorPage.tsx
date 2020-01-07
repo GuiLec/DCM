@@ -6,6 +6,7 @@ import {TextInputArea} from './components/TextInputArea';
 import {AuthorPageFooter} from './components/AuthorPageFooter';
 import {useAuthorPage} from './components/useAuthorPage';
 import {WrittingChoicesArea} from './components/WrittingChoicesArea';
+import {KeyboardAwareWrapper} from '../../components/KeyboardAwareWrapper';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -26,26 +27,28 @@ export const AuthorPage = () => {
   } = useAuthorPage();
   return (
     <SafeAreaViewComponent>
-      <PageContainer>
-        <PageHeader
-          title={
-            isWrittingChoices
-              ? "J'écris les choix multiples"
-              : 'Je crée ma dictée'
-          }
-        />
-        {isWrittingChoices ? (
-          <WrittingChoicesArea text={text} />
-        ) : (
-          <>
-            <TextInputArea updateText={updateText} />
-            <AuthorPageFooter
-              isValidationDisabled={text === ''}
-              onPress={showConfirmationMessage}
-            />
-          </>
-        )}
-      </PageContainer>
+      <KeyboardAwareWrapper>
+        <PageContainer>
+          <PageHeader
+            title={
+              isWrittingChoices
+                ? "J'écris les choix multiples"
+                : 'Je crée ma dictée'
+            }
+          />
+          {isWrittingChoices ? (
+            <WrittingChoicesArea text={text} />
+          ) : (
+            <>
+              <TextInputArea updateText={updateText} />
+              <AuthorPageFooter
+                isValidationDisabled={text === ''}
+                onPress={showConfirmationMessage}
+              />
+            </>
+          )}
+        </PageContainer>
+      </KeyboardAwareWrapper>
     </SafeAreaViewComponent>
   );
 };

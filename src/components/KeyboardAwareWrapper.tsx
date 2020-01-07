@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 import {KeyboardAvoidingView, NativeModules, Platform} from 'react-native';
-import {Header} from 'react-navigation-stack';
+//import {Header} from 'react-navigation-stack';
 
 import {styled} from '../lib/styled';
 
@@ -31,7 +31,7 @@ export const KeyboardAwareWrapper = (props: Props) =>
   Platform.OS === 'ios' ? (
     <StyledKeyboardAvoidingView
       behavior="padding"
-      keyboardVerticalOffset={Header.HEIGHT + statusBarHeight}>
+      keyboardVerticalOffset={statusBarHeight}>
       {props.children}
     </StyledKeyboardAvoidingView>
   ) : (
