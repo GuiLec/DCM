@@ -82,8 +82,6 @@ export const useHome = () => {
     setAnswersState({});
   };
 
-  console.log('activeSlicedDictation', activeSlicedDictation);
-
   return {
     activeSlicedDictation,
     isAnswersAreaVisible,

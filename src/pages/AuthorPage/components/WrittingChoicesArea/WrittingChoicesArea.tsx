@@ -27,10 +27,14 @@ const Paragraph = styled.View`
   flex-wrap: wrap;
 `;
 
-const Word = styled.Text<{isSelected: boolean}>`
+const Word = styled.Text<{isSelected: boolean; isWordAGuess: boolean}>`
   margin-right: ${props => props.theme.gridUnit};
   background-color: ${props =>
-    props.isSelected ? props.theme.colors.gray : props.theme.colors.white};
+    props.isSelected
+      ? props.theme.colors.gray
+      : props.isWordAGuess
+      ? props.theme.colors.lightGray
+      : props.theme.colors.white};
 `;
 
 const InputContainer = styled.View`
@@ -74,6 +78,7 @@ export const WrittingChoicesArea = (props: Props) => {
     changeInputText,
     onAddButtonPress,
     choiceInputs,
+    isWordAGuess,
   } = useWrittingChoicesArea();
   return (
     <>
@@ -86,19 +91,21 @@ export const WrittingChoicesArea = (props: Props) => {
           <ScrollView style={{flex: 1}}>
             {sliceText(props.text).map((paragraph, index) => (
               <Paragraph key={index}>
-                {paragraph.map((word: {text: string; position: number}, i) => (
-                  <Word
-                    isSelected={
-                      selectedWord && `${index}_${i}` === selectedWord.id
-                    }
-                    onPress={onWordPress({
-                      ...word,
-                      id: `${index}_${i}`,
-                    })}
-                    key={i}>
-                    {word.text}
-                  </Word>
-                ))}
+                {paragraph.map((word: {text: string; position: number}, i) => {
+                  const id = `${index}_${i}`;
+                  return (
+                    <Word
+                      isSelected={selectedWord && id === selectedWord.id}
+                      isWordAGuess={isWordAGuess(id)}
+                      onPress={onWordPress({
+                        ...word,
+                        id: id,
+                      })}
+                      key={i}>
+                      {word.text}
+                    </Word>
+                  );
+                })}
               </Paragraph>
             ))}
           </ScrollView>

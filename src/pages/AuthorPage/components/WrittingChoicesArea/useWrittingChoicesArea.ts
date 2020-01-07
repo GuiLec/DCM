@@ -13,6 +13,8 @@ export const useWrittingChoicesArea = () => {
     {},
   );
 
+  const isWordAGuess = (id: string) => Object.keys(choiceInputs).includes(id);
+
   const changeInputText = (text: string) => setInputText(text);
 
   const onWordPress = (word: {
@@ -62,5 +64,6 @@ export const useWrittingChoicesArea = () => {
     changeInputText,
     onAddButtonPress,
     choiceInputs,
+    isWordAGuess,
   };
 };
