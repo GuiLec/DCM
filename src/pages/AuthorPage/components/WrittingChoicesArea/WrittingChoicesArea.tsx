@@ -70,6 +70,7 @@ export const WrittingChoicesArea = (props: Props) => {
     setSelectedWord,
     onWordPress,
     selectedWord,
+    inputText,
     changeInputText,
     onAddButtonPress,
     choiceInputs,
@@ -113,6 +114,7 @@ export const WrittingChoicesArea = (props: Props) => {
           <InputContainer>
             <NewGuessLabelIcon size={16} name="edit" />
             <NewGuessInput
+              value={inputText}
               onChangeText={changeInputText}
               placeholder="J'écris un nouveau choix"
             />

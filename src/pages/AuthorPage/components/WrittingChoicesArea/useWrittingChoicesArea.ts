@@ -51,12 +51,14 @@ export const useWrittingChoicesArea = () => {
         originalTextLength: selectedWord.text.length,
       };
     setChoiceInputs(state => ({...state}));
+    setInputText('');
   };
 
   return {
     setSelectedWord,
     onWordPress,
     selectedWord,
+    inputText,
     changeInputText,
     onAddButtonPress,
     choiceInputs,
