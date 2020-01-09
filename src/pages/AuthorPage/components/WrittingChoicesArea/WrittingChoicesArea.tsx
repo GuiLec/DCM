@@ -53,7 +53,7 @@ const GuessesContainer = styled.ScrollView`
   padding-top: ${props => props.theme.gridUnit}px;
   background-color: ${props => props.theme.colors.white};
   flex-wrap: wrap;
-  max-height: 60%;
+  max-height: ${props => props.theme.gridUnit * 30}px;
 `;
 
 const NewGuessInput = styled.TextInput`
