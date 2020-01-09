@@ -24,6 +24,7 @@ export const AuthorPage = () => {
     text,
     updateText,
     isWrittingChoices,
+    cancelNewDictation,
   } = useAuthorPage();
   return (
     <SafeAreaViewComponent>
@@ -35,7 +36,7 @@ export const AuthorPage = () => {
                 ? "J'écris les choix multiples"
                 : 'Je crée ma dictée'
             }
-            onCancel={() => {}}
+            onCancel={isWrittingChoices && cancelNewDictation}
           />
           {isWrittingChoices ? (
             <WrittingChoicesArea text={text} />
