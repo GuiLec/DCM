@@ -73,8 +73,9 @@ const styles = StyleSheet.create({
   },
 });
 
-interface Props {
+export interface Props {
   text: string;
+  cancelNewDictation: () => void;
 }
 
 export const WrittingChoicesArea = (props: Props) => {
@@ -88,7 +89,7 @@ export const WrittingChoicesArea = (props: Props) => {
     choiceInputs,
     isWordAGuess,
     saveDictation,
-  } = useWrittingChoicesArea(props.text);
+  } = useWrittingChoicesArea(props);
   return (
     <>
       <Container

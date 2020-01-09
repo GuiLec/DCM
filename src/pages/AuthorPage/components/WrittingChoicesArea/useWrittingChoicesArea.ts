@@ -3,8 +3,9 @@ import {ChoiceInput} from '../../../../modules/dictation/interface';
 import {useDispatch, useSelector} from 'react-redux';
 import {saveDictationRequest} from '../../../../modules/dictation/actions';
 import {selectDictations} from '../../../../modules/dictation/selectors';
+import {Props} from './WrittingChoicesArea';
 
-export const useWrittingChoicesArea = (dictationText: string) => {
+export const useWrittingChoicesArea = (props: Props) => {
   const [selectedWord, setSelectedWord] = useState<{
     id: string;
     text: string;
@@ -61,15 +62,17 @@ export const useWrittingChoicesArea = (dictationText: string) => {
 
   const dispatch = useDispatch();
   const newId = useSelector(selectDictations).length;
-  const saveDictation = () =>
+  const saveDictation = () => {
     dispatch(
       saveDictationRequest({
         id: `new${newId}`,
         name: 'Nouvelle dictée',
-        text: dictationText,
+        text: props.text,
         choiceInputs: Object.values(choiceInputs),
       }),
     );
+    props.cancelNewDictation();
+  };
 
   return {
     setSelectedWord,

@@ -39,7 +39,10 @@ export const AuthorPage = () => {
             onCancel={isWrittingChoices && cancelNewDictation}
           />
           {isWrittingChoices ? (
-            <WrittingChoicesArea text={text} />
+            <WrittingChoicesArea
+              cancelNewDictation={cancelNewDictation}
+              text={text}
+            />
           ) : (
             <>
               <TextInputArea updateText={updateText} />
