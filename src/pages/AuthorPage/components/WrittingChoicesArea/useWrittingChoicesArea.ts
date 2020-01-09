@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {saveDictationRequest} from '../../../../modules/dictation/actions';
 import {selectDictations} from '../../../../modules/dictation/selectors';
 import {Props} from './WrittingChoicesArea';
+import {useNavigation} from 'react-navigation-hooks';
 
 export const useWrittingChoicesArea = (props: Props) => {
   const [selectedWord, setSelectedWord] = useState<{
@@ -61,6 +62,7 @@ export const useWrittingChoicesArea = (props: Props) => {
   };
 
   const dispatch = useDispatch();
+  const {navigate} = useNavigation();
   const newId = useSelector(selectDictations).length;
   const saveDictation = () => {
     dispatch(
@@ -72,6 +74,7 @@ export const useWrittingChoicesArea = (props: Props) => {
       }),
     );
     props.cancelNewDictation();
+    navigate('home');
   };
 
   return {
