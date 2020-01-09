@@ -14,6 +14,7 @@ import {
 import {Alert} from 'react-native';
 import {useSelector} from 'react-redux';
 import {selectDictations} from '../../modules/dictation/selectors';
+import {shuffle} from '../../lib/utils';
 
 export const useHome = () => {
   const dictations = useSelector(selectDictations);
@@ -56,7 +57,7 @@ export const useHome = () => {
       choiceInput => choiceInput.choiceInputID === selectedChoiceInputID,
     );
   const selectedChoiceInputChoices: Choice[] | undefined =
-    selectedChoiceInput && selectedChoiceInput.choices;
+    selectedChoiceInput && shuffle(selectedChoiceInput.choices);
 
   const isAnswersAreaVisible = selectedChoiceInputID !== null;
 
