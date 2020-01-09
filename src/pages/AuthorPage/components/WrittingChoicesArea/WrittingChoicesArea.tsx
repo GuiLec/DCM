@@ -48,14 +48,12 @@ const NewGuessLabelIcon = styled(Icon)`
   margin-right: ${props => props.theme.gridUnit * 2}px;
 `;
 
-const GuessesContainer = styled.View`
+const GuessesContainer = styled.ScrollView`
   padding-horizontal: ${props => props.theme.gridUnit * 6}px;
   padding-top: ${props => props.theme.gridUnit}px;
   background-color: ${props => props.theme.colors.white};
-  flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
+  max-height: 60%;
 `;
 
 const NewGuessInput = styled.TextInput`
@@ -82,53 +80,57 @@ export const WrittingChoicesArea = (props: Props) => {
   } = useWrittingChoicesArea();
   return (
     <>
-      <>
-        <Container
-          style={{flex: 1}}
-          onPress={() => setSelectedWord(null)}
-          activeOpacity={1}>
-          <Title>Je sélectionne les mots à deviner :</Title>
-          <ScrollView style={{flex: 1}}>
-            {sliceText(props.text).map((paragraph, index) => (
-              <Paragraph key={index}>
-                {paragraph.map((word: {text: string; position: number}, i) => {
-                  const id = `${index}_${i}`;
-                  return (
-                    <Word
-                      isSelected={selectedWord && id === selectedWord.id}
-                      isWordAGuess={isWordAGuess(id)}
-                      onPress={onWordPress({
-                        ...word,
-                        id: id,
-                      })}
-                      key={i}>
-                      {word.text}
-                    </Word>
-                  );
-                })}
-              </Paragraph>
+      <Container
+        style={{flex: 1}}
+        onPress={() => setSelectedWord(null)}
+        activeOpacity={1}>
+        <Title>Je sélectionne les mots à deviner :</Title>
+        <ScrollView style={{flex: 1}}>
+          {sliceText(props.text).map((paragraph, index) => (
+            <Paragraph key={index}>
+              {paragraph.map((word: {text: string; position: number}, i) => {
+                const id = `${index}_${i}`;
+                return (
+                  <Word
+                    isSelected={selectedWord && id === selectedWord.id}
+                    isWordAGuess={isWordAGuess(id)}
+                    onPress={onWordPress({
+                      ...word,
+                      id: id,
+                    })}
+                    key={i}>
+                    {word.text}
+                  </Word>
+                );
+              })}
+            </Paragraph>
+          ))}
+        </ScrollView>
+      </Container>
+      <Collapsible collapsed={!selectedWord}>
+        <GuessesContainer
+          contentContainerStyle={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+          }}>
+          {!!selectedWord &&
+            choiceInputs[selectedWord.id] &&
+            choiceInputs[selectedWord.id].choices.map(choice => (
+              <Answer key={choice.choiceID} answer={choice.text} />
             ))}
-          </ScrollView>
-        </Container>
-        <Collapsible collapsed={!selectedWord}>
-          <GuessesContainer>
-            {!!selectedWord &&
-              choiceInputs[selectedWord.id] &&
-              choiceInputs[selectedWord.id].choices.map(choice => (
-                <Answer key={choice.choiceID} answer={choice.text} />
-              ))}
-          </GuessesContainer>
-          <InputContainer>
-            <NewGuessLabelIcon size={16} name="edit" />
-            <NewGuessInput
-              value={inputText}
-              onChangeText={changeInputText}
-              placeholder="J'écris un nouveau choix"
-            />
-            <PlusButton onPress={onAddButtonPress} />
-          </InputContainer>
-        </Collapsible>
-      </>
+        </GuessesContainer>
+        <InputContainer>
+          <NewGuessLabelIcon size={16} name="edit" />
+          <NewGuessInput
+            value={inputText}
+            onChangeText={changeInputText}
+            placeholder="J'écris un nouveau choix"
+          />
+          <PlusButton onPress={onAddButtonPress} />
+        </InputContainer>
+      </Collapsible>
     </>
   );
 };
