@@ -30,7 +30,7 @@ interface Props {
 export const TextInputArea = (props: Props) => {
   return (
     <Container onPress={Keyboard.dismiss} activeOpacity={1}>
-      <Title>Le text de ma nouvelle tictée</Title>
+      <Title>Le texte de ma nouvelle dictée</Title>
       <TextArea
         onChangeText={props.updateText}
         multiline={true}
