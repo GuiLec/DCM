@@ -87,7 +87,8 @@ export const WrittingChoicesArea = (props: Props) => {
     onAddButtonPress,
     choiceInputs,
     isWordAGuess,
-  } = useWrittingChoicesArea();
+    saveDictation,
+  } = useWrittingChoicesArea(props.text);
   return (
     <>
       <Container
@@ -139,7 +140,7 @@ export const WrittingChoicesArea = (props: Props) => {
         <AuthorPageFooter
           title="Je valide cette dictée"
           isValidationDisabled={Object.keys(choiceInputs).length === 0}
-          onPress={() => {}}
+          onPress={saveDictation}
         />
       </Collapsible>
     </>

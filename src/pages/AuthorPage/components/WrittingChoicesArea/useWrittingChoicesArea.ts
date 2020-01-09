@@ -1,7 +1,10 @@
 import {useState} from 'react';
 import {ChoiceInput} from '../../../../modules/dictation/interface';
+import {useDispatch, useSelector} from 'react-redux';
+import {saveDictationRequest} from '../../../../modules/dictation/actions';
+import {selectDictations} from '../../../../modules/dictation/selectors';
 
-export const useWrittingChoicesArea = () => {
+export const useWrittingChoicesArea = (dictationText: string) => {
   const [selectedWord, setSelectedWord] = useState<{
     id: string;
     text: string;
@@ -56,6 +59,18 @@ export const useWrittingChoicesArea = () => {
     setInputText('');
   };
 
+  const dispatch = useDispatch();
+  const newId = useSelector(selectDictations).length;
+  const saveDictation = () =>
+    dispatch(
+      saveDictationRequest({
+        id: `new${newId}`,
+        name: 'Nouvelle dictée',
+        text: dictationText,
+        choiceInputs: Object.values(choiceInputs),
+      }),
+    );
+
   return {
     setSelectedWord,
     onWordPress,
@@ -65,5 +80,6 @@ export const useWrittingChoicesArea = () => {
     onAddButtonPress,
     choiceInputs,
     isWordAGuess,
+    saveDictation,
   };
 };
