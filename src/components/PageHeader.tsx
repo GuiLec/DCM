@@ -10,18 +10,11 @@ const Container = styled.View`
   padding: ${props => props.theme.gridUnit * 4}px;
   flex-direction: row;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
 `;
 
 const HeaderIcon = styled(Icon)`
   color: ${props => props.theme.colors.lightGray};
-`;
-
-const CaretDownIcon = styled(Icon)`
-  color: ${props => props.theme.colors.lightGray};
-  position: absolute;
-  right: -5;
-  bottom: -5;
 `;
 
 const HeaderTitle = styled.Text`
@@ -30,8 +23,15 @@ const HeaderTitle = styled.Text`
   color: ${props => props.theme.colors.white};
 `;
 
+const CancelText = styled.Text`
+  font-weight: bold;
+  font-size: ${props => props.theme.fontSizes.medium};
+  color: ${props => props.theme.colors.white};
+`;
+
 interface Props {
   title: string;
+  onCancel?: () => void;
 }
 
 export const PageHeader = (props: Props) => (
@@ -44,6 +44,14 @@ export const PageHeader = (props: Props) => (
       </TouchableOpacity>
     </View>
     <HeaderTitle>{props.title}</HeaderTitle>
-    <View />
+    <View>
+      {props.onCancel && (
+        <TouchableOpacity
+          onPress={props.onCancel}
+          hitSlop={computeUniformHitSlop(20)}>
+          <CancelText>Annuler</CancelText>
+        </TouchableOpacity>
+      )}
+    </View>
   </Container>
 );

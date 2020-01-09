@@ -35,6 +35,7 @@ export const AuthorPage = () => {
                 ? "J'écris les choix multiples"
                 : 'Je crée ma dictée'
             }
+            onCancel={() => {}}
           />
           {isWrittingChoices ? (
             <WrittingChoicesArea text={text} />
