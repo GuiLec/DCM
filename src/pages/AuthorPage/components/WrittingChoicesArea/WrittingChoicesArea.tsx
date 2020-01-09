@@ -138,7 +138,7 @@ export const WrittingChoicesArea = (props: Props) => {
       <Collapsible collapsed={!!selectedWord}>
         <AuthorPageFooter
           title="Je valide cette dictée"
-          isValidationDisabled={false}
+          isValidationDisabled={Object.keys(choiceInputs).length === 0}
           onPress={() => {}}
         />
       </Collapsible>
