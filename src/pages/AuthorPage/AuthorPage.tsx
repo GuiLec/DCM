@@ -44,6 +44,7 @@ export const AuthorPage = () => {
             <>
               <TextInputArea updateText={updateText} />
               <AuthorPageFooter
+                title="Je valide le texte"
                 isValidationDisabled={text === ''}
                 onPress={showConfirmationMessage}
               />

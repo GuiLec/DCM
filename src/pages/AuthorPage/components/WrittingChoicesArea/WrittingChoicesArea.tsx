@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Collapsible from 'react-native-collapsible';
 import {Answer} from '../../../../components/Answer';
 import {PlusButton} from '../../../../components/PlusButton';
+import {AuthorPageFooter} from '../AuthorPageFooter';
 
 const Container = styled.TouchableOpacity`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -133,6 +134,13 @@ export const WrittingChoicesArea = (props: Props) => {
           />
           <PlusButton onPress={onAddButtonPress} />
         </InputContainer>
+      </Collapsible>
+      <Collapsible collapsed={!!selectedWord}>
+        <AuthorPageFooter
+          title="Je valide cette dictée"
+          isValidationDisabled={false}
+          onPress={() => {}}
+        />
       </Collapsible>
     </>
   );
