@@ -7,7 +7,10 @@ export const useAuthorPage = () => {
 
   const [isWrittingChoices, setIsWrittingChoices] = useState<boolean>(false);
 
-  const cancelNewDictation = () => setIsWrittingChoices(false);
+  const cancelNewDictation = () => {
+    setText('');
+    setIsWrittingChoices(false);
+  };
 
   const showConfirmationMessage = () => {
     Alert.alert(
