@@ -1,6 +1,6 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
-import {ScrollView} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import {sliceText} from '../../../../modules/dictation/adapters';
 import {useWrittingChoicesArea} from './useWrittingChoicesArea';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -63,6 +63,15 @@ const NewGuessInput = styled.TextInput`
   flex: 1;
 `;
 
+const styles = StyleSheet.create({
+  guessContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+});
+
 interface Props {
   text: string;
 }
@@ -108,13 +117,7 @@ export const WrittingChoicesArea = (props: Props) => {
         </ScrollView>
       </Container>
       <Collapsible collapsed={!selectedWord}>
-        <GuessesContainer
-          contentContainerStyle={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-around',
-          }}>
+        <GuessesContainer contentContainerStyle={styles.guessContainer}>
           {!!selectedWord &&
             choiceInputs[selectedWord.id] &&
             choiceInputs[selectedWord.id].choices.map(choice => (
