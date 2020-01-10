@@ -30,6 +30,7 @@ const Title = styled.Text`
   color: ${props => props.theme.colors.white};
   font-weight: bold;
   flex: 1;
+  margin-right: ${props => props.theme.gridUnit}px;
 `;
 
 interface Props {
