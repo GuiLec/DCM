@@ -113,7 +113,7 @@ export default class Prompt extends Component<Props> {
     this.setState({value: this.props.defaultValue});
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const {visible, defaultValue} = nextProps;
     this.setState({visible, value: defaultValue});
   }
