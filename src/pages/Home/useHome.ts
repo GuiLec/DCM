@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {
   Choice,
   ChoiceInput,
@@ -12,9 +12,10 @@ import {
   sliceDication,
 } from '../../modules/dictation/adapters';
 import {Alert} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {selectDictations} from '../../modules/dictation/selectors';
 import {shuffle} from '../../lib/utils';
+import {fetchDictationsRequest} from '../../modules/dictation/actions';
 
 export const useHome = () => {
   const dictations = useSelector(selectDictations);
@@ -85,6 +86,11 @@ export const useHome = () => {
     else await setActiveDictation(dictations[randomIndex]);
     setAnswersState({});
   };
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchDictationsRequest());
+  }, []);
 
   return {
     activeSlicedDictation,

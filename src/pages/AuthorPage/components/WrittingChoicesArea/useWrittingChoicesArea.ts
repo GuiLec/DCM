@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {ChoiceInput} from '../../../../modules/dictation/interface';
 import {useDispatch, useSelector} from 'react-redux';
-import {saveDictationRequest} from '../../../../modules/dictation/actions';
+import {saveDictationsRequest} from '../../../../modules/dictation/actions';
 import {selectDictations} from '../../../../modules/dictation/selectors';
 import {Props} from './WrittingChoicesArea';
 import {useNavigation} from 'react-navigation-hooks';
@@ -68,12 +68,14 @@ export const useWrittingChoicesArea = (props: Props) => {
   const newId = useSelector(selectDictations).length;
   const saveDictation = (value: string) => {
     dispatch(
-      saveDictationRequest({
-        id: `new${newId}`,
-        name: value,
-        text: props.text,
-        choiceInputs: Object.values(choiceInputs),
-      }),
+      saveDictationsRequest([
+        {
+          id: `new${newId}`,
+          name: value,
+          text: props.text,
+          choiceInputs: Object.values(choiceInputs),
+        },
+      ]),
     );
     setIsPromptVisible(false);
     props.cancelNewDictation();

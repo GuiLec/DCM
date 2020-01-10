@@ -2,7 +2,7 @@ import {Dictation} from './interface';
 import {mockedDictations} from './mockedData';
 import {Actions} from '../actions';
 import {getType} from 'typesafe-actions';
-import {saveDictationRequest} from './actions';
+import {saveDictationsRequest} from './actions';
 
 export interface DictationState {
   dictations: Dictation[];
@@ -17,8 +17,8 @@ export const dictationReducer = (
   action: Actions,
 ): DictationState => {
   switch (action.type) {
-    case getType(saveDictationRequest):
-      return {...state, dictations: [...state.dictations, action.payload]};
+    case getType(saveDictationsRequest):
+      return {...state, dictations: [...state.dictations, ...action.payload]};
     default:
       return state;
   }

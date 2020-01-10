@@ -1,1 +1,6 @@
-export function* rootSaga() {}
+import {dictationsSagas} from './dictation/sagas';
+import {fork} from 'redux-saga/effects';
+
+export function* rootSaga() {
+  yield fork(dictationsSagas);
+}
