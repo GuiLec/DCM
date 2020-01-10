@@ -65,6 +65,9 @@ export const useHome = () => {
     boolean
   >(false);
 
+  const togglePickDictationArea = () =>
+    setIsPickDictationAreaVisible(state => !state);
+
   const showScore = () => {
     Alert.alert('Score', getScore(correctAnswersState, answersState));
   };
@@ -95,6 +98,6 @@ export const useHome = () => {
     showScore,
     pickDictation,
     isPickDictationAreaVisible,
-    setIsPickDictationAreaVisible,
+    togglePickDictationArea,
   };
 };

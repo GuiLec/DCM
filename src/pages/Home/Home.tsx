@@ -31,14 +31,14 @@ export const Home = () => {
     showScore,
     pickDictation,
     isPickDictationAreaVisible,
-    setIsPickDictationAreaVisible,
+    togglePickDictationArea,
   } = useHome();
   return (
     <SafeAreaViewComponent>
       <PageContainer>
         <HomeHeader
           pickDictation={pickDictation}
-          showPickDictationArea={() => setIsPickDictationAreaVisible(true)}
+          togglePickDictationArea={togglePickDictationArea}
         />
         <PickDictationArea
           iscollapsed={!isPickDictationAreaVisible}
