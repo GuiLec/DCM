@@ -45,7 +45,7 @@ export const PageHeader = (props: Props) => (
         <HeaderIcon name="bars" size={20} />
       </TouchableOpacity>
     </View>
-    <HeaderTitle numberOfLines={2}>{props.title} ezgigei eai giea </HeaderTitle>
+    <HeaderTitle numberOfLines={2}>{props.title}</HeaderTitle>
     <View>
       {props.onCancel && (
         <TouchableOpacity
