@@ -21,6 +21,8 @@ const HeaderTitle = styled.Text`
   font-weight: bold;
   font-size: ${props => props.theme.fontSizes.big};
   color: ${props => props.theme.colors.white};
+  flex: 1;
+  margin-horizontal: ${props => props.theme.gridUnit * 4}px;
 `;
 
 const CancelText = styled.Text`
@@ -43,7 +45,7 @@ export const PageHeader = (props: Props) => (
         <HeaderIcon name="bars" size={20} />
       </TouchableOpacity>
     </View>
-    <HeaderTitle>{props.title}</HeaderTitle>
+    <HeaderTitle numberOfLines={2}>{props.title} ezgigei eai giea </HeaderTitle>
     <View>
       {props.onCancel && (
         <TouchableOpacity
