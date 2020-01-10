@@ -61,21 +61,26 @@ export const useWrittingChoicesArea = (props: Props) => {
     setInputText('');
   };
 
+  const [isPromptVisible, setIsPromptVisible] = useState<boolean>(false);
+
   const dispatch = useDispatch();
   const {navigate} = useNavigation();
   const newId = useSelector(selectDictations).length;
-  const saveDictation = () => {
+  const saveDictation = (value: string) => {
     dispatch(
       saveDictationRequest({
         id: `new${newId}`,
-        name: 'Nouvelle dictée',
+        name: value,
         text: props.text,
         choiceInputs: Object.values(choiceInputs),
       }),
     );
+    setIsPromptVisible(false);
     props.cancelNewDictation();
     navigate('home');
   };
+
+  const togglePrompt = () => setIsPromptVisible(state => !state);
 
   return {
     setSelectedWord,
@@ -87,5 +92,7 @@ export const useWrittingChoicesArea = (props: Props) => {
     choiceInputs,
     isWordAGuess,
     saveDictation,
+    isPromptVisible,
+    togglePrompt,
   };
 };
