@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
   Modal,
-  Platform,
   Text,
   TextInput,
   TouchableWithoutFeedback,
@@ -186,7 +185,9 @@ export default class Prompt extends Component<Props> {
                 </Text>
               </View>
             </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={this._onSubmitPress}>
+            <TouchableWithoutFeedback
+              disabled={!this.state.value}
+              onPress={this._onSubmitPress}>
               <View
                 style={[styles.dialogAction, buttonStyle, submitButtonStyle]}>
                 <Text
@@ -194,6 +195,7 @@ export default class Prompt extends Component<Props> {
                     styles.dialogActionText,
                     buttonTextStyle,
                     submitButtonTextStyle,
+                    !this.state.value && {opacity: 0.2},
                   ]}>
                   {submitText}
                 </Text>
