@@ -18,7 +18,7 @@ export const dictationReducer = (
 ): DictationState => {
   switch (action.type) {
     case getType(saveDictationsRequest):
-      return {...state, dictations: [...state.dictations, ...action.payload]};
+      return {...state, dictations: action.payload};
     default:
       return state;
   }
