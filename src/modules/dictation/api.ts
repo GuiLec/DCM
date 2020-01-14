@@ -7,3 +7,12 @@ export const fetchDictation = (): Promise<Dictation> => {
     .get()
     .json();
 };
+
+export const postDictation = (dictation: Dictation) => {
+  return DCM_API()
+    .headers({'Content-Type': 'application/json'})
+    .url('/dictations')
+    .body(JSON.stringify(dictation))
+    .post()
+    .json();
+};

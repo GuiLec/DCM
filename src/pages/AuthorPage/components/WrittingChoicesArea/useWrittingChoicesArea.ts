@@ -1,10 +1,13 @@
 import {useState} from 'react';
 import {ChoiceInput} from '../../../../modules/dictation/interface';
 import {useDispatch, useSelector} from 'react-redux';
-import {saveDictationsRequest} from '../../../../modules/dictation/actions';
-import {selectDictations} from '../../../../modules/dictation/selectors';
+import {
+  saveDictationsRequest,
+  fetchDictationsRequest,
+} from '../../../../modules/dictation/actions';
 import {Props} from './WrittingChoicesArea';
 import {useNavigation} from 'react-navigation-hooks';
+import {postDictation} from '../../../../modules/dictation/api';
 
 export const useWrittingChoicesArea = (props: Props) => {
   const [selectedWord, setSelectedWord] = useState<{
@@ -65,18 +68,17 @@ export const useWrittingChoicesArea = (props: Props) => {
 
   const dispatch = useDispatch();
   const {navigate} = useNavigation();
-  const newId = useSelector(selectDictations).length;
+  const newId = `NewDict${new Date()}`; // @todo add userID to avoid multi account conflicts
   const saveDictation = (value: string) => {
-    dispatch(
-      saveDictationsRequest([
-        {
-          id: `new${newId}`,
-          name: value,
-          text: props.text,
-          choiceInputs: Object.values(choiceInputs),
-        },
-      ]),
-    );
+    const dictation = {
+      id: newId,
+      name: value,
+      text: props.text,
+      choiceInputs: Object.values(choiceInputs),
+    };
+
+    postDictation(dictation);
+    dispatch(fetchDictationsRequest());
     setIsPromptVisible(false);
     props.cancelNewDictation();
     navigate('home');
