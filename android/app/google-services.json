@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "898099622045",
+    "firebase_url": "https://dcmapp-bc25a.firebaseio.com",
+    "project_id": "dcmapp-bc25a",
+    "storage_bucket": "dcmapp-bc25a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898099622045:android:bcfec5a5ffa373a4506474",
+        "android_client_info": {
+          "package_name": "com.dictation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898099622045-kbt562ui5f5i9kf0p0ggmol3ehg0et4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8YqDuZZ8NhGnFv9sN8rGFNfCPDWFoqM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898099622045-kbt562ui5f5i9kf0p0ggmol3ehg0et4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
