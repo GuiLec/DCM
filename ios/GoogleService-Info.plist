@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>898099622045-f2c9hfhgs1h67ci41e2fgko656jg3rdt.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.898099622045-f2c9hfhgs1h67ci41e2fgko656jg3rdt</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCPxsVvCk_pufCvWg1VnvlY8e8s7AFDRWs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>898099622045</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>guilec.DCM.Dictation</string>
+	<key>PROJECT_ID</key>
+	<string>dcmapp-bc25a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dcmapp-bc25a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:898099622045:ios:7cdc6ba622b6fbf8506474</string>
+	<key>DATABASE_URL</key>
+	<string>https://dcmapp-bc25a.firebaseio.com</string>
+</dict>
+</plist>
