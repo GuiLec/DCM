@@ -3,6 +3,7 @@ import {Dimensions} from 'react-native';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {DrawerMenu} from './pages/DrawerMenu';
 import {AuthorPage} from './pages/AuthorPage/AuthorPage';
+import {EntrancePage} from './pages/EntrancePage/EntrancePage';
 
 export const RootNavigator = createDrawerNavigator(
   {
@@ -12,6 +13,9 @@ export const RootNavigator = createDrawerNavigator(
     authorPage: {
       screen: AuthorPage,
     },
+    entrance: {
+      screen: EntrancePage,
+    },
   },
   {
     drawerWidth: Dimensions.get('window').width,
@@ -20,6 +24,6 @@ export const RootNavigator = createDrawerNavigator(
       header: null,
     },
     contentComponent: DrawerMenu,
-    initialRouteName: 'home',
+    initialRouteName: 'entrance',
   },
 );
