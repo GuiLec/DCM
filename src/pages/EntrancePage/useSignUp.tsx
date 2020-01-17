@@ -5,13 +5,12 @@ export const useSignUp = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const handleSignUp = () => {};
   return {
     errorMessage,
     email,
     password,
     setEmail,
     setPassword,
-    handleSignUp,
+    setErrorMessage,
   };
 };

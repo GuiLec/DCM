@@ -24,6 +24,11 @@ const styles = StyleSheet.create({
 
 interface Props {
   toggleLogin: () => void;
+  handleSignUp: (
+    email: string,
+    password: string,
+    setErrorMessage: (message: string) => void,
+  ) => () => void;
 }
 
 export const SignUp = (props: Props) => {
@@ -31,9 +36,9 @@ export const SignUp = (props: Props) => {
     errorMessage,
     email,
     password,
-    handleSignUp,
     setEmail,
     setPassword,
+    setErrorMessage,
   } = useSignUp();
   return (
     <Container>
@@ -55,7 +60,10 @@ export const SignUp = (props: Props) => {
           onChangeText={password => setPassword(password)}
           value={password}
         />
-        <Button title="Sign Up" onPress={handleSignUp} />
+        <Button
+          title="Sign Up"
+          onPress={props.handleSignUp(email, password, setErrorMessage)}
+        />
         <Button
           title="Already have an account? Login"
           onPress={props.toggleLogin}
