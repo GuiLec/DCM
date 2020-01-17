@@ -1,10 +1,7 @@
 import {useState} from 'react';
 import {ChoiceInput} from '../../../../modules/dictation/interface';
-import {useDispatch, useSelector} from 'react-redux';
-import {
-  saveDictationsRequest,
-  fetchDictationsRequest,
-} from '../../../../modules/dictation/actions';
+import {useDispatch} from 'react-redux';
+import {fetchDictationsRequest} from '../../../../modules/dictation/actions';
 import {Props} from './WrittingChoicesArea';
 import {useNavigation} from 'react-navigation-hooks';
 import {postDictation} from '../../../../modules/dictation/api';
