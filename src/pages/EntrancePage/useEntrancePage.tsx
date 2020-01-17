@@ -19,5 +19,17 @@ export const useEntrancePage = () => {
       .then(() => navigate('home'))
       .catch(error => setErrorMessage(error.message));
   };
-  return {isLoginDisplayed, toggleLogin, handleSignUp};
+
+  const handleLogin = (
+    email: string,
+    password: string,
+    setErrorMessage: (message: string) => void,
+  ) => () => {
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => navigate('home'))
+      .catch(error => setErrorMessage(error.message));
+  };
+
+  return {isLoginDisplayed, toggleLogin, handleSignUp, handleLogin};
 };

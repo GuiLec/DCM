@@ -10,11 +10,16 @@ const SafeAreaViewComponent = styled(SafeAreaView)`
 `;
 
 export const EntrancePage = () => {
-  const {isLoginDisplayed, toggleLogin, handleSignUp} = useEntrancePage();
+  const {
+    isLoginDisplayed,
+    toggleLogin,
+    handleSignUp,
+    handleLogin,
+  } = useEntrancePage();
   return (
     <SafeAreaViewComponent>
       {isLoginDisplayed ? (
-        <Login toggleLogin={toggleLogin} />
+        <Login handleLogin={handleLogin} toggleLogin={toggleLogin} />
       ) : (
         <SignUp toggleLogin={toggleLogin} handleSignUp={handleSignUp} />
       )}
