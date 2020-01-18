@@ -1,5 +1,7 @@
 import {useNavigation} from 'react-navigation-hooks';
 import {closeDrawer} from '../../navigation/actions';
+import {selectUser} from '../../modules/user/selectors';
+import {useSelector} from 'react-redux';
 
 export const useDrawerMenu = () => {
   const {navigate} = useNavigation();
@@ -28,5 +30,8 @@ export const useDrawerMenu = () => {
       itemLogoName: 'edit',
     },
   ];
-  return {menutItems};
+
+  const user = useSelector(selectUser);
+
+  return {menutItems, user};
 };

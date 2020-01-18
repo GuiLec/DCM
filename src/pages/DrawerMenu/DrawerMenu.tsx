@@ -42,15 +42,21 @@ const UserSectionContainer = styled.View`
 `;
 
 export const DrawerMenu = () => {
-  const {menutItems} = useDrawerMenu();
+  const {menutItems, user} = useDrawerMenu();
   return (
     <SafeAreaViewComponent>
       <CrossIconContainer onPress={closeDrawer}>
         <CrossIcon name="times" size={25} />
       </CrossIconContainer>
       <UserSectionContainer>
-        <ItemIcon name="user" size={30} />
-        <UserTitle>Guilec</UserTitle>
+        {!!user ? (
+          <>
+            <ItemIcon name="user" size={30} />
+            <UserTitle>Guilec</UserTitle>
+          </>
+        ) : (
+          <></>
+        )}
       </UserSectionContainer>
       {menutItems.map(item => (
         <DrawerMenuItem
