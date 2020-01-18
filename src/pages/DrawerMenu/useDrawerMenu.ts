@@ -1,10 +1,14 @@
 import {useNavigation} from 'react-navigation-hooks';
 import {closeDrawer} from '../../navigation/actions';
 import {selectUser} from '../../modules/user/selectors';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {saveUserRequest} from '../../modules/user/actions';
 
 export const useDrawerMenu = () => {
   const {navigate} = useNavigation();
+  const dispatch = useDispatch();
+
+  const user = useSelector(selectUser);
 
   const menutItems: {
     title: string;
@@ -31,7 +35,17 @@ export const useDrawerMenu = () => {
     },
   ];
 
-  const user = useSelector(selectUser);
+  if (user)
+    menutItems.push({
+      title: 'Déconnexion',
+      onPress: () => {
+        dispatch(saveUserRequest(null));
+        navigate('entrance');
+        closeDrawer();
+      },
+      hasRightArrow: false,
+      itemLogoName: 'power-off',
+    });
 
   const goToEntrance = () => navigate('entrance');
 
