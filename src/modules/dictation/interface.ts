@@ -1,8 +1,11 @@
+import {User} from '../user/interface';
+
 export interface Dictation {
   id: string;
   name: string;
   text: string;
   choiceInputs: ChoiceInput[];
+  author?: User;
 }
 
 export interface ChoiceInput {

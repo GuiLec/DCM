@@ -1,10 +1,11 @@
 import {useState} from 'react';
 import {ChoiceInput} from '../../../../modules/dictation/interface';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {fetchDictationsRequest} from '../../../../modules/dictation/actions';
 import {Props} from './WrittingChoicesArea';
 import {useNavigation} from 'react-navigation-hooks';
 import {postDictation} from '../../../../modules/dictation/api';
+import {selectUser} from '../../../../modules/user/selectors';
 
 export const useWrittingChoicesArea = (props: Props) => {
   const [selectedWord, setSelectedWord] = useState<{
@@ -63,15 +64,19 @@ export const useWrittingChoicesArea = (props: Props) => {
 
   const [isPromptVisible, setIsPromptVisible] = useState<boolean>(false);
 
+  const user = useSelector(selectUser);
+
   const dispatch = useDispatch();
   const {navigate} = useNavigation();
-  const newId = `NewDict${new Date()}`; // @todo add userID to avoid multi account conflicts
+  const newId = `NewDict${new Date()}${user.id}`; // @todo add userID to avoid multi account conflicts
+
   const saveDictation = (value: string) => {
     const dictation = {
       id: newId,
       name: value,
       text: props.text,
       choiceInputs: Object.values(choiceInputs),
+      author: user || null,
     };
 
     postDictation(dictation);
