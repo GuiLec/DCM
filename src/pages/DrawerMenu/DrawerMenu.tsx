@@ -30,7 +30,6 @@ const UserTitle = styled.Text`
   color: ${props => props.theme.colors.white};
   font-weight: bold;
   flex: 1;
-  margin-right: ${props => props.theme.gridUnit}px;
 `;
 
 const UserSectionContainer = styled.View`
@@ -38,11 +37,30 @@ const UserSectionContainer = styled.View`
   padding: ${props => props.theme.gridUnit * 4}px;
   margin-bottom: ${props => props.theme.gridUnit * 8}px;
   flex-direction: row;
-  justify-content: space-between;
+`;
+
+const ToLoginContainer = styled.View`
+  align-items: center;
+  flex: 1;
+`;
+
+const ToLoginButton = styled.TouchableOpacity`
+  border-width: 1px;
+  padding-right: ${props => props.theme.gridUnit * 4}px;
+  padding-vertical: ${props => props.theme.gridUnit * 2}px;
+  border-color: ${props => props.theme.colors.gray};
+  border-radius: ${props => props.theme.gridUnit};
+  flex-direction: row;
+`;
+
+const ToLoginTitle = styled.Text`
+  font-size: ${props => props.theme.fontSizes.big};
+  color: ${props => props.theme.colors.white};
+  font-weight: bold;
 `;
 
 export const DrawerMenu = () => {
-  const {menutItems, user} = useDrawerMenu();
+  const {menutItems, user, goToEntrance} = useDrawerMenu();
   return (
     <SafeAreaViewComponent>
       <CrossIconContainer onPress={closeDrawer}>
@@ -55,7 +73,12 @@ export const DrawerMenu = () => {
             <UserTitle>Guilec</UserTitle>
           </>
         ) : (
-          <></>
+          <ToLoginContainer>
+            <ToLoginButton onPress={goToEntrance}>
+              <ItemIcon name="user" size={20} />
+              <ToLoginTitle>Je me connecte</ToLoginTitle>
+            </ToLoginButton>
+          </ToLoginContainer>
         )}
       </UserSectionContainer>
       {menutItems.map(item => (

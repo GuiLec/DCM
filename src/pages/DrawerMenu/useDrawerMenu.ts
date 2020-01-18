@@ -33,5 +33,7 @@ export const useDrawerMenu = () => {
 
   const user = useSelector(selectUser);
 
-  return {menutItems, user};
+  const goToEntrance = () => navigate('entrance');
+
+  return {menutItems, user, goToEntrance};
 };
