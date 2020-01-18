@@ -1,7 +1,6 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
 import {TextInput, Keyboard} from 'react-native';
-import {KeyboardAwareWrapper} from '../../../../components/KeyboardAwareWrapper';
 
 const Container = styled.TouchableOpacity`
   padding: ${props => props.theme.gridUnit * 2}px;
