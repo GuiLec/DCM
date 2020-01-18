@@ -15,13 +15,22 @@ export const EntrancePage = () => {
     toggleLogin,
     handleSignUp,
     handleLogin,
+    enterWithoutLogin,
   } = useEntrancePage();
   return (
     <SafeAreaViewComponent>
       {isLoginDisplayed ? (
-        <Login handleLogin={handleLogin} toggleLogin={toggleLogin} />
+        <Login
+          handleLogin={handleLogin}
+          toggleLogin={toggleLogin}
+          enterWithoutLogin={enterWithoutLogin}
+        />
       ) : (
-        <SignUp toggleLogin={toggleLogin} handleSignUp={handleSignUp} />
+        <SignUp
+          toggleLogin={toggleLogin}
+          handleSignUp={handleSignUp}
+          enterWithoutLogin={enterWithoutLogin}
+        />
       )}
     </SafeAreaViewComponent>
   );

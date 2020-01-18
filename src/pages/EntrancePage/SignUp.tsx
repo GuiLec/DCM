@@ -58,6 +58,7 @@ interface Props {
     password: string,
     setErrorMessage: (message: string) => void,
   ) => () => void;
+  enterWithoutLogin: () => void;
 }
 
 export const SignUp = (props: Props) => {
@@ -73,7 +74,7 @@ export const SignUp = (props: Props) => {
     <KeyboardAwareWrapper>
       <Container onPress={Keyboard.dismiss} activeOpacity={1}>
         <CrossButtonContainer>
-          <CrossButton onPress={() => {}} />
+          <CrossButton onPress={props.enterWithoutLogin} />
         </CrossButtonContainer>
         <TextInputsContainer>
           <Title>Login</Title>

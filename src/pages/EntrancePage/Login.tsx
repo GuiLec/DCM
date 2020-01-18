@@ -53,6 +53,7 @@ const SignUpText = styled.Text`
 
 interface Props {
   toggleLogin: () => void;
+  enterWithoutLogin: () => void;
   handleLogin: (
     email: string,
     password: string,
@@ -73,7 +74,7 @@ export const Login = (props: Props) => {
     <KeyboardAwareWrapper>
       <Container onPress={Keyboard.dismiss} activeOpacity={1}>
         <CrossButtonContainer>
-          <CrossButton onPress={() => {}} />
+          <CrossButton onPress={props.enterWithoutLogin} />
         </CrossButtonContainer>
         <TextInputsContainer>
           <Title>Login</Title>

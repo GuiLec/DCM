@@ -9,6 +9,10 @@ export const useEntrancePage = () => {
 
   const {navigate} = useNavigation();
 
+  const enterWithoutLogin = () => {
+    navigate('home');
+  };
+
   const handleSignUp = (
     email: string,
     password: string,
@@ -31,5 +35,11 @@ export const useEntrancePage = () => {
       .catch(error => setErrorMessage(error.message));
   };
 
-  return {isLoginDisplayed, toggleLogin, handleSignUp, handleLogin};
+  return {
+    isLoginDisplayed,
+    toggleLogin,
+    handleSignUp,
+    handleLogin,
+    enterWithoutLogin,
+  };
 };
