@@ -1,5 +1,7 @@
 import {User} from './interface';
 import {Actions} from '../actions';
+import {getType} from 'typesafe-actions';
+import {saveUserRequest} from './actions';
 
 export interface UserState {
   user: User | null;
@@ -14,6 +16,8 @@ export const userReducer = (
   action: Actions,
 ): UserState => {
   switch (action.type) {
+    case getType(saveUserRequest):
+      return {...state, user: action.payload};
     default:
       return state;
   }

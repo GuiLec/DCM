@@ -70,7 +70,7 @@ export const DrawerMenu = () => {
         {!!user ? (
           <>
             <ItemIcon name="user" size={30} />
-            <UserTitle>Guilec</UserTitle>
+            <UserTitle>{user.email}</UserTitle>
           </>
         ) : (
           <ToLoginContainer>
