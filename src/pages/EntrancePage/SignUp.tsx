@@ -4,6 +4,7 @@ import {styled} from '../../lib/styled';
 import {useSignUp} from './useSignUp';
 import {KeyboardAwareWrapper} from '../../components/KeyboardAwareWrapper';
 import {Button} from '../../components/Button';
+import {CrossButton} from '../../components/CrossButton';
 
 const Container = styled.TouchableOpacity`
   flex: 1;
@@ -35,6 +36,14 @@ const Title = styled.Text`
   margin: ${props => props.theme.gridUnit * 2}px;
 `;
 
+const CrossButtonContainer = styled.View`
+  margin: ${props => props.theme.gridUnit * 2}px;
+  padding: ${props => props.theme.gridUnit * 2}px;
+  top: 0;
+  right: 0;
+  position: absolute;
+`;
+
 const LoginText = styled.Text`
   font-size: ${props => props.theme.fontSizes.big};
   color: ${props => props.theme.colors.skyBlue};
@@ -63,6 +72,9 @@ export const SignUp = (props: Props) => {
   return (
     <KeyboardAwareWrapper>
       <Container onPress={Keyboard.dismiss} activeOpacity={1}>
+        <CrossButtonContainer>
+          <CrossButton onPress={() => {}} />
+        </CrossButtonContainer>
         <TextInputsContainer>
           <Title>Login</Title>
           <TextInputComponent
