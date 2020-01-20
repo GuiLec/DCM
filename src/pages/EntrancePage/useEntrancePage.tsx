@@ -1,9 +1,8 @@
 import {useState} from 'react';
-import {User} from '../../modules/user/interface';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from 'react-navigation-hooks';
 import {useDispatch} from 'react-redux';
-import {saveUserRequest} from '../../modules/user/actions';
+import {userLoginRequest, userSignupRequest} from '../../modules/user/actions';
 
 export const useEntrancePage = () => {
   const [isLoginDisplayed, setisLoginDisplayed] = useState<boolean>(true);
@@ -26,7 +25,11 @@ export const useEntrancePage = () => {
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
         dispatch(
-          saveUserRequest({email: user.user.email, id: user.user.uid, name}),
+          userSignupRequest({
+            email: user.user.email,
+            id: user.user.uid,
+            name: name,
+          }),
         );
         navigate('home');
       })
@@ -41,13 +44,7 @@ export const useEntrancePage = () => {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
-        dispatch(
-          saveUserRequest({
-            email: user.user.email,
-            id: user.user.uid,
-            name: '',
-          }),
-        );
+        dispatch(userLoginRequest(user.user.uid));
         navigate('home');
       })
       .catch(error => setErrorMessage(error.message));

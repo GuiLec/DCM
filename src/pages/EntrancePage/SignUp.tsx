@@ -102,7 +102,7 @@ export const SignUp = (props: Props) => {
           />
           {!!errorMessage && <Text style={{color: 'red'}}>{errorMessage}</Text>}
           <Button
-            onPress={props.handleSignUp(email, password, setErrorMessage)}
+            onPress={props.handleSignUp(email, password, name, setErrorMessage)}
             title="Je m'inscris"></Button>
         </TextInputsContainer>
         <TouchableOpacity onPress={props.toggleLogin}>
