@@ -12,7 +12,7 @@ export const useDrawerMenu = () => {
 
   const menutItems: {
     title: string;
-    onPress: () => void;
+    onPress?: () => void;
     hasRightArrow?: boolean;
     itemLogoName?: string;
   }[] = [
@@ -36,16 +36,27 @@ export const useDrawerMenu = () => {
   ];
 
   if (user)
-    menutItems.push({
-      title: 'Déconnexion',
-      onPress: () => {
-        dispatch(saveUserRequest(null));
-        navigate('entrance');
-        closeDrawer();
+    menutItems.push(
+      {
+        title: 'Mon historique',
+        onPress: () => {
+          navigate('dictationsHistory');
+          closeDrawer();
+        },
+        hasRightArrow: true,
+        itemLogoName: 'book-open',
       },
-      hasRightArrow: false,
-      itemLogoName: 'power-off',
-    });
+      {
+        title: 'Déconnexion',
+        onPress: () => {
+          dispatch(saveUserRequest(null));
+          navigate('entrance');
+          closeDrawer();
+        },
+        hasRightArrow: false,
+        itemLogoName: 'power-off',
+      },
+    );
 
   const goToEntrance = () => navigate('entrance');
 

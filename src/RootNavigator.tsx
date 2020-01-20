@@ -4,6 +4,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import {DrawerMenu} from './pages/DrawerMenu';
 import {AuthorPage} from './pages/AuthorPage/AuthorPage';
 import {EntrancePage} from './pages/EntrancePage/EntrancePage';
+import {DictationsHistory} from './pages/DictationsHistory/DictationHistory';
 
 export const RootNavigator = createDrawerNavigator(
   {
@@ -15,6 +16,9 @@ export const RootNavigator = createDrawerNavigator(
     },
     entrance: {
       screen: EntrancePage,
+    },
+    dictationsHistory: {
+      screen: DictationsHistory,
     },
   },
   {
