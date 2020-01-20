@@ -6,6 +6,7 @@ import {Props} from './WrittingChoicesArea';
 import {useNavigation} from 'react-navigation-hooks';
 import {postDictation} from '../../../../modules/dictation/api';
 import {selectUser} from '../../../../modules/user/selectors';
+import {User} from '../../../../modules/user/interface';
 
 export const useWrittingChoicesArea = (props: Props) => {
   const [selectedWord, setSelectedWord] = useState<{
@@ -64,11 +65,12 @@ export const useWrittingChoicesArea = (props: Props) => {
 
   const [isPromptVisible, setIsPromptVisible] = useState<boolean>(false);
 
-  const user = useSelector(selectUser);
+  const user: User | null = useSelector(selectUser);
+  const userID = user ? user.id : 'offline';
 
   const dispatch = useDispatch();
   const {navigate} = useNavigation();
-  const newId = `NewDict${new Date()}${user.id}`; // @todo add userID to avoid multi account conflicts
+  const newId = `NewDict${new Date()}${userID}`; // @todo add userID to avoid multi account conflicts
 
   const saveDictation = (value: string) => {
     const dictation = {
