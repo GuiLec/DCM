@@ -1,7 +1,6 @@
 import {User, RawUser} from './interface';
 
 export const adaptUserToSave = (user: User): RawUser => {
-  console.log('in adapter', user);
   return {...user};
 };
 
