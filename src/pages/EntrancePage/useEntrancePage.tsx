@@ -19,12 +19,15 @@ export const useEntrancePage = () => {
   const handleSignUp = (
     email: string,
     password: string,
+    name: string,
     setErrorMessage: (message: string) => void,
   ) => () => {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
-        dispatch(saveUserRequest({email: user.user.email, id: user.user.uid}));
+        dispatch(
+          saveUserRequest({email: user.user.email, id: user.user.uid, name}),
+        );
         navigate('home');
       })
       .catch(error => setErrorMessage(error.message));
@@ -38,7 +41,13 @@ export const useEntrancePage = () => {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
-        dispatch(saveUserRequest({email: user.user.email, id: user.user.uid}));
+        dispatch(
+          saveUserRequest({
+            email: user.user.email,
+            id: user.user.uid,
+            name: '',
+          }),
+        );
         navigate('home');
       })
       .catch(error => setErrorMessage(error.message));

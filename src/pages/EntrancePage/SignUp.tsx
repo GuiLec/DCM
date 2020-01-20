@@ -56,6 +56,7 @@ interface Props {
   handleSignUp: (
     email: string,
     password: string,
+    name: string,
     setErrorMessage: (message: string) => void,
   ) => () => void;
   enterWithoutLogin: () => void;
@@ -66,9 +67,11 @@ export const SignUp = (props: Props) => {
     errorMessage,
     email,
     password,
+    name,
     setEmail,
     setPassword,
     setErrorMessage,
+    setName,
   } = useSignUp();
   return (
     <KeyboardAwareWrapper>
@@ -78,6 +81,12 @@ export const SignUp = (props: Props) => {
         </CrossButtonContainer>
         <TextInputsContainer>
           <Title>Login</Title>
+          <TextInputComponent
+            autoCapitalize="sentences"
+            placeholder="Pseudo"
+            onChangeText={name => setName(name)}
+            value={name}
+          />
           <TextInputComponent
             autoCapitalize="none"
             placeholder="Email"
