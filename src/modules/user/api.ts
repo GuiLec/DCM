@@ -15,5 +15,5 @@ export const postUser = (user: User) => {
     .url('/user')
     .body(JSON.stringify(adaptUserToSave(user)))
     .post()
-    .json();
+    .res();
 };

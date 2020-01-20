@@ -14,5 +14,5 @@ export const postDictation = (dictation: Dictation) => {
     .url('/dictations')
     .body(JSON.stringify(dictation))
     .post()
-    .json();
+    .res();
 };
