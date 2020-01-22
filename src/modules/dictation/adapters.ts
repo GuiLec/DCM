@@ -76,10 +76,10 @@ export const sliceText = (
 ): {text: string; position: number}[][] => {
   let position = 0;
   let words;
-  let slicedText = [];
+  let slicedText: {text: string; position: number}[][] = [];
   const lines = text.split(`\n`);
   lines.forEach(line => {
-    let slicedLine = [];
+    let slicedLine: {text: string; position: number}[] = [];
     words = line.split(' ');
     words.forEach(word => {
       slicedLine.push({text: word, position});
