@@ -134,7 +134,7 @@ export const WrittingChoicesArea = (props: Props) => {
           <NewGuessLabelIcon size={16} name="edit" />
           <NewGuessInput
             autoCapitalize={'none'}
-            value={inputText}
+            value={inputText ? inputText : undefined}
             onChangeText={changeInputText}
             placeholder="J'écris un nouveau choix"
           />
