@@ -5,6 +5,7 @@ import {theme} from './lib/theme';
 import {Provider} from 'react-redux';
 import {store} from './modules/store';
 import {createAppContainer} from 'react-navigation';
+// @ts-ignore
 import {compose} from 'recompose';
 import {withNavigatorRef} from './hoc/withNavigatorRef';
 

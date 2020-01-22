@@ -111,12 +111,12 @@ export default class Prompt extends Component<Props> {
   componentDidMount() {
     this.setState({value: this.props.defaultValue});
   }
-
+  // @ts-ignore
   UNSAFE_componentWillReceiveProps(nextProps) {
     const {visible, defaultValue} = nextProps;
     this.setState({visible, value: defaultValue});
   }
-
+  // @ts-ignore
   _onChangeText = value => {
     this.setState({value});
     this.props.onChangeText(value);
