@@ -37,7 +37,7 @@ export const sliceDication = (dictation: Dictation): SlicedDictation => {
 export const getInitialAnswersState = (
   dictation: Dictation | null,
 ): AnswersState => {
-  let answerState = {};
+  let answerState: AnswersState = {};
   if (dictation)
     dictation.choiceInputs.forEach(choiceInput => {
       answerState[choiceInput.choiceInputID] = null;
@@ -48,7 +48,7 @@ export const getInitialAnswersState = (
 export const getCorrectAnswersState = (
   dictation: Dictation | null,
 ): AnswersState => {
-  let answerState = {};
+  let answerState: AnswersState = {};
   if (dictation)
     dictation.choiceInputs.forEach(choiceInput => {
       answerState[choiceInput.choiceInputID] = choiceInput.correctChoiceID;
