@@ -43,7 +43,7 @@ const renderDictation = (
 
 interface Props {
   slicedDictation: SlicedDictation | null;
-  selectChoiceInput: (choiceInputID: string) => () => void;
+  selectChoiceInput: (choiceInputID: string | null) => () => void;
   selectedChoiceInputID: string | null;
   selectedChoiceID: string | null;
 }

@@ -42,7 +42,7 @@ export const useHome = () => {
     string | null
   >(null);
 
-  const selectChoiceInput = (choiceInputID: string) => () => {
+  const selectChoiceInput = (choiceInputID: string | null) => () => {
     setSelectedChoiceInputID(choiceInputID);
     setSelectedChoiceID(null);
   };
