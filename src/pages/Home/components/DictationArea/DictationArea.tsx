@@ -1,6 +1,6 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 import {SlicedDictation} from '../../../../modules/dictation/interface';
 import {Guess} from '../../../../components/Guess';
 
@@ -36,6 +36,7 @@ const renderDictation = (
               selectedChoiceID={selectedChoiceID}
             />
           );
+        return;
       })}
     </Text>
   );
