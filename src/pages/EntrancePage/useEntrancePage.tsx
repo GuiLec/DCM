@@ -26,9 +26,10 @@ export const useEntrancePage = () => {
       .then(user => {
         dispatch(
           userSignupRequest({
-            email: user.user.email,
+            email: user.user.email || '',
             id: user.user.uid,
             name: name,
+            dictationsHistory: [],
           }),
         );
         navigate('home');
