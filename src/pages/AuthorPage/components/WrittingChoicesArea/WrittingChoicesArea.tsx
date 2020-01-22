@@ -107,7 +107,7 @@ export const WrittingChoicesArea = (props: Props) => {
                 const id = `${index}_${i}`;
                 return (
                   <Word
-                    isSelected={selectedWord && id === selectedWord.id}
+                    isSelected={!!selectedWord && id === selectedWord.id}
                     isWordAGuess={isWordAGuess(id)}
                     onPress={onWordPress({
                       ...word,
