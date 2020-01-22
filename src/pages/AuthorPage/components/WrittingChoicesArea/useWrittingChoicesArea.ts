@@ -78,7 +78,7 @@ export const useWrittingChoicesArea = (props: Props) => {
       name: value,
       text: props.text,
       choiceInputs: Object.values(choiceInputs),
-      author: user || null,
+      author: user || undefined,
     };
 
     postDictation(dictation);
