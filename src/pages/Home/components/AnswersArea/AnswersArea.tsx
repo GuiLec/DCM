@@ -27,7 +27,7 @@ interface Props {
   selectedChoiceInputID: string | null;
   selectedChoiceInputChoices: Choice[] | undefined | null;
   selectChoice: (choiceID: string) => () => void;
-  setAnswer: (choiceInputID: string, choiceID: string) => () => void;
+  setAnswer: (choiceInputID: string | null, choiceID: string) => () => void;
 }
 
 export const AnswersArea = (props: Props) => {

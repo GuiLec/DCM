@@ -31,8 +31,8 @@ export const useHome = () => {
     initalAnswersState,
   );
 
-  const setAnswer = (choiceInputID: string, choiceID: string) => () => {
-    answersState[choiceInputID] = choiceID;
+  const setAnswer = (choiceInputID: string | null, choiceID: string) => () => {
+    if (choiceInputID) answersState[choiceInputID] = choiceID;
   };
 
   const activeSlicedDictation =
