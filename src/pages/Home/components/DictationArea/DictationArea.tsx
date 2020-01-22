@@ -36,7 +36,7 @@ const renderDictation = (
               selectedChoiceID={selectedChoiceID}
             />
           );
-        return;
+        return null;
       })}
     </Text>
   );
