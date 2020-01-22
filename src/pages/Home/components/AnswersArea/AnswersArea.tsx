@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 interface Props {
   iscollapsed: boolean;
   selectedChoiceInputID: string | null;
-  selectedChoiceInputChoices: Choice[] | undefined;
+  selectedChoiceInputChoices: Choice[] | undefined | null;
   selectChoice: (choiceID: string) => () => void;
   setAnswer: (choiceInputID: string, choiceID: string) => () => void;
 }

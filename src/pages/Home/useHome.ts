@@ -52,12 +52,12 @@ export const useHome = () => {
   const selectChoice = (choiceID: string) => () =>
     setSelectedChoiceID(choiceID);
 
-  const selectedChoiceInput: ChoiceInput | undefined =
+  const selectedChoiceInput: ChoiceInput | null | undefined =
     activeDictation &&
     activeDictation.choiceInputs.find(
       choiceInput => choiceInput.choiceInputID === selectedChoiceInputID,
     );
-  const selectedChoiceInputChoices: Choice[] | undefined =
+  const selectedChoiceInputChoices: Choice[] | null | undefined =
     selectedChoiceInput && shuffle(selectedChoiceInput.choices);
 
   const isAnswersAreaVisible = selectedChoiceInputID !== null;
