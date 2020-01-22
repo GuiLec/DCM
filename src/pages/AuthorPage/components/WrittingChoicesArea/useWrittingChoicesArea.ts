@@ -37,28 +37,28 @@ export const useWrittingChoicesArea = (props: Props) => {
       choiceID: `2_${inputText}`,
       text: inputText || '',
     };
-
-    if (choiceInputs[selectedWord.id]) {
-      if (
-        !choiceInputs[selectedWord.id].choices
-          .map(choice => choice.text)
-          .includes(newInput.text)
-      )
-        choiceInputs[selectedWord.id].choices.push(newInput);
-    } else
-      choiceInputs[selectedWord.id] = {
-        choiceInputID: selectedWord.id,
-        position: selectedWord.position,
-        choices: [
-          {
-            choiceID: '1',
-            text: selectedWord.text,
-          },
-          newInput,
-        ],
-        correctChoiceID: '1',
-        originalTextLength: selectedWord.text.length,
-      };
+    if (selectedWord)
+      if (choiceInputs[selectedWord.id]) {
+        if (
+          !choiceInputs[selectedWord.id].choices
+            .map(choice => choice.text)
+            .includes(newInput.text)
+        )
+          choiceInputs[selectedWord.id].choices.push(newInput);
+      } else
+        choiceInputs[selectedWord.id] = {
+          choiceInputID: selectedWord.id,
+          position: selectedWord.position,
+          choices: [
+            {
+              choiceID: '1',
+              text: selectedWord.text,
+            },
+            newInput,
+          ],
+          correctChoiceID: '1',
+          originalTextLength: selectedWord.text.length,
+        };
     setChoiceInputs(state => ({...state}));
     setInputText('');
   };
