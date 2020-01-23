@@ -69,7 +69,7 @@ export const useHome = () => {
   const togglePickDictationArea = () =>
     setIsPickDictationAreaVisible(state => !state);
 
-  const showScore = () => {
+  const submitDictation = () => {
     Alert.alert('Score', getScore(correctAnswersState, answersState));
   };
 
@@ -101,7 +101,7 @@ export const useHome = () => {
     selectedChoiceID,
     selectChoice,
     setAnswer,
-    showScore,
+    submitDictation,
     pickDictation,
     isPickDictationAreaVisible,
     togglePickDictationArea,

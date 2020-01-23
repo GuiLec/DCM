@@ -28,7 +28,7 @@ export const Home = () => {
     selectedChoiceID,
     selectChoice,
     setAnswer,
-    showScore,
+    submitDictation,
     pickDictation,
     isPickDictationAreaVisible,
     togglePickDictationArea,
@@ -58,7 +58,7 @@ export const Home = () => {
           setAnswer={setAnswer}
         />
         <HomeFooter
-          onPress={showScore}
+          onPress={submitDictation}
           isValidationDisabled={!activeSlicedDictation}
         />
       </PageContainer>
