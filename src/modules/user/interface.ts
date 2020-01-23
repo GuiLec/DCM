@@ -12,4 +12,5 @@ export interface DictationEvent {
   id: string;
   dictationName: string;
   score: string;
+  date: number;
 }
