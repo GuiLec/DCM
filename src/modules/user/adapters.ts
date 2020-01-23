@@ -5,20 +5,10 @@ export const adaptUserToSave = (user: User): RawUser => {
 };
 
 export const adaptUser = (rawUser: RawUser): User => {
+  console.log('rawUser', rawUser);
   return {
     ...rawUser,
     name: rawUser.name || 'Inconnu',
-    dictationsHistory: [
-      {
-        id: '1',
-        dictationName: 'Ma première dictée',
-        score: '03/20',
-      },
-      {
-        id: '2',
-        dictationName: 'Ma seconde dictée',
-        score: '20/20',
-      },
-    ],
+    dictationsHistory: rawUser.dictationsHistory || [],
   };
 };
