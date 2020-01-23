@@ -1,14 +1,8 @@
-import {DictationEvent} from '../../modules/user/interface';
-
-const dictationEvents: DictationEvent[] = [
-  {
-    id: '678',
-    dictationName: 'My old dictation',
-    score: '17/20',
-    date: 1579767270,
-  },
-];
+import {useSelector} from 'react-redux';
+import {selectUser} from '../../modules/user/selectors';
 
 export const useDictationsHistory = () => {
+  const user = useSelector(selectUser);
+  const dictationEvents = user ? user.dictationsHistory : [];
   return {dictationEvents};
 };
