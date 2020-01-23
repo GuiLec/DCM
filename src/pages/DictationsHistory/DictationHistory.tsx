@@ -24,7 +24,10 @@ export const DictationsHistory = () => {
         <PageHeader title={'Mon historique'} />
         <ScrollView>
           {dictationEvents.map(dictationEvent => (
-            <DictationEvent />
+            <DictationEvent
+              key={dictationEvent.id}
+              dictationEvent={dictationEvent}
+            />
           ))}
         </ScrollView>
       </PageContainer>
