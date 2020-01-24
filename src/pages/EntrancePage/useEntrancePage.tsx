@@ -1,12 +1,15 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from 'react-navigation-hooks';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {userLoginRequest, userSignupRequest} from '../../modules/user/actions';
+import {selectUser} from '../../modules/user/selectors';
 
 export const useEntrancePage = () => {
   const [isLoginDisplayed, setisLoginDisplayed] = useState<boolean>(true);
   const toggleLogin = () => setisLoginDisplayed(state => !state);
+
+  const user = useSelector(selectUser);
 
   const {navigate} = useNavigation();
   const dispatch = useDispatch();
@@ -50,6 +53,10 @@ export const useEntrancePage = () => {
       })
       .catch(error => setErrorMessage(error.message));
   };
+
+  useEffect(() => {
+    if (!!user) navigate('home');
+  });
 
   return {
     isLoginDisplayed,

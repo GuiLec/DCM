@@ -10,7 +10,7 @@ import {rootSaga} from './rootSagas';
 export const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['onBoarding'],
+  whitelist: ['userState'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
