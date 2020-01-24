@@ -5,7 +5,6 @@ export const adaptUserToSave = (user: User): RawUser => {
 };
 
 export const adaptUser = (rawUser: RawUser): User => {
-  console.log('rawUser', rawUser);
   return {
     ...rawUser,
     name: rawUser.name || 'Inconnu',

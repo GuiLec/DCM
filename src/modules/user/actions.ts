@@ -1,5 +1,5 @@
 import {createAction, ActionType} from 'typesafe-actions';
-import {User} from './interface';
+import {User, DictationEvent} from './interface';
 
 const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
 export const userLoginRequest = createAction(
@@ -19,4 +19,15 @@ export const saveUserRequest = createAction(
   action => (user: User | null) => action(user),
 );
 
-export type UserActions = ActionType<typeof saveUserRequest>;
+const SAVE_DICTATION_EVENT_ACTION = 'SAVE_DICTATION_EVENT_ACTION';
+export const saveDictationEventAction = createAction(
+  SAVE_DICTATION_EVENT_ACTION,
+  action => (dictationEvent: DictationEvent) => action(dictationEvent),
+);
+
+export type UserActions = ActionType<
+  | typeof saveUserRequest
+  | typeof saveDictationEventAction
+  | typeof userSignupRequest
+  | typeof userLoginRequest
+>;

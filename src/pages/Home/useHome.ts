@@ -16,6 +16,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {selectDictations} from '../../modules/dictation/selectors';
 import {shuffle} from '../../lib/utils';
 import {fetchDictationsRequest} from '../../modules/dictation/actions';
+import {saveDictationEventAction} from '../../modules/user/actions';
 
 export const useHome = () => {
   const dictations = useSelector(selectDictations);
@@ -70,6 +71,22 @@ export const useHome = () => {
     setIsPickDictationAreaVisible(state => !state);
 
   const submitDictation = () => {
+    if (activeDictation) {
+      console.log('dispatch', {
+        id: `${activeDictation.id}`,
+        dictationName: activeDictation.name,
+        score: getScore(correctAnswersState, answersState),
+        date: Date.now() / 1000,
+      });
+      dispatch(
+        saveDictationEventAction({
+          id: `${activeDictation.id}`,
+          dictationName: activeDictation.name,
+          score: getScore(correctAnswersState, answersState),
+          date: Date.now() / 1000,
+        }),
+      );
+    }
     Alert.alert('Score', getScore(correctAnswersState, answersState));
   };
 
