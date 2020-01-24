@@ -17,3 +17,11 @@ export const postUser = (user: User) => {
     .post()
     .res();
 };
+
+export const updateUser = (user: User) => {
+  return DCM_API()
+    .headers({'Content-Type': 'application/json'})
+    .url(`/user/update?userID=${user.id}`)
+    .body(JSON.stringify(adaptUserToSave(user)))
+    .put();
+};

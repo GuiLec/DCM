@@ -19,6 +19,12 @@ export const saveUserRequest = createAction(
   action => (user: User | null) => action(user),
 );
 
+const UPDATE_DICTATIONS_HISTORY_REQUEST = 'UPDATE_DICTATIONS_HISTORY_REQUEST';
+export const updateDictationsHistoryRequest = createAction(
+  UPDATE_DICTATIONS_HISTORY_REQUEST,
+  action => (dictationEvent: DictationEvent) => action(dictationEvent),
+);
+
 const SAVE_DICTATION_EVENT_ACTION = 'SAVE_DICTATION_EVENT_ACTION';
 export const saveDictationEventAction = createAction(
   SAVE_DICTATION_EVENT_ACTION,
@@ -30,4 +36,5 @@ export type UserActions = ActionType<
   | typeof saveDictationEventAction
   | typeof userSignupRequest
   | typeof userLoginRequest
+  | typeof updateDictationsHistoryRequest
 >;

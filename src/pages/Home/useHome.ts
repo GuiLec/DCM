@@ -16,7 +16,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {selectDictations} from '../../modules/dictation/selectors';
 import {shuffle} from '../../lib/utils';
 import {fetchDictationsRequest} from '../../modules/dictation/actions';
-import {saveDictationEventAction} from '../../modules/user/actions';
+import {updateDictationsHistoryRequest} from '../../modules/user/actions';
 
 export const useHome = () => {
   const dictations = useSelector(selectDictations);
@@ -79,7 +79,7 @@ export const useHome = () => {
         date: Date.now() / 1000,
       });
       dispatch(
-        saveDictationEventAction({
+        updateDictationsHistoryRequest({
           id: `${activeDictation.id}`,
           dictationName: activeDictation.name,
           score: getScore(correctAnswersState, answersState),
