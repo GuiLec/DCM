@@ -8,7 +8,6 @@ import Collapsible from 'react-native-collapsible';
 import {Answer} from '../../../../components/Answer';
 import {PlusButton} from '../../../../components/PlusButton';
 import {AuthorPageFooter} from '../AuthorPageFooter';
-import {Prompt} from '../../../../components/Prompt';
 import {DictationDetailsModal} from '../DictationDetailsModal';
 
 const Container = styled.TouchableOpacity`
