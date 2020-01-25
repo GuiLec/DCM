@@ -63,7 +63,7 @@ export const useWrittingChoicesArea = (props: Props) => {
     setInputText('');
   };
 
-  const [isPromptVisible, setIsPromptVisible] = useState<boolean>(false);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   const user: User | null = useSelector(selectUser);
   const userID = user ? user.id : 'offline';
@@ -83,12 +83,12 @@ export const useWrittingChoicesArea = (props: Props) => {
 
     postDictation(dictation);
     dispatch(fetchDictationsRequest());
-    setIsPromptVisible(false);
+    setIsModalVisible(false);
     props.cancelNewDictation();
     navigate('home');
   };
 
-  const togglePrompt = () => setIsPromptVisible(state => !state);
+  const toggleModal = () => setIsModalVisible(state => !state);
 
   return {
     setSelectedWord,
@@ -100,7 +100,7 @@ export const useWrittingChoicesArea = (props: Props) => {
     choiceInputs,
     isWordAGuess,
     saveDictation,
-    isPromptVisible,
-    togglePrompt,
+    isModalVisible,
+    toggleModal,
   };
 };

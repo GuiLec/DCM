@@ -9,6 +9,7 @@ import {Answer} from '../../../../components/Answer';
 import {PlusButton} from '../../../../components/PlusButton';
 import {AuthorPageFooter} from '../AuthorPageFooter';
 import {Prompt} from '../../../../components/Prompt';
+import {DictationDetailsModal} from '../DictationDetailsModal';
 
 const Container = styled.TouchableOpacity`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -90,8 +91,8 @@ export const WrittingChoicesArea = (props: Props) => {
     choiceInputs,
     isWordAGuess,
     saveDictation,
-    isPromptVisible,
-    togglePrompt,
+    isModalVisible,
+    toggleModal,
   } = useWrittingChoicesArea(props);
   return (
     <>
@@ -145,16 +146,15 @@ export const WrittingChoicesArea = (props: Props) => {
         <AuthorPageFooter
           title="Je valide cette dictée"
           isValidationDisabled={Object.keys(choiceInputs).length === 0}
-          onPress={togglePrompt}
+          onPress={toggleModal}
         />
       </Collapsible>
-      <Prompt
-        title="J'écris le titre de ma dictée"
-        placeholder="Mon titre"
-        visible={isPromptVisible}
-        onCancel={togglePrompt}
-        onSubmit={saveDictation}
-      />
+      {isModalVisible && (
+        <DictationDetailsModal
+          toggleModal={toggleModal}
+          saveDictation={saveDictation}
+        />
+      )}
     </>
   );
 };
