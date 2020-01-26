@@ -1,1 +1,1 @@
-export const availableDictationLanguages = ['FR', 'DE'];
+export const availableDictationLanguages = ['FR', 'GB', 'ES'];
