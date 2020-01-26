@@ -2,6 +2,9 @@ import React from 'react';
 import {styled} from '../../../../lib/styled';
 import {ValidationButton} from '../../../../components/ValidationButton';
 import {CrossButton} from '../../../../components/CrossButton';
+// @ts-ignore
+import Flag from 'react-native-flags';
+import {availableDictationLanguages} from '../../../../environment/app';
 
 const Overlay = styled.View`
   background-color: rgba(23, 36, 42, 0.8);
@@ -17,12 +20,55 @@ const Overlay = styled.View`
 
 const Container = styled.View`
   background-color: ${props => props.theme.colors.gray};
-  padding: ${props => props.theme.gridUnit * 4}px;
   flex-direction: row;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   border-color: ${props => props.theme.colors.black};
   border-width: 1px;
+`;
+const CrossIconContainer = styled.View`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+const ContentContainer = styled.View`
+  flex: 1;
+  padding-horizontal: ${props => props.theme.gridUnit * 2}px;
+  padding-bottom: ${props => props.theme.gridUnit * 4}px;
+  padding-top: ${props => props.theme.gridUnit * 8}px;
+`;
+
+const TitleContainer = styled.View``;
+
+const TitleInput = styled.TextInput`
+  border-color: ${props => props.theme.colors.black};
+  background-color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.darkGray};
+  border-width: 1px;
+  padding: ${props => props.theme.gridUnit * 2}px;
+`;
+
+const Label = styled.Text`
+  color: ${props => props.theme.colors.darkGray};
+  margin: ${props => props.theme.gridUnit * 2}px;
+  font-weight: bold;
+  font-size: ${props => props.theme.fontSizes.big};
+`;
+
+const LanguageContainer = styled.View``;
+
+const FlagsContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`;
+
+const ValidationButtonContainer = styled.View`
+  margin-top: ${props => props.theme.gridUnit * 6};
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
 `;
 
 interface Props {
@@ -34,12 +80,33 @@ interface Props {
 export const DictationDetailsModal = (props: Props) => (
   <Overlay>
     <Container>
-      <CrossButton onPress={props.toggleModal} />
-      <ValidationButton
-        title={'Je crée ma dictée'}
-        onPress={() => props.saveDictation('Mon Titre')}
-        disabled={props.disabled}
-      />
+      <CrossIconContainer>
+        <CrossButton onPress={props.toggleModal} />
+      </CrossIconContainer>
+      <ContentContainer>
+        <TitleContainer>
+          <Label>Le titre de ma dictée :</Label>
+          <TitleInput
+            autoCapitalize={'sentences'}
+            placeholder="J'écris le titre de ma dictée"
+          />
+        </TitleContainer>
+        <LanguageContainer>
+          <Label>Quelle est la langue de ma dictée ?</Label>
+          <FlagsContainer>
+            {availableDictationLanguages.map(language => (
+              <Flag key={language} code={language} size={32} />
+            ))}
+          </FlagsContainer>
+        </LanguageContainer>
+        <ValidationButtonContainer>
+          <ValidationButton
+            title={'Je crée ma dictée'}
+            onPress={() => props.saveDictation('Mon Titre')}
+            disabled={props.disabled}
+          />
+        </ValidationButtonContainer>
+      </ContentContainer>
     </Container>
   </Overlay>
 );
