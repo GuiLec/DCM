@@ -4,6 +4,8 @@ import {ValidationButton} from '../../../../components/ValidationButton';
 import {CrossButton} from '../../../../components/CrossButton';
 import {availableDictationLanguages} from '../../../../environment/app';
 import {FlagButton} from '../../../../components/FlagButton';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import {StarPicker} from '../../../../components/StarPicker';
 
 const Overlay = styled.View`
   background-color: rgba(23, 36, 42, 0.8);
@@ -63,6 +65,8 @@ const FlagsContainer = styled.View`
   flex-wrap: wrap;
 `;
 
+const DifficultyContainer = styled.View``;
+
 const ValidationButtonContainer = styled.View`
   margin-top: ${props => props.theme.gridUnit * 6};
   justify-content: center;
@@ -106,6 +110,9 @@ export const DictationDetailsModal = (props: Props) => (
             ))}
           </FlagsContainer>
         </LanguageContainer>
+        <DifficultyContainer>
+          <StarPicker />
+        </DifficultyContainer>
         <ValidationButtonContainer>
           <ValidationButton
             title={'Je crée ma dictée'}
