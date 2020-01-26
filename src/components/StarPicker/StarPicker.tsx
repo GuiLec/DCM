@@ -10,11 +10,16 @@ const Container = styled.View`
 interface Props {}
 
 export const StarPicker = (props: Props) => {
-  const {starSelection} = useStarPicker();
+  const {starSelection, selectStar} = useStarPicker();
   return (
     <Container>
       {starSelection.map((star: boolean, index) => (
-        <StarButton key={index} size={20} isSelected={star} />
+        <StarButton
+          key={index}
+          size={20}
+          isSelected={star}
+          onPress={selectStar(index)}
+        />
       ))}
     </Container>
   );

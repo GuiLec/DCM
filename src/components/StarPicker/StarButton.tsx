@@ -6,6 +6,10 @@ const Touchable = styled.TouchableOpacity`
   padding: ${props => props.theme.gridUnit}px;
 `;
 
+const IconComponent = styled(Icon)`
+  color: ${props => props.theme.colors.yellow};
+`;
+
 interface Props {
   onPress?: () => void;
   size: number;
@@ -15,7 +19,7 @@ interface Props {
 export const StarButton = (props: Props) => {
   return (
     <Touchable onPress={props.onPress}>
-      <Icon size={props.size} name="star" solid={!!props.isSelected} />
+      <IconComponent size={props.size} name="star" solid={!!props.isSelected} />
     </Touchable>
   );
 };

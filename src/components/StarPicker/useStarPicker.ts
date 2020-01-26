@@ -4,5 +4,18 @@ export const useStarPicker = () => {
   const [starSelection, setStarSelection] = useState<
     [boolean, boolean, boolean, boolean, boolean]
   >([false, false, false, false, false]);
-  return {starSelection};
+
+  const selectStar = (index: number) => () => {
+    let newStarSelection = [];
+    for (let i = 0; i < index + 1; i++) {
+      newStarSelection[i] = true;
+    }
+    for (let j = index + 1; j < 5; j++) {
+      newStarSelection[j] = false;
+    }
+    // @ts-ignore
+    setStarSelection(newStarSelection);
+  };
+
+  return {starSelection, selectStar};
 };

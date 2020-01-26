@@ -51,6 +51,7 @@ export const theme = {
     appleGreen: '#70cd5e',
     grassGreen: '#568b20',
     validGreen: '#6ee34e',
+    yellow: '#feb42f',
   },
   fontSizes: {
     tiny: 10,

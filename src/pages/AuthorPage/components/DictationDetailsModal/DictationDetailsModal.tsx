@@ -1,10 +1,10 @@
 import React from 'react';
+import {View} from 'react-native';
 import {styled} from '../../../../lib/styled';
 import {ValidationButton} from '../../../../components/ValidationButton';
 import {CrossButton} from '../../../../components/CrossButton';
 import {availableDictationLanguages} from '../../../../environment/app';
 import {FlagButton} from '../../../../components/FlagButton';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {StarPicker} from '../../../../components/StarPicker';
 
 const Overlay = styled.View`
@@ -40,8 +40,6 @@ const ContentContainer = styled.View`
   padding-top: ${props => props.theme.gridUnit * 8}px;
 `;
 
-const TitleContainer = styled.View``;
-
 const TitleInput = styled.TextInput`
   border-color: ${props => props.theme.colors.black};
   background-color: ${props => props.theme.colors.white};
@@ -57,15 +55,16 @@ const Label = styled.Text`
   font-size: ${props => props.theme.fontSizes.big};
 `;
 
-const LanguageContainer = styled.View``;
-
 const FlagsContainer = styled.View`
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
 `;
 
-const DifficultyContainer = styled.View``;
+const StarPickerContainer = styled.View`
+  justify-content: center;
+  flex-direction: row;
+`;
 
 const ValidationButtonContainer = styled.View`
   margin-top: ${props => props.theme.gridUnit * 6};
@@ -89,14 +88,14 @@ export const DictationDetailsModal = (props: Props) => (
         <CrossButton onPress={props.toggleModal} />
       </CrossIconContainer>
       <ContentContainer>
-        <TitleContainer>
+        <View>
           <Label>Le titre de ma dictée :</Label>
           <TitleInput
             autoCapitalize={'sentences'}
             placeholder="J'écris le titre de ma dictée"
           />
-        </TitleContainer>
-        <LanguageContainer>
+        </View>
+        <View>
           <Label>Quelle est la langue de ma dictée ?</Label>
           <FlagsContainer>
             {availableDictationLanguages.map(language => (
@@ -109,13 +108,16 @@ export const DictationDetailsModal = (props: Props) => (
               />
             ))}
           </FlagsContainer>
-        </LanguageContainer>
-        <DifficultyContainer>
-          <StarPicker />
-        </DifficultyContainer>
+        </View>
+        <View>
+          <Label>J'estime la difficultée de ma dictée :</Label>
+          <StarPickerContainer>
+            <StarPicker />
+          </StarPickerContainer>
+        </View>
         <ValidationButtonContainer>
           <ValidationButton
-            title={'Je crée ma dictée'}
+            title={'Je crée ma dictée !!!'}
             onPress={() => props.saveDictation('Mon Titre')}
             disabled={props.disabled}
           />
