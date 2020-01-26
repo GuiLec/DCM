@@ -19,7 +19,7 @@ interface Props {
 
 export const FlagButton = (props: Props) => {
   return (
-    <Touchable isSelected={!!props.isSelected}>
+    <Touchable onPress={props.onPress} isSelected={!!props.isSelected}>
       <Flag code={props.code} size={props.size} />
     </Touchable>
   );

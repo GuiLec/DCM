@@ -74,6 +74,8 @@ interface Props {
   saveDictation: (title: string) => void;
   disabled?: boolean;
   toggleModal: () => void;
+  selectedLanguage: string | null;
+  selectLanguage: (langugae: string | null) => () => void;
 }
 
 export const DictationDetailsModal = (props: Props) => (
@@ -94,7 +96,13 @@ export const DictationDetailsModal = (props: Props) => (
           <Label>Quelle est la langue de ma dictée ?</Label>
           <FlagsContainer>
             {availableDictationLanguages.map(language => (
-              <FlagButton isSelected key={language} code={language} size={32} />
+              <FlagButton
+                isSelected={props.selectedLanguage === language}
+                onPress={props.selectLanguage(language)}
+                key={language}
+                code={language}
+                size={32}
+              />
             ))}
           </FlagsContainer>
         </LanguageContainer>

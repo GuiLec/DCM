@@ -65,6 +65,10 @@ export const useWrittingChoicesArea = (props: Props) => {
 
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
+  const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
+  const selectLanguage = (language: string | null) => () =>
+    setSelectedLanguage(language);
+
   const user: User | null = useSelector(selectUser);
   const userID = user ? user.id : 'offline';
 
@@ -102,5 +106,7 @@ export const useWrittingChoicesArea = (props: Props) => {
     saveDictation,
     isModalVisible,
     toggleModal,
+    selectedLanguage,
+    selectLanguage,
   };
 };
