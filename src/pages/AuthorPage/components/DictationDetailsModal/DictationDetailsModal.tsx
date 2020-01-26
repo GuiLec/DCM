@@ -94,7 +94,7 @@ export const DictationDetailsModal = (props: Props) => (
           <Label>Quelle est la langue de ma dictée ?</Label>
           <FlagsContainer>
             {availableDictationLanguages.map(language => (
-              <FlagButton key={language} code={language} size={32} />
+              <FlagButton isSelected key={language} code={language} size={32} />
             ))}
           </FlagsContainer>
         </LanguageContainer>
