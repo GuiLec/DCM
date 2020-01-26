@@ -69,6 +69,8 @@ export const useWrittingChoicesArea = (props: Props) => {
   const selectLanguage = (language: string | null) => () =>
     setSelectedLanguage(language);
 
+  const [difficulty, setDifficulty] = useState<number | null>(null);
+
   const user: User | null = useSelector(selectUser);
   const userID = user ? user.id : 'offline';
 
@@ -108,5 +110,6 @@ export const useWrittingChoicesArea = (props: Props) => {
     toggleModal,
     selectedLanguage,
     selectLanguage,
+    setDifficulty,
   };
 };

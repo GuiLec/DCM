@@ -79,6 +79,7 @@ interface Props {
   toggleModal: () => void;
   selectedLanguage: string | null;
   selectLanguage: (langugae: string | null) => () => void;
+  setDifficulty: (difficulty: number | null) => void;
 }
 
 export const DictationDetailsModal = (props: Props) => (
@@ -112,7 +113,7 @@ export const DictationDetailsModal = (props: Props) => (
         <View>
           <Label>J'estime la difficultée de ma dictée :</Label>
           <StarPickerContainer>
-            <StarPicker />
+            <StarPicker onChange={props.setDifficulty} />
           </StarPickerContainer>
         </View>
         <ValidationButtonContainer>
