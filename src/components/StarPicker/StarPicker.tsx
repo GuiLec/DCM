@@ -7,12 +7,13 @@ const Container = styled.View`
   flex-direction: row;
 `;
 
-interface Props {
+export interface Props {
   onChange: (difficulty: number | null) => void;
+  difficulty: number | null;
 }
 
 export const StarPicker = (props: Props) => {
-  const {starSelection, selectStar} = useStarPicker(props.onChange);
+  const {starSelection, selectStar} = useStarPicker(props);
   return (
     <Container>
       {starSelection.map((star: boolean, index) => (

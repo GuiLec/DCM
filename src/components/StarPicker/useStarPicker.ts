@@ -1,14 +1,19 @@
 import {useState} from 'react';
+import {Props} from './StarPicker';
 
-export const useStarPicker = (
-  onChange: (difficulty: number | null) => void,
-) => {
-  let difficulty = 0;
+export const useStarPicker = (props: Props) => {
   const [starSelection, setStarSelection] = useState<
     [boolean, boolean, boolean, boolean, boolean]
-  >([false, false, false, false, false]);
+  >([
+    !!props.difficulty && props.difficulty > 0,
+    !!props.difficulty && props.difficulty > 1,
+    !!props.difficulty && props.difficulty > 2,
+    !!props.difficulty && props.difficulty > 3,
+    !!props.difficulty && props.difficulty > 4,
+  ]);
 
   const selectStar = (index: number) => () => {
+    let difficulty = 0;
     let newStarSelection = [];
     for (let i = 0; i < index + 1; i++) {
       difficulty++;
@@ -19,7 +24,7 @@ export const useStarPicker = (
     }
     // @ts-ignore
     setStarSelection(newStarSelection);
-    onChange(difficulty);
+    props.onChange(difficulty);
   };
 
   return {starSelection, selectStar};

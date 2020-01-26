@@ -110,6 +110,7 @@ export const useWrittingChoicesArea = (props: Props) => {
     toggleModal,
     selectedLanguage,
     selectLanguage,
+    difficulty,
     setDifficulty,
   };
 };

@@ -94,6 +94,7 @@ export const WrittingChoicesArea = (props: Props) => {
     toggleModal,
     selectedLanguage,
     selectLanguage,
+    difficulty,
     setDifficulty,
   } = useWrittingChoicesArea(props);
   return (
@@ -157,6 +158,7 @@ export const WrittingChoicesArea = (props: Props) => {
           saveDictation={saveDictation}
           selectedLanguage={selectedLanguage}
           selectLanguage={selectLanguage}
+          difficulty={difficulty}
           setDifficulty={setDifficulty}
         />
       )}
