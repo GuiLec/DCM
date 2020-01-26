@@ -2,9 +2,8 @@ import React from 'react';
 import {styled} from '../../../../lib/styled';
 import {ValidationButton} from '../../../../components/ValidationButton';
 import {CrossButton} from '../../../../components/CrossButton';
-// @ts-ignore
-import Flag from 'react-native-flags';
 import {availableDictationLanguages} from '../../../../environment/app';
+import {FlagButton} from '../../../../components/FlagButton';
 
 const Overlay = styled.View`
   background-color: rgba(23, 36, 42, 0.8);
@@ -95,7 +94,7 @@ export const DictationDetailsModal = (props: Props) => (
           <Label>Quelle est la langue de ma dictée ?</Label>
           <FlagsContainer>
             {availableDictationLanguages.map(language => (
-              <Flag key={language} code={language} size={32} />
+              <FlagButton key={language} code={language} size={32} />
             ))}
           </FlagsContainer>
         </LanguageContainer>
