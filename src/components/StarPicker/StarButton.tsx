@@ -14,11 +14,12 @@ interface Props {
   onPress?: () => void;
   size: number;
   isSelected?: boolean;
+  disabled?: boolean;
 }
 
 export const StarButton = (props: Props) => {
   return (
-    <Touchable onPress={props.onPress}>
+    <Touchable onPress={props.onPress} disabled={props.disabled}>
       <IconComponent size={props.size} name="star" solid={!!props.isSelected} />
     </Touchable>
   );

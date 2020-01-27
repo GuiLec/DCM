@@ -24,7 +24,7 @@ export const useStarPicker = (props: Props) => {
     }
     // @ts-ignore
     setStarSelection(newStarSelection);
-    props.onChange(difficulty);
+    if (props.onChange) props.onChange(difficulty);
   };
 
   return {starSelection, selectStar};
