@@ -18,7 +18,7 @@ const TitleContainer = styled.View`
 
 const ItemIcon = styled(Icon)`
   color: ${props => props.theme.colors.white};
-  margin-right: ${props => props.theme.gridUnit}px;
+  margin-right: ${props => props.theme.gridUnit * 2}px;
 `;
 
 const NavigateIcon = styled(Icon)`

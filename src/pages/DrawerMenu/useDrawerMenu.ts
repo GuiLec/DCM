@@ -47,6 +47,15 @@ export const useDrawerMenu = () => {
         itemLogoName: 'book-open',
       },
       {
+        title: 'Mes préférences',
+        onPress: () => {
+          navigate('preferences');
+          closeDrawer();
+        },
+        hasRightArrow: true,
+        itemLogoName: 'cogs',
+      },
+      {
         title: 'Déconnexion',
         onPress: () => {
           dispatch(saveUserRequest(null));
