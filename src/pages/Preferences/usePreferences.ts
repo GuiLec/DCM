@@ -10,7 +10,7 @@ export const usePreferences = () => {
     2: true,
     3: true,
     4: true,
-    5: true,
+    5: false,
   };
 
   const [selectedDifficulties, setSelectedDifficulties] = useState<{
