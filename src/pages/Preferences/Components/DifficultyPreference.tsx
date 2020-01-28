@@ -23,11 +23,12 @@ interface Props {
   difficulty: number;
   label: string;
   selected?: boolean;
+  onPress?: () => void;
 }
 
 export const DifficultyPreference = (props: Props) => {
   return (
-    <Touchable selected={props.selected}>
+    <Touchable selected={props.selected} onPress={props.onPress}>
       <StarPicker disabled difficulty={props.difficulty} />
       <Label>{props.label}</Label>
     </Touchable>

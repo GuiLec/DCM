@@ -38,7 +38,12 @@ const Label = styled.Text`
 `;
 
 export const Preferences = () => {
-  const {selectedLanguage, selectLanguage} = usePreferences();
+  const {
+    selectedLanguage,
+    selectLanguage,
+    selectedDifficulties,
+    toggleDifficulty,
+  } = usePreferences();
   return (
     <SafeAreaViewComponent>
       <PageContainer>
@@ -58,15 +63,36 @@ export const Preferences = () => {
               ))}
             </FlagContainer>
             <Label>Difficulté des dictées :</Label>
-            <DifficultyPreference difficulty={1} label="débutant" />
-            <DifficultyPreference selected difficulty={2} label="facile" />
             <DifficultyPreference
-              selected
+              selected={selectedDifficulties[1]}
+              difficulty={1}
+              onPress={toggleDifficulty(1)}
+              label="débutant"
+            />
+            <DifficultyPreference
+              selected={selectedDifficulties[2]}
+              onPress={toggleDifficulty(2)}
+              difficulty={2}
+              label="facile"
+            />
+            <DifficultyPreference
+              selected={selectedDifficulties[3]}
+              onPress={toggleDifficulty(3)}
               difficulty={3}
               label="intermédiaire"
             />
-            <DifficultyPreference difficulty={4} label="difficile" />
-            <DifficultyPreference difficulty={5} label="expert" />
+            <DifficultyPreference
+              selected={selectedDifficulties[4]}
+              onPress={toggleDifficulty(4)}
+              difficulty={4}
+              label="difficile"
+            />
+            <DifficultyPreference
+              selected={selectedDifficulties[5]}
+              onPress={toggleDifficulty(5)}
+              difficulty={5}
+              label="expert"
+            />
           </ContentContainer>
         </ScrollView>
       </PageContainer>
