@@ -6,6 +6,7 @@ import {ScrollView} from 'react-native';
 import {availableDictationLanguages} from '../../environment/app';
 import {FlagButton} from '../../components/FlagButton';
 import {DifficultyPreference} from './Components/DifficultyPreference';
+import {usePreferences} from './usePreferences';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -37,6 +38,7 @@ const Label = styled.Text`
 `;
 
 export const Preferences = () => {
+  const {selectedLanguage, selectLanguage} = usePreferences();
   return (
     <SafeAreaViewComponent>
       <PageContainer>
@@ -47,7 +49,8 @@ export const Preferences = () => {
             <FlagContainer>
               {availableDictationLanguages.map(language => (
                 <FlagButton
-                  isSelected={false}
+                  isSelected={selectedLanguage === language}
+                  onPress={selectLanguage(language)}
                   key={language}
                   code={language}
                   size={32}
