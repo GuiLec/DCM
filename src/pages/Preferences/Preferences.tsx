@@ -7,6 +7,7 @@ import {availableDictationLanguages} from '../../environment/app';
 import {FlagButton} from '../../components/FlagButton';
 import {DifficultyPreference} from './Components/DifficultyPreference';
 import {usePreferences} from './usePreferences';
+import {ValidationButton} from '../../components/ValidationButton';
 
 const SafeAreaViewComponent = styled(SafeAreaView)`
   flex: 1;
@@ -35,6 +36,11 @@ const Label = styled.Text`
   margin: ${props => props.theme.gridUnit * 2}px;
   font-weight: bold;
   font-size: ${props => props.theme.fontSizes.big};
+`;
+
+const ValidationButtonContainer = styled.View`
+  align-items: center;
+  padding-top: ${props => props.theme.gridUnit * 10}px;
 `;
 
 export const Preferences = () => {
@@ -93,6 +99,9 @@ export const Preferences = () => {
               difficulty={5}
               label="expert"
             />
+            <ValidationButtonContainer>
+              <ValidationButton title="Je valide mes préférences" />
+            </ValidationButtonContainer>
           </ContentContainer>
         </ScrollView>
       </PageContainer>
