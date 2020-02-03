@@ -1,8 +1,11 @@
 import {useState} from 'react';
+import {defaultAppLanguage} from '../../environment/app';
 
 export const usePreferences = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
-  const selectLanguage = (language: string | null) => () =>
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(
+    defaultAppLanguage,
+  );
+  const selectLanguage = (language: string) => () =>
     setSelectedLanguage(language);
 
   const initialSelectedDifficulties: {[difficulty: number]: boolean} = {
