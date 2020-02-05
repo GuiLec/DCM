@@ -4,7 +4,7 @@ import {useNavigation, useFocusEffect} from 'react-navigation-hooks';
 import {useDispatch, useSelector} from 'react-redux';
 import {userLoginRequest, userSignupRequest} from '../../modules/user/actions';
 import {selectUser} from '../../modules/user/selectors';
-import {defaultDifficulties} from '../../environment/app';
+import {defaultDifficulties, defaultAppLanguage} from '../../environment/app';
 
 export const useEntrancePage = () => {
   const [isLoginDisplayed, setisLoginDisplayed] = useState<boolean>(true);
@@ -35,6 +35,7 @@ export const useEntrancePage = () => {
             name: name,
             dictationsDifficulties: defaultDifficulties,
             dictationsHistory: [],
+            selectedLanguage: defaultAppLanguage,
           }),
         );
         navigate('home');

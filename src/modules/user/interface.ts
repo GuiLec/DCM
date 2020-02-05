@@ -1,5 +1,6 @@
 export interface User extends RawUser {
   dictationsDifficulties: number[];
+  selectedLanguage: string;
 }
 
 export interface RawUser {
