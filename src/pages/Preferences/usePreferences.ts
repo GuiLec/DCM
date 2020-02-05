@@ -3,6 +3,7 @@ import {defaultAppLanguage} from '../../environment/app';
 import {useSelector, useDispatch} from 'react-redux';
 import {selectUser} from '../../modules/user/selectors';
 import {saveUserRequest} from '../../modules/user/actions';
+import {useNavigation} from 'react-navigation-hooks';
 
 export const usePreferences = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<string>(
@@ -32,6 +33,7 @@ export const usePreferences = () => {
   };
 
   const dispatch = useDispatch();
+  const {navigate} = useNavigation();
 
   const savePreferences = () => {
     dispatch(
@@ -40,6 +42,7 @@ export const usePreferences = () => {
         user ? {...user, dictationsDifficulties: selectedDifficulties} : null,
       ),
     );
+    navigate('home');
   };
 
   return {
