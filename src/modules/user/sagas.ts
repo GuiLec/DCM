@@ -61,8 +61,7 @@ export function* updateUserSaga(
   action: ReturnType<typeof updateUserRequest>,
 ): SagaIterator {
   try {
-    // uncomment when API is ready
-    // if (action.payload) yield call(updateUser, action.payload);
+    if (action.payload) yield call(updateUser, action.payload);
   } catch (error) {
     console.warn(error);
   }
