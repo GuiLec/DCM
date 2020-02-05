@@ -49,6 +49,7 @@ export const Preferences = () => {
     selectLanguage,
     selectedDifficulties,
     toggleDifficulty,
+    savePreferences,
   } = usePreferences();
   return (
     <SafeAreaViewComponent>
@@ -100,7 +101,10 @@ export const Preferences = () => {
               label="expert"
             />
             <ValidationButtonContainer>
-              <ValidationButton title="Je valide mes préférences" />
+              <ValidationButton
+                title="Je valide mes préférences"
+                onPress={savePreferences}
+              />
             </ValidationButtonContainer>
           </ContentContainer>
         </ScrollView>

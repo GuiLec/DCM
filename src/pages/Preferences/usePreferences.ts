@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import {defaultAppLanguage} from '../../environment/app';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {selectUser} from '../../modules/user/selectors';
+import {saveUserRequest} from '../../modules/user/actions';
 
 export const usePreferences = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<string>(
@@ -30,10 +31,22 @@ export const usePreferences = () => {
     setSelectedDifficulties(newSelectedDifficulties);
   };
 
+  const dispatch = useDispatch();
+
+  const savePreferences = () => {
+    dispatch(
+      // @TODO creer une saga pour mettre à jour un user sur l'API et sur le store
+      saveUserRequest(
+        user ? {...user, dictationsDifficulties: selectedDifficulties} : null,
+      ),
+    );
+  };
+
   return {
     selectedLanguage,
     selectLanguage,
     selectedDifficulties,
     toggleDifficulty,
+    savePreferences,
   };
 };
