@@ -70,31 +70,31 @@ export const Preferences = () => {
             </FlagContainer>
             <Label>Difficulté des dictées :</Label>
             <DifficultyPreference
-              selected={selectedDifficulties[1]}
+              selected={selectedDifficulties.includes(1)}
               difficulty={1}
               onPress={toggleDifficulty(1)}
               label="débutant"
             />
             <DifficultyPreference
-              selected={selectedDifficulties[2]}
+              selected={selectedDifficulties.includes(2)}
               onPress={toggleDifficulty(2)}
               difficulty={2}
               label="facile"
             />
             <DifficultyPreference
-              selected={selectedDifficulties[3]}
+              selected={selectedDifficulties.includes(3)}
               onPress={toggleDifficulty(3)}
               difficulty={3}
               label="intermédiaire"
             />
             <DifficultyPreference
-              selected={selectedDifficulties[4]}
+              selected={selectedDifficulties.includes(4)}
               onPress={toggleDifficulty(4)}
               difficulty={4}
               label="difficile"
             />
             <DifficultyPreference
-              selected={selectedDifficulties[5]}
+              selected={selectedDifficulties.includes(5)}
               onPress={toggleDifficulty(5)}
               difficulty={5}
               label="expert"

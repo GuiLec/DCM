@@ -8,23 +8,22 @@ export const usePreferences = () => {
   const selectLanguage = (language: string) => () =>
     setSelectedLanguage(language);
 
-  const initialSelectedDifficulties: {[difficulty: number]: boolean} = {
-    1: true,
-    2: true,
-    3: true,
-    4: true,
-    5: false,
-  };
-
-  const [selectedDifficulties, setSelectedDifficulties] = useState<{
-    [difficulty: number]: boolean;
-  }>(initialSelectedDifficulties);
+  const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>([
+    1,
+    2,
+    3,
+    4,
+  ]);
 
   const toggleDifficulty = (difficulty: number) => () => {
-    setSelectedDifficulties(state => {
-      state[difficulty] = !state[difficulty];
-      return {...state};
-    });
+    var index = selectedDifficulties.indexOf(difficulty);
+    const newSelectedDifficulties = [...selectedDifficulties];
+    if (index === -1) {
+      newSelectedDifficulties.push(difficulty);
+    } else {
+      newSelectedDifficulties.splice(index, 1);
+    }
+    setSelectedDifficulties(newSelectedDifficulties);
   };
 
   return {
