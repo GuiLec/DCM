@@ -27,7 +27,8 @@ export const usePreferences = () => {
     if (index === -1) {
       newSelectedDifficulties.push(difficulty);
     } else {
-      newSelectedDifficulties.splice(index, 1);
+      if (selectedDifficulties.length !== 1)
+        newSelectedDifficulties.splice(index, 1);
     }
     setSelectedDifficulties(newSelectedDifficulties);
   };
