@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {defaultAppLanguage} from '../../environment/app';
 import {useSelector, useDispatch} from 'react-redux';
 import {selectUser} from '../../modules/user/selectors';
-import {saveUserRequest} from '../../modules/user/actions';
+import {updateUserRequest} from '../../modules/user/actions';
 import {useNavigation} from 'react-navigation-hooks';
 
 export const usePreferences = () => {
@@ -38,7 +38,7 @@ export const usePreferences = () => {
   const savePreferences = () => {
     dispatch(
       // @TODO creer une saga pour mettre à jour un user sur l'API et sur le store
-      saveUserRequest(
+      updateUserRequest(
         user ? {...user, dictationsDifficulties: selectedDifficulties} : null,
       ),
     );

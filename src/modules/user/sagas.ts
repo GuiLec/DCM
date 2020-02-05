@@ -7,6 +7,7 @@ import {
   userSignupRequest,
   updateDictationsHistoryRequest,
   saveDictationEventAction,
+  updateUserRequest,
 } from './actions';
 import {getUser} from './connector';
 import {Alert} from 'react-native';
@@ -56,9 +57,22 @@ export function* updateDictationsHistorySaga(
   yield put(saveDictationEventAction(action.payload));
 }
 
+export function* updateUserSaga(
+  action: ReturnType<typeof updateUserRequest>,
+): SagaIterator {
+  try {
+    // uncomment when API is ready
+    // if (action.payload) yield call(updateUser, action.payload);
+  } catch (error) {
+    console.warn(error);
+  }
+  yield put(saveUserRequest(action.payload));
+}
+
 export function* userSagas(): SagaIterator {
   yield takeLatest(getType(userLoginRequest), loginUserSaga);
   yield takeLatest(getType(userSignupRequest), signupUserSaga);
+  yield takeLatest(getType(updateUserRequest), updateUserSaga);
   yield takeLatest(
     getType(updateDictationsHistoryRequest),
     updateDictationsHistorySaga,
