@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {defaultAppLanguage} from '../../environment/app';
+import {defaultAppLanguage, defaultDifficulties} from '../../environment/app';
 import {useSelector, useDispatch} from 'react-redux';
 import {selectUser} from '../../modules/user/selectors';
 import {updateUserRequest} from '../../modules/user/actions';
@@ -15,7 +15,7 @@ export const usePreferences = () => {
   const user = useSelector(selectUser);
   const initiallySelectedDifficulties = user
     ? user.dictationsDifficulties
-    : [1, 2, 3, 4];
+    : defaultDifficulties;
 
   const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>(
     initiallySelectedDifficulties,

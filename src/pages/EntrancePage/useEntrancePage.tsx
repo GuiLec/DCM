@@ -4,6 +4,7 @@ import {useNavigation, useFocusEffect} from 'react-navigation-hooks';
 import {useDispatch, useSelector} from 'react-redux';
 import {userLoginRequest, userSignupRequest} from '../../modules/user/actions';
 import {selectUser} from '../../modules/user/selectors';
+import {defaultDifficulties} from '../../environment/app';
 
 export const useEntrancePage = () => {
   const [isLoginDisplayed, setisLoginDisplayed] = useState<boolean>(true);
@@ -32,7 +33,7 @@ export const useEntrancePage = () => {
             email: user.user.email || '',
             id: user.user.uid,
             name: name,
-            dictationsDifficulties: [1, 2, 3, 4],
+            dictationsDifficulties: defaultDifficulties,
             dictationsHistory: [],
           }),
         );
