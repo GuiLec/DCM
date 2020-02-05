@@ -6,16 +6,19 @@ import {updateUserRequest} from '../../modules/user/actions';
 import {useNavigation} from 'react-navigation-hooks';
 
 export const usePreferences = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState<string>(
-    defaultAppLanguage,
-  );
-  const selectLanguage = (language: string) => () =>
-    setSelectedLanguage(language);
-
   const user = useSelector(selectUser);
   const initiallySelectedDifficulties = user
     ? user.dictationsDifficulties
     : defaultDifficulties;
+  const initiallySelectedLanguage = user
+    ? user.selectedLanguage
+    : defaultAppLanguage;
+
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(
+    initiallySelectedLanguage,
+  );
+  const selectLanguage = (language: string) => () =>
+    setSelectedLanguage(language);
 
   const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>(
     initiallySelectedDifficulties,
@@ -40,7 +43,13 @@ export const usePreferences = () => {
     dispatch(
       // @TODO creer une saga pour mettre à jour un user sur l'API et sur le store
       updateUserRequest(
-        user ? {...user, dictationsDifficulties: selectedDifficulties} : null,
+        user
+          ? {
+              ...user,
+              selectedLanguage,
+              dictationsDifficulties: selectedDifficulties,
+            }
+          : null,
       ),
     );
     navigate('home');
