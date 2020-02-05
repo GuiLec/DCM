@@ -32,6 +32,7 @@ export const useEntrancePage = () => {
             email: user.user.email || '',
             id: user.user.uid,
             name: name,
+            dictationsDifficulties: [1, 2, 3, 4],
             dictationsHistory: [],
           }),
         );

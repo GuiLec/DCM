@@ -45,9 +45,7 @@ export function* updateDictationsHistorySaga(
     const user: User | null = yield select(selectUser);
     if (user) {
       const newUser: User = {
-        id: user.id,
-        name: user.name,
-        email: user.email,
+        ...user,
         dictationsHistory: [...user.dictationsHistory, action.payload],
       };
       yield call(updateUser, newUser);

@@ -1,4 +1,6 @@
-export interface User extends RawUser {}
+export interface User extends RawUser {
+  dictationsDifficulties: number[];
+}
 
 export interface RawUser {
   email: string;

@@ -9,5 +9,6 @@ export const adaptUser = (rawUser: RawUser): User => {
     ...rawUser,
     name: rawUser.name || 'Inconnu',
     dictationsHistory: rawUser.dictationsHistory || [],
+    dictationsDifficulties: [1, 2, 3, 4],
   };
 };
