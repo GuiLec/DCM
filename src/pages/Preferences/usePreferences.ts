@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import {defaultAppLanguage} from '../../environment/app';
+import {useSelector} from 'react-redux';
+import {selectUser} from '../../modules/user/selectors';
 
 export const usePreferences = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<string>(
@@ -8,12 +10,14 @@ export const usePreferences = () => {
   const selectLanguage = (language: string) => () =>
     setSelectedLanguage(language);
 
-  const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>([
-    1,
-    2,
-    3,
-    4,
-  ]);
+  const user = useSelector(selectUser);
+  const initiallySelectedDifficulties = user
+    ? user.dictationsDifficulties
+    : [1, 2, 3, 4];
+
+  const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>(
+    initiallySelectedDifficulties,
+  );
 
   const toggleDifficulty = (difficulty: number) => () => {
     var index = selectedDifficulties.indexOf(difficulty);
