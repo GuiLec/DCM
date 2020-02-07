@@ -7,6 +7,7 @@ import {useNavigation} from 'react-navigation-hooks';
 import {postDictation} from '../../../../modules/dictation/api';
 import {selectUser} from '../../../../modules/user/selectors';
 import {User} from '../../../../modules/user/interface';
+import {defaultAppLanguage} from '../../../../environment/app';
 
 const DEFAULT_DIFFICULTY = 3;
 
@@ -88,6 +89,7 @@ export const useWrittingChoicesArea = (props: Props) => {
       choiceInputs: Object.values(choiceInputs),
       author: user || undefined,
       difficulty: difficulty || DEFAULT_DIFFICULTY,
+      language: selectedLanguage || defaultAppLanguage,
     };
 
     postDictation(dictation);

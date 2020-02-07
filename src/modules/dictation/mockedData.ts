@@ -3,6 +3,7 @@ import {Dictation} from './interface';
 export const mockedDictations: Dictation[] = [
   {
     id: '1',
+    language: 'FR',
     difficulty: 1,
     name: 'Les courses en mer',
     text:
@@ -45,6 +46,7 @@ export const mockedDictations: Dictation[] = [
   },
   {
     id: '2',
+    language: 'FR',
     difficulty: 1,
     name: 'Demain, dès l’aube',
     text:
@@ -79,6 +81,7 @@ export const mockedDictations: Dictation[] = [
   },
   {
     id: '3',
+    language: 'FR',
     difficulty: 1,
     name: "Le Petit Bonhomme de pain d'épice",
     text:

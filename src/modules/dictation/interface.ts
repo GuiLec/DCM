@@ -2,6 +2,7 @@ import {User} from '../user/interface';
 
 export interface Dictation extends RawDictation {
   difficulty: number;
+  language: string;
 }
 
 export interface RawDictation {
