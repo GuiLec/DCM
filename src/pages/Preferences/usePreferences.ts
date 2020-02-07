@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {defaultAppLanguage, defaultDifficulties} from '../../environment/app';
 import {useSelector, useDispatch} from 'react-redux';
 import {selectUser} from '../../modules/user/selectors';
@@ -54,6 +54,11 @@ export const usePreferences = () => {
     );
     navigate('home');
   };
+
+  useEffect(() => {
+    setSelectedLanguage(initiallySelectedLanguage);
+    setSelectedDifficulties(initiallySelectedDifficulties);
+  }, [user]);
 
   return {
     selectedLanguage,
