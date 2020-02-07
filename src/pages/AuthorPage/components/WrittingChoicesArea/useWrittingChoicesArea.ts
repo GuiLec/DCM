@@ -9,7 +9,7 @@ import {selectUser} from '../../../../modules/user/selectors';
 import {User} from '../../../../modules/user/interface';
 import {defaultAppLanguage} from '../../../../environment/app';
 
-const DEFAULT_DIFFICULTY = 3;
+export const DEFAULT_DIFFICULTY = 3;
 
 export const useWrittingChoicesArea = (props: Props) => {
   const [selectedWord, setSelectedWord] = useState<{
@@ -74,6 +74,8 @@ export const useWrittingChoicesArea = (props: Props) => {
 
   const [difficulty, setDifficulty] = useState<number | null>(null);
 
+  const [dictationTitle, setDictationTitle] = useState<string | null>(null);
+
   const user: User | null = useSelector(selectUser);
   const userID = user ? user.id : 'offline';
 
@@ -101,6 +103,9 @@ export const useWrittingChoicesArea = (props: Props) => {
 
   const toggleModal = () => setIsModalVisible(state => !state);
 
+  const isModalValidationButtonDisabled =
+    !difficulty || !selectedLanguage || !dictationTitle;
+
   return {
     setSelectedWord,
     onWordPress,
@@ -117,5 +122,8 @@ export const useWrittingChoicesArea = (props: Props) => {
     selectLanguage,
     difficulty,
     setDifficulty,
+    dictationTitle,
+    setDictationTitle,
+    isModalValidationButtonDisabled,
   };
 };

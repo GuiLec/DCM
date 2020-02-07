@@ -82,6 +82,8 @@ interface Props {
   selectLanguage: (langugae: string | null) => () => void;
   difficulty: number | null;
   setDifficulty: (difficulty: number | null) => void;
+  dictationTitle: string | null;
+  setDictationTitle: (title: string | null) => void;
 }
 
 export const DictationDetailsModal = (props: Props) => (
@@ -94,6 +96,8 @@ export const DictationDetailsModal = (props: Props) => (
         <View>
           <Label>Le titre de ma dictée :</Label>
           <TitleInput
+            value={props.dictationTitle || ''}
+            onChangeText={props.setDictationTitle}
             autoCapitalize={'sentences'}
             placeholder="J'écris le titre de ma dictée"
           />

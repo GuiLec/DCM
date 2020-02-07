@@ -96,6 +96,9 @@ export const WrittingChoicesArea = (props: Props) => {
     selectLanguage,
     difficulty,
     setDifficulty,
+    dictationTitle,
+    setDictationTitle,
+    isModalValidationButtonDisabled,
   } = useWrittingChoicesArea(props);
   return (
     <>
@@ -160,6 +163,9 @@ export const WrittingChoicesArea = (props: Props) => {
           selectLanguage={selectLanguage}
           difficulty={difficulty}
           setDifficulty={setDifficulty}
+          dictationTitle={dictationTitle}
+          setDictationTitle={setDictationTitle}
+          disabled={isModalValidationButtonDisabled}
         />
       )}
     </>
