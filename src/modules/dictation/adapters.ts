@@ -4,6 +4,7 @@ import {
   AnswersState,
   RawDictation,
 } from './interface';
+import {DEFAULT_DIFFICULTY, defaultAppLanguage} from '../../environment/app';
 
 export const sliceDication = (dictation: Dictation): SlicedDictation => {
   let slicedDictation: SlicedDictation = [];
@@ -98,8 +99,8 @@ export const sliceText = (
 export const adaptDictations = (rawDictations: RawDictation[]): Dictation[] => {
   return rawDictations.map(rawDictation => ({
     ...rawDictation,
-    difficulty: 3,
-    language: 'FR',
+    difficulty: rawDictation.difficulty || DEFAULT_DIFFICULTY,
+    language: rawDictation.language || defaultAppLanguage,
   }));
 };
 

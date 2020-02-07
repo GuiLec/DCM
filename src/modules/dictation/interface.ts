@@ -1,9 +1,6 @@
 import {User} from '../user/interface';
 
-export interface Dictation extends RawDictation {
-  difficulty: number;
-  language: string;
-}
+export interface Dictation extends RawDictation {}
 
 export interface RawDictation {
   id: string;
@@ -11,6 +8,8 @@ export interface RawDictation {
   text: string;
   choiceInputs: ChoiceInput[];
   author?: User;
+  difficulty: number;
+  language: string;
 }
 
 export interface ChoiceInput {

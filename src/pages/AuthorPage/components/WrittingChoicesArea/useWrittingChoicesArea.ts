@@ -7,9 +7,10 @@ import {useNavigation} from 'react-navigation-hooks';
 import {postDictation} from '../../../../modules/dictation/api';
 import {selectUser} from '../../../../modules/user/selectors';
 import {User} from '../../../../modules/user/interface';
-import {defaultAppLanguage} from '../../../../environment/app';
-
-export const DEFAULT_DIFFICULTY = 3;
+import {
+  defaultAppLanguage,
+  DEFAULT_DIFFICULTY,
+} from '../../../../environment/app';
 
 export const useWrittingChoicesArea = (props: Props) => {
   const [selectedWord, setSelectedWord] = useState<{
