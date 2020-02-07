@@ -1,7 +1,8 @@
-import {mockedDictations} from './mockedData';
 import {Dictation} from './interface';
-import {fetchDictation} from './api';
+import {fetchDictations} from './api';
+import {adaptDictations} from './adapters';
 
-export const getDictations = (): Promise<Dictation> => {
-  return fetchDictation();
+export const getDictations = async (): Promise<Dictation[]> => {
+  const rawDictations = await fetchDictations();
+  return adaptDictations(rawDictations);
 };

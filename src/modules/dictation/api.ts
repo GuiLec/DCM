@@ -1,7 +1,8 @@
 import {DCM_API} from '../../lib/api/api';
-import {Dictation} from './interface';
+import {Dictation, RawDictation} from './interface';
+import {adaptDictationToSave} from './adapters';
 
-export const fetchDictation = (): Promise<Dictation> => {
+export const fetchDictations = (): Promise<RawDictation[]> => {
   return DCM_API()
     .url('/dictations')
     .get()
@@ -12,7 +13,7 @@ export const postDictation = (dictation: Dictation) => {
   return DCM_API()
     .headers({'Content-Type': 'application/json'})
     .url('/dictations')
-    .body(JSON.stringify(dictation))
+    .body(JSON.stringify(adaptDictationToSave(dictation)))
     .post()
     .res();
 };

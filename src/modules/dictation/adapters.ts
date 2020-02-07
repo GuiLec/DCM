@@ -1,4 +1,9 @@
-import {Dictation, SlicedDictation, AnswersState} from './interface';
+import {
+  Dictation,
+  SlicedDictation,
+  AnswersState,
+  RawDictation,
+} from './interface';
 
 export const sliceDication = (dictation: Dictation): SlicedDictation => {
   let slicedDictation: SlicedDictation = [];
@@ -88,4 +93,14 @@ export const sliceText = (
     slicedText.push(slicedLine);
   });
   return slicedText;
+};
+
+export const adaptDictations = (rawDictations: RawDictation[]): Dictation[] => {
+  return rawDictations.map(rawDictation => ({
+    ...rawDictation,
+  }));
+};
+
+export const adaptDictationToSave = (dictation: Dictation): RawDictation => {
+  return {...dictation};
 };
