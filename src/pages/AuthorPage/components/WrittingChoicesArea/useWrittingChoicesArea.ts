@@ -84,10 +84,10 @@ export const useWrittingChoicesArea = (props: Props) => {
   const {navigate} = useNavigation();
   const newId = `NewDict${new Date()}${userID}`; // @todo add userID to avoid multi account conflicts
 
-  const saveDictation = (value: string) => {
+  const saveDictation = () => {
     const dictation: Dictation = {
       id: newId,
-      name: value,
+      name: dictationTitle || 'No title',
       text: props.text,
       choiceInputs: Object.values(choiceInputs),
       author: user || undefined,

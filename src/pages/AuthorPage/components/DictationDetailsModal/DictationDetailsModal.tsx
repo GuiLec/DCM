@@ -75,7 +75,7 @@ const ValidationButtonContainer = styled.View`
 `;
 
 interface Props {
-  saveDictation: (title: string) => void;
+  saveDictation: () => void;
   disabled?: boolean;
   toggleModal: () => void;
   selectedLanguage: string | null;
@@ -128,7 +128,7 @@ export const DictationDetailsModal = (props: Props) => (
         <ValidationButtonContainer>
           <ValidationButton
             title={'Je crée ma dictée !!!'}
-            onPress={() => props.saveDictation('Mon Titre')}
+            onPress={props.saveDictation}
             disabled={props.disabled}
           />
         </ValidationButtonContainer>
