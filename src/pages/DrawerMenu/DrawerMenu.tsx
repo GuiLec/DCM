@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import {styled} from '../../lib/styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {useDrawerMenu} from './useDrawerMenu';
@@ -81,15 +81,17 @@ export const DrawerMenu = () => {
           </ToLoginContainer>
         )}
       </UserSectionContainer>
-      {menutItems.map(item => (
-        <DrawerMenuItem
-          key={item.title}
-          title={item.title}
-          onPress={item.onPress}
-          hasRightArrow={item.hasRightArrow}
-          itemLogoName={item.itemLogoName}
-        />
-      ))}
+      <ScrollView>
+        {menutItems.map(item => (
+          <DrawerMenuItem
+            key={item.title}
+            title={item.title}
+            onPress={item.onPress}
+            hasRightArrow={item.hasRightArrow}
+            itemLogoName={item.itemLogoName}
+          />
+        ))}
+      </ScrollView>
     </SafeAreaViewComponent>
   );
 };
