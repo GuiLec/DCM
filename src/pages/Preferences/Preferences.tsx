@@ -40,7 +40,7 @@ const Label = styled.Text`
 
 const ValidationButtonContainer = styled.View`
   align-items: center;
-  padding-top: ${props => props.theme.gridUnit * 10}px;
+  padding: ${props => props.theme.gridUnit * 6}px;
 `;
 
 export const Preferences = () => {
@@ -100,15 +100,15 @@ export const Preferences = () => {
               difficulty={5}
               label="expert"
             />
-            <ValidationButtonContainer>
-              <ValidationButton
-                title="Je valide mes préférences"
-                onPress={savePreferences}
-              />
-            </ValidationButtonContainer>
           </ContentContainer>
         </ScrollView>
       </PageContainer>
+      <ValidationButtonContainer>
+        <ValidationButton
+          title="Je valide mes préférences"
+          onPress={savePreferences}
+        />
+      </ValidationButtonContainer>
     </SafeAreaViewComponent>
   );
 };
