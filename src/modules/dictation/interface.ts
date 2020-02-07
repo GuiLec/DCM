@@ -1,6 +1,8 @@
 import {User} from '../user/interface';
 
-export interface Dictation extends RawDictation {}
+export interface Dictation extends RawDictation {
+  difficulty: number;
+}
 
 export interface RawDictation {
   id: string;

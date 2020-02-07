@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {ChoiceInput} from '../../../../modules/dictation/interface';
+import {ChoiceInput, Dictation} from '../../../../modules/dictation/interface';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchDictationsRequest} from '../../../../modules/dictation/actions';
 import {Props} from './WrittingChoicesArea';
@@ -7,6 +7,8 @@ import {useNavigation} from 'react-navigation-hooks';
 import {postDictation} from '../../../../modules/dictation/api';
 import {selectUser} from '../../../../modules/user/selectors';
 import {User} from '../../../../modules/user/interface';
+
+const DEFAULT_DIFFICULTY = 3;
 
 export const useWrittingChoicesArea = (props: Props) => {
   const [selectedWord, setSelectedWord] = useState<{
@@ -79,12 +81,13 @@ export const useWrittingChoicesArea = (props: Props) => {
   const newId = `NewDict${new Date()}${userID}`; // @todo add userID to avoid multi account conflicts
 
   const saveDictation = (value: string) => {
-    const dictation = {
+    const dictation: Dictation = {
       id: newId,
       name: value,
       text: props.text,
       choiceInputs: Object.values(choiceInputs),
       author: user || undefined,
+      difficulty: difficulty || DEFAULT_DIFFICULTY,
     };
 
     postDictation(dictation);

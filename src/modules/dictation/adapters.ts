@@ -98,6 +98,7 @@ export const sliceText = (
 export const adaptDictations = (rawDictations: RawDictation[]): Dictation[] => {
   return rawDictations.map(rawDictation => ({
     ...rawDictation,
+    difficulty: 3,
   }));
 };
 
