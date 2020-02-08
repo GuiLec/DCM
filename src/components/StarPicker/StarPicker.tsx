@@ -9,6 +9,7 @@ const Container = styled.View`
 
 export interface Props {
   onChange?: (difficulty: number | null) => void;
+  small?: boolean;
   disabled?: boolean;
   difficulty: number | null;
 }
@@ -21,7 +22,7 @@ export const StarPicker = (props: Props) => {
         <StarButton
           disabled={props.disabled}
           key={index}
-          size={20}
+          size={props.small ? 15 : 20}
           isSelected={star}
           onPress={selectStar(index)}
         />

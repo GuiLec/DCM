@@ -3,7 +3,7 @@ import {styled} from '../../lib/styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Touchable = styled.TouchableOpacity`
-  padding: ${props => props.theme.gridUnit}px;
+  padding: ${props => props.theme.gridUnit / 2}px;
 `;
 
 const IconComponent = styled(Icon)`

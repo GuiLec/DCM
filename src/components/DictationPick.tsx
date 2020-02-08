@@ -1,5 +1,6 @@
 import React from 'react';
 import {styled} from '../lib/styled';
+import {StarPicker} from './StarPicker';
 
 const Touchable = styled.TouchableOpacity`
   border-radius: ${props => props.theme.borderRadius.small};
@@ -9,6 +10,8 @@ const Touchable = styled.TouchableOpacity`
   padding-horizontal: ${props => props.theme.gridUnit * 2}px;
   padding-vertical: ${props => props.theme.gridUnit}px;
   margin-vertical: ${props => props.theme.gridUnit}px;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const Text = styled.Text`
@@ -17,13 +20,21 @@ const Text = styled.Text`
   font-weight: 700;
 `;
 
+const TextContainer = styled.View`
+  flex: 1;
+`;
+
 interface Props {
   dictationTitle: string;
   onPress?: () => void;
+  difficulty: number;
 }
 
 export const DictationPick = (props: Props) => (
   <Touchable onPress={props.onPress}>
-    <Text>{props.dictationTitle}</Text>
+    <TextContainer>
+      <Text numberOfLines={2}>{props.dictationTitle}</Text>
+    </TextContainer>
+    <StarPicker difficulty={props.difficulty} disabled small />
   </Touchable>
 );

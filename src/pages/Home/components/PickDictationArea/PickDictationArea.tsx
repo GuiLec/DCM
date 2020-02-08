@@ -5,11 +5,13 @@ import {Answer} from '../../../../components/Answer';
 import {Choice} from '../../../../modules/dictation/interface';
 import {DictationPick} from '../../../../components/DictationPick';
 import {usePickDictationArea} from './usePickDictationArea';
+import {ScrollView} from 'react-native';
 
 const Container = styled.View`
   padding-horizontal: ${props => props.theme.gridUnit * 4}px;
   padding-top: ${props => props.theme.gridUnit * 2}px;
   background-color: ${props => props.theme.colors.white};
+  max-height: ${props => props.theme.gridUnit * 60};
 `;
 
 interface Props {
@@ -22,13 +24,16 @@ export const PickDictationArea = (props: Props) => {
   return (
     <Collapsible collapsed={props.iscollapsed}>
       <Container>
-        {dictations.map(dictation => (
-          <DictationPick
-            key={dictation.id}
-            dictationTitle={dictation.name}
-            onPress={() => props.pickDictation(dictation.id)}
-          />
-        ))}
+        <ScrollView>
+          {dictations.map(dictation => (
+            <DictationPick
+              key={dictation.id}
+              dictationTitle={dictation.name}
+              onPress={() => props.pickDictation(dictation.id)}
+              difficulty={dictation.difficulty}
+            />
+          ))}
+        </ScrollView>
       </Container>
     </Collapsible>
   );
