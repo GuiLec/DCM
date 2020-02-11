@@ -65,7 +65,7 @@ export const useHome = () => {
 
   const [isPickDictationAreaVisible, setIsPickDictationAreaVisible] = useState<
     boolean
-  >(false);
+  >(true);
 
   const togglePickDictationArea = () =>
     setIsPickDictationAreaVisible(state => !state);
