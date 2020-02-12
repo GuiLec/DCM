@@ -1,8 +1,6 @@
 import React from 'react';
 import {styled} from '../../../../lib/styled';
 import Collapsible from 'react-native-collapsible';
-import {Answer} from '../../../../components/Answer';
-import {Choice} from '../../../../modules/dictation/interface';
 import {DictationPick} from '../../../../components/DictationPick';
 import {usePickDictationArea} from './usePickDictationArea';
 import {ScrollView} from 'react-native';
@@ -12,6 +10,7 @@ const Container = styled.View`
   padding-top: ${props => props.theme.gridUnit * 2}px;
   background-color: ${props => props.theme.colors.white};
   max-height: ${props => props.theme.gridUnit * 60};
+  flex-direction: row;
 `;
 
 interface Props {
