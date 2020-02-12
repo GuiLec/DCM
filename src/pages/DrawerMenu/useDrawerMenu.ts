@@ -3,6 +3,8 @@ import {closeDrawer} from '../../navigation/actions';
 import {selectUser} from '../../modules/user/selectors';
 import {useSelector, useDispatch} from 'react-redux';
 import {saveUserRequest} from '../../modules/user/actions';
+import {saveDictationsRequest} from '../../modules/dictation/actions';
+import {mockedDictations} from '../../modules/dictation/mockedData';
 
 export const useDrawerMenu = () => {
   const {navigate} = useNavigation();
@@ -59,6 +61,7 @@ export const useDrawerMenu = () => {
         title: 'Déconnexion',
         onPress: () => {
           dispatch(saveUserRequest(null));
+          dispatch(saveDictationsRequest(mockedDictations));
           navigate('entrance');
           closeDrawer();
         },
