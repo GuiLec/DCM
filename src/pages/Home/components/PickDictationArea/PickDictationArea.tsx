@@ -13,6 +13,8 @@ const Container = styled.View`
   flex-direction: row;
 `;
 
+// Blabla
+
 interface Props {
   iscollapsed: boolean;
   pickDictation: (dictationId?: string) => void;
