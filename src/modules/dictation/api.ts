@@ -2,9 +2,18 @@ import {DCM_API} from '../../lib/api/api';
 import {Dictation, RawDictation} from './interface';
 import {adaptDictationToSave} from './adapters';
 
-export const fetchDictations = (): Promise<RawDictation[]> => {
+export const fetchDictations = (
+  selectedLanguage: string,
+  difficulties: number[],
+): Promise<RawDictation[]> => {
+  let concatenatedDifficulties = '';
+  difficulties.forEach(
+    difficulty =>
+      (concatenatedDifficulties = `${concatenatedDifficulties}${difficulty}`),
+  );
+  const url = `/dictations/${selectedLanguage}/${concatenatedDifficulties}`;
   return DCM_API()
-    .url('/dictations')
+    .url(url)
     .get()
     .json();
 };
