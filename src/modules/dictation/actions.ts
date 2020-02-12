@@ -7,7 +7,7 @@ export const saveDictationsRequest = createAction(
   action => (dictation: Dictation[]) => action(dictation),
 );
 
-const FETCH_DICTATION_REQUEST = 'SAVE_DICTATION';
+const FETCH_DICTATION_REQUEST = 'FETCH_DICTATION_REQUEST';
 export const fetchDictationsRequest = createAction(FETCH_DICTATION_REQUEST);
 
 export type DictationsActions = ActionType<typeof saveDictationsRequest>;
