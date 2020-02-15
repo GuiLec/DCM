@@ -3,6 +3,7 @@ import {styled} from '../../../../lib/styled';
 import {ScrollView, Text} from 'react-native';
 import {SlicedDictation} from '../../../../modules/dictation/interface';
 import {Guess} from '../../../../components/Guess';
+import {FlagButton} from '../../../../components/FlagButton';
 
 const Container = styled.View`
   padding: ${props => props.theme.gridUnit * 2}px;
@@ -42,6 +43,25 @@ const renderDictation = (
   );
 };
 
+const TitleContainer = styled.View`
+  padding: ${props => props.theme.gridUnit * 2}px;
+`;
+
+const DictationTitle = styled.Text`
+  font-size: ${props => props.theme.fontSizes.big};
+  font-weight: bold;
+`;
+
+const DetailsContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+const AuthorName = styled.Text`
+  font-size: ${props => props.theme.fontSizes.medium};
+  color: ${props => props.theme.colors.charcoalGray};
+`;
+
 interface Props {
   slicedDictation: SlicedDictation | null;
   selectChoiceInput: (choiceInputID: string | null) => () => void;
@@ -52,6 +72,15 @@ interface Props {
 export const DictationArea = (props: Props) => {
   return (
     <Container>
+      {!!props.slicedDictation && (
+        <TitleContainer>
+          <DictationTitle>Mon titre</DictationTitle>
+          <DetailsContainer>
+            <FlagButton code={'FR'} size={24} />
+            <AuthorName>Guilec</AuthorName>
+          </DetailsContainer>
+        </TitleContainer>
+      )}
       <ScrollView style={{flex: 1}}>
         <Touchable onPress={props.selectChoiceInput(null)} activeOpacity={1}>
           {!!props.slicedDictation &&
