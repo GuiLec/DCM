@@ -107,7 +107,7 @@ export const useHome = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchDictationsRequest());
-  }, [isPickDictationAreaVisible]);
+  }, []);
 
   return {
     activeSlicedDictation,
