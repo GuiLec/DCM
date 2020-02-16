@@ -49,7 +49,9 @@ describe('dictation adapters', () => {
         type: 'hard',
       },
     ];
-    expect(sliceDication(mockedDictations[0])).toStrictEqual(expected);
+    expect(sliceDication(mockedDictations[0])).toStrictEqual({
+      elements: expected,
+    });
   });
 
   it('slices properly dictations', () => {

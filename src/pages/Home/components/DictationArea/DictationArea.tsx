@@ -25,7 +25,7 @@ const renderDictation = (
 ) => {
   return (
     <Text>
-      {slicedDictation.map(element => {
+      {slicedDictation.elements.map(element => {
         if (element.type === 'hard') return element.text;
         if (element.type === 'choice')
           return (

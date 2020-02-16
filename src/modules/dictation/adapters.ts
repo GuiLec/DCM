@@ -7,7 +7,7 @@ import {
 import {DEFAULT_DIFFICULTY, defaultAppLanguage} from '../../environment/app';
 
 export const sliceDication = (dictation: Dictation): SlicedDictation => {
-  let slicedDictation: SlicedDictation = [];
+  let slicedDictation: SlicedDictation = {elements: []};
   let dictationText = dictation.text;
   let hardSlice: string;
   let spentTextLength = 0;
@@ -17,12 +17,12 @@ export const sliceDication = (dictation: Dictation): SlicedDictation => {
   );
   orderedChoiceInputs.forEach(choiceInput => {
     hardSlice = dictationText.slice(0, choiceInput.position - spentTextLength);
-    slicedDictation.push({
+    slicedDictation.elements.push({
       text: hardSlice,
       type: 'hard',
     });
     dictationText = dictationText.slice(choiceInput.position - spentTextLength);
-    slicedDictation.push({
+    slicedDictation.elements.push({
       choices: choiceInput.choices,
       type: 'choice',
       originalTextLength: choiceInput.originalTextLength,
@@ -32,7 +32,7 @@ export const sliceDication = (dictation: Dictation): SlicedDictation => {
     spentTextLength =
       spentTextLength + choiceInput.originalTextLength + hardSlice.length;
   });
-  slicedDictation.push({
+  slicedDictation.elements.push({
     text: dictationText,
     type: 'hard',
   });
