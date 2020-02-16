@@ -53,6 +53,7 @@ describe('dictation adapters', () => {
       elements: expected,
       language: 'FR',
       author: undefined,
+      title: 'Les courses en mer',
     });
   });
 

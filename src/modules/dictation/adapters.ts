@@ -11,6 +11,7 @@ export const sliceDication = (dictation: Dictation): SlicedDictation => {
     elements: [],
     author: dictation.author ? dictation.author.name : undefined,
     language: dictation.language,
+    title: dictation.name,
   };
   let dictationText = dictation.text;
   let hardSlice: string;

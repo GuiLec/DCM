@@ -29,6 +29,7 @@ export type SlicedDictation = {
   elements: DictationTextElement[];
   language: string;
   author?: string;
+  title: string;
 };
 
 export type DictationTextElement = HardTextElement | MultipleChoiceElement;
