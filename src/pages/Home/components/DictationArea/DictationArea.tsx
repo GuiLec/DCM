@@ -74,10 +74,10 @@ export const DictationArea = (props: Props) => {
     <Container>
       {!!props.slicedDictation && (
         <TitleContainer>
-          <DictationTitle>Mon titre</DictationTitle>
+          <DictationTitle>{props.slicedDictation.title}</DictationTitle>
           <DetailsContainer>
-            <FlagButton code={'FR'} size={24} />
-            <AuthorName>Guilec</AuthorName>
+            <FlagButton code={props.slicedDictation.language} size={24} />
+            <AuthorName>{props.slicedDictation.author || ''}</AuthorName>
           </DetailsContainer>
         </TitleContainer>
       )}
