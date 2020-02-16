@@ -51,6 +51,8 @@ describe('dictation adapters', () => {
     ];
     expect(sliceDication(mockedDictations[0])).toStrictEqual({
       elements: expected,
+      language: 'FR',
+      author: undefined,
     });
   });
 

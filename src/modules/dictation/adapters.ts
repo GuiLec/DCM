@@ -7,7 +7,11 @@ import {
 import {DEFAULT_DIFFICULTY, defaultAppLanguage} from '../../environment/app';
 
 export const sliceDication = (dictation: Dictation): SlicedDictation => {
-  let slicedDictation: SlicedDictation = {elements: []};
+  let slicedDictation: SlicedDictation = {
+    elements: [],
+    author: dictation.author ? dictation.author.name : undefined,
+    language: dictation.language,
+  };
   let dictationText = dictation.text;
   let hardSlice: string;
   let spentTextLength = 0;
