@@ -14,6 +14,7 @@ import {Alert} from 'react-native';
 import {postUser, updateUser} from './api';
 import {selectUser} from './selectors';
 import {User} from './interface';
+import {fetchDictationsRequest} from '../dictation/actions';
 
 export function* loginUserSaga(
   action: ReturnType<typeof userLoginRequest>,
@@ -21,6 +22,7 @@ export function* loginUserSaga(
   try {
     const user = yield call(getUser, action.payload);
     yield put(saveUserRequest(user));
+    yield put(fetchDictationsRequest());
   } catch (error) {
     console.warn(error);
     Alert.alert('Login échoué', error.message);
@@ -33,6 +35,7 @@ export function* signupUserSaga(
   try {
     yield call(postUser, action.payload);
     yield put(saveUserRequest(action.payload));
+    yield put(fetchDictationsRequest());
   } catch (error) {
     console.warn(error);
     Alert.alert('Inscription échouée', error.message);
