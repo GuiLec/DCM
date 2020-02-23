@@ -23,6 +23,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* DictationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DictationTests.m */; };
 		3213148C23CF9D8300C01B77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3213148B23CF9D8300C01B77 /* GoogleService-Info.plist */; };
+		32683D032402EC1900B12307 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32683D022402EC1900B12307 /* AppCenter-Config.plist */; };
 		32E6027923A7F2D50064D6A8 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32E6027823A7F2D50064D6A8 /* Pacifico.ttf */; };
 		32E6027A23A7F2D50064D6A8 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32E6027823A7F2D50064D6A8 /* Pacifico.ttf */; };
 		32E6027B23A7F2D50064D6A8 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32E6027823A7F2D50064D6A8 /* Pacifico.ttf */; };
@@ -81,6 +82,7 @@
 		2D02E47B1E0B4A5D006451C7 /* Dictation-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dictation-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Dictation-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dictation-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3213148B23CF9D8300C01B77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		32683D022402EC1900B12307 /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AppCenter-Config.plist"; sourceTree = "<group>"; };
 		32E0A2BCDC04D89BB32A10E2 /* Pods-Dictation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dictation.debug.xcconfig"; path = "Target Support Files/Pods-Dictation/Pods-Dictation.debug.xcconfig"; sourceTree = "<group>"; };
 		32E6027823A7F2D50064D6A8 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = ../../../../Downloads/Pacifico.ttf; sourceTree = "<group>"; };
 		41713BEAC6044F488DF767A8 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				32683D022402EC1900B12307 /* AppCenter-Config.plist */,
 				3213148B23CF9D8300C01B77 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* Dictation */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -433,6 +436,7 @@
 				FEB358B214754BE6AEA694D0 /* MaterialCommunityIcons.ttf in Resources */,
 				6F63A07621CB4DCEA34EBCFE /* MaterialIcons.ttf in Resources */,
 				F533B3335B414E5495E20B1E /* Octicons.ttf in Resources */,
+				32683D032402EC1900B12307 /* AppCenter-Config.plist in Resources */,
 				3213148C23CF9D8300C01B77 /* GoogleService-Info.plist in Resources */,
 				A4452C64C7754F2C9F525DBD /* SimpleLineIcons.ttf in Resources */,
 				49542EF394B94186BEC9ADF8 /* Zocial.ttf in Resources */,
